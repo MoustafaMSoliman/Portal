@@ -1,0 +1,21 @@
+@host=https://localhost:7181
+
+POST {{host}}/api/Auth/register
+Content-Type: application/json
+
+{
+  "firstName":"Moustafa",
+  "lastName": "Soliman",
+  "userName": "moustafa.soliman",
+  "dateOfBirth": "1995-04-25T10:19:17.125Z",
+  "contactNumber": "01007344282",
+  "email": "moustafa@portal.com",
+  "password": "password&",
+  "address": {
+    "street": "ansary",
+    "city": "cairo",
+    "state": "cairo",
+    "postalCode": "220771",
+    "country": "egypt"
+  }
+}
