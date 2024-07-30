@@ -13,3 +13,19 @@ D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug
 D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\refint\Portal.Application.dll
 D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.pdb
 D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\ref\Portal.Application.dll
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.deps.json
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.dll
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.pdb
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Domain.dll
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Domain.pdb
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.csproj.AssemblyReference.cache
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.AssemblyInfoInputs.cache
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.AssemblyInfo.cs
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.csproj.CoreCompileInputs.cache
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.sourcelink.json
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.A.4AC09C82.Up2Date
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.dll
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\refint\Portal.Application.dll
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.pdb
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\ref\Portal.Application.dll

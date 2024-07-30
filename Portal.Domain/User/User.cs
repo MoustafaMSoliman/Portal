@@ -14,9 +14,9 @@ public class User:AggregateRoot<UserId, Guid>
     public UserStatus Status { get; private set; }
 
 #pragma warning disable CS8618
-    private User() { }
+    protected internal User() { }
 #pragma warning restore CS8618
-    private User(UserId id, string userName, string email, string password, Role role, Profile profile)
+    protected internal User(UserId id, string userName, string email, string password, Role role, Profile profile)
     {
         Id = id;
         UserName = userName; 
