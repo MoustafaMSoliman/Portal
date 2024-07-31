@@ -1,11 +1,17 @@
-﻿using Portal.Domain.Common.Models;
+﻿using Portal.Domain.Common.Enums;
+using Portal.Domain.Common.Models;
 
 namespace Portal.Domain.User.ValueObjects;
 
 public class Profile : ValueObject
 {
     public string FirstName { get; private  set; } = null!;
+    public string MiddleName { get; private set; } = null!;
     public string LastName { get; private set; } = null!;
+    public string ArabicName { get; private set; } = null!;
+    public string Nationality {  get; private set; } = null!;   
+    public long NationalId { get; private set; }
+    public Gender Gender { get; private set; }
     public DateTime DateOfBirth { get; private set; }
     public string ContactNumber { get; private set; } = null!;
     public Address Address { get; private set; } = null!;

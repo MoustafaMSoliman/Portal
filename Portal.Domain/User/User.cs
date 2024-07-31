@@ -7,6 +7,7 @@ namespace Portal.Domain.User;
 public class User:AggregateRoot<UserId, Guid>
 {
     public string UserName { get; private set; } = null!;
+    public int Code { get; private set; }
     public string Email { get; private set; } = null!;
     public string Password { get; private set; } = null!;
     public Role Role { get; private set; } 
