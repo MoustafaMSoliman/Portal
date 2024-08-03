@@ -1,6 +1,6 @@
 ﻿namespace Portal.Domain.Common.Enums;
 
-public enum Role
+public enum RoleEnum
 {
     AcademicStaff,
     Employee,

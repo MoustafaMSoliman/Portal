@@ -1,22 +1,27 @@
 ﻿using ErrorOr;
 using MediatR;
 using Portal.Application.Services.Authentication.Common;
-
+using Portal.Domain.Common.Enums;
 namespace Portal.Application.Services.Authentication.Commands;
 
 public record RegisterCommand
 (
     string FirstName,
+    string MiddleName,
     string LastName,
-    string UserName,
+    string ArabicName,
+    string Nationality,
+    long NationalId,
+    Gender Gender,
     DateTime DateOfBirth,
     string ContactNumber,
+    AddressCommand Address,
+    RoleEnum Role,
     string Email,
-    string Password, 
-    Address Address
+    string Password
+  
 ):IRequest<ErrorOr<AuthResult>>;
-
-public record Address
+public record AddressCommand
 (
     string Street,
     string City,

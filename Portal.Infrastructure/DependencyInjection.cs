@@ -19,6 +19,8 @@ public static class DependencyInjection
         
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         services.AddSingleton<IUserRepository,UserRepository>();
+        services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
+
         return services;    
     }
 

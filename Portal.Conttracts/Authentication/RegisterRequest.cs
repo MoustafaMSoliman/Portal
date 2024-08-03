@@ -3,13 +3,19 @@
 public record RegisterRequest
 (
     string FirstName,
+    string MiddleName,
     string LastName,
-    string UserName,
+    string ArabicName,
+    string Nationality,
+    long NationalId,
+    string Gender,
     DateTime DateOfBirth,
     string ContactNumber,
+    Address Address,
+    string Role,
     string Email,
-    string Password,
-    Address Address
+    string Password
+    
 );
 public record Address
 (

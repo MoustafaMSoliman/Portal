@@ -17,13 +17,13 @@ public class AcademicStaff : User
         string username,
         string email,
         string password,
-        Role role,
+        RoleEnum role,
         Profile profile,
         string title,
         string officeLocation,
         AcademicStaffDepartments department
         )
-        :base(userId, username, email, password, role, profile)
+        :base(userId, email, password, role, profile)
     {
         Title = title;
         OfficeLocation = officeLocation;
@@ -34,7 +34,7 @@ public class AcademicStaff : User
         string username,
         string email,
         string password,
-        Role role,
+        RoleEnum role,
         Profile profile,
         string title,
         string officeLocation,

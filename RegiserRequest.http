@@ -4,18 +4,23 @@ POST {{host}}/api/Auth/register
 Content-Type: application/json
 
 {
-  "firstName":"Moustafa",
+  "firstName": "Moustafa",
+  "middleName": "Mahmood",
   "lastName": "Soliman",
-  "userName": "moustafa.soliman",
-  "dateOfBirth": "1995-04-25T10:19:17.125Z",
-  "contactNumber": "01007344282",
-  "email": "moustafa@portal.com",
-  "password": "password&",
+  "arabicName": "„’ÿ›Ì „Õ„Êœ ”·Ì„«‰",
+  "nationality": "Egyptian",
+  "nationalId": 2905796123135354321,
+  "gender": "Male",
+  "dateOfBirth": "2024-08-03T19:58:53.382Z",
+  "contactNumber": "0100000",
   "address": {
     "street": "ansary",
     "city": "cairo",
     "state": "cairo",
-    "postalCode": "220771",
-    "country": "egypt"
-  }
+    "postalCode": "27511",
+    "country": "Egypt"
+  },
+  "role": "Employee",
+  "email": "string2@str.com",
+  "password": "string"
 }

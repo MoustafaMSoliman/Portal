@@ -1,6 +1,6 @@
 ﻿namespace Portal.Domain.Common.Enums;
 
-public enum EmployeesDepartments
+public enum Department
 {
     Finance,
     EmployeesAffairs,

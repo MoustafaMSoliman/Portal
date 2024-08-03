@@ -16,6 +16,11 @@ public class UserRepository : IUserRepository
         _users.Add(user);
     }
 
+    public List<User> GetAllUsers()
+    {
+        return _users;
+    }
+
     public User? GetUserByEmail(string email)
     {
         return _users.SingleOrDefault(u => u.Email == email);  
