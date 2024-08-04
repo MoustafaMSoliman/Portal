@@ -50,8 +50,7 @@
               "RelativeToolTip": "Portal.Conttracts\\Authentication\\AuthenticationResult.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T11:40:00.503Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-04T11:40:00.503Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "Portal.Application\\Services\\Authentication\\Common\\AuthResult.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T11:39:48.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-04T11:39:48.099Z"
             },
             {
               "$type": "Document",
@@ -74,7 +72,7 @@
               "RelativeDocumentMoniker": "RegiserRequest.http",
               "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\RegiserRequest.http",
               "RelativeToolTip": "RegiserRequest.http",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAACAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
               "WhenOpened": "2024-08-04T11:20:00.841Z",
               "EditorCaption": ""
@@ -89,8 +87,7 @@
               "RelativeToolTip": "Portal.Api\\Common\\Mapping\\AuthenticationMappingConfig.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAwwA0AAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T11:19:39.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-04T11:19:39.601Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "RelativeToolTip": "Portal.Domain\\User\\Entities\\Employee.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAwwBgAAABUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T11:18:53.386Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-04T11:18:53.386Z"
             },
             {
               "$type": "Document",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
               "ViewState": "AQIAADIAAAAAAAAAAAAqwC8AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T11:18:46.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-04T11:18:46.183Z"
             },
             {
               "$type": "Document",
@@ -128,8 +123,7 @@
               "RelativeToolTip": "Portal.Domain\\User\\Entities\\AcademicStaff.cs",
               "ViewState": "AQIAABwAAAAAAAAAAAAAACsAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-04T11:17:48.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-04T11:17:48.643Z"
             }
           ]
         }
