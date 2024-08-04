@@ -11,6 +11,7 @@ public class AuthenticationMappingConfig : IRegister
     public void Register(TypeAdapterConfig config)
     {
         config.NewConfig<AuthResult, AuthenticationResult>()
+            .Map(dest=>dest.Code, src=>src.User.Code)
             .Map(dest=>dest.FirstName, src=>src.User.Profile.FirstName)
             .Map(dest => dest.MiddleName, src => src.User.Profile.MiddleName)
             .Map(dest=>dest.LastName, src=>src.User.Profile.LastName)
@@ -26,6 +27,7 @@ public class AuthenticationMappingConfig : IRegister
             ;
 
         config.NewConfig<RegisterCommand, RegisterRequest>()
+            .Map(dest=>dest.Code, src => src.Code)
             .Map(dest => dest.FirstName, src => src.FirstName)
             .Map(dest => dest.MiddleName, src => src.MiddleName)
             .Map(dest => dest.LastName, src => src.LastName)

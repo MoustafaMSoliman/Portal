@@ -4,6 +4,7 @@ POST {{host}}/api/Auth/register
 Content-Type: application/json
 
 {
+  
   "firstName": "Moustafa",
   "middleName": "Mahmood",
   "lastName": "Soliman",

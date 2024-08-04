@@ -14,6 +14,7 @@ public class AcademicStaff : User
 
     protected internal AcademicStaff(
         UserId userId,
+        int code,
         string username,
         string email,
         string password,
@@ -23,7 +24,7 @@ public class AcademicStaff : User
         string officeLocation,
         AcademicStaffDepartments department
         )
-        :base(userId, email, password, role, profile)
+        :base(userId, email, password, role, profile,code)
     {
         Title = title;
         OfficeLocation = officeLocation;
@@ -31,6 +32,7 @@ public class AcademicStaff : User
     }
     public static AcademicStaff Create(
         UserId userId,
+        int code,
         string username,
         string email,
         string password,
@@ -39,6 +41,6 @@ public class AcademicStaff : User
         string title,
         string officeLocation,
         AcademicStaffDepartments department)
-        => new(userId, username, email, password, role, profile,
+        => new(userId, code, username, email, password, role, profile,
             title, officeLocation, department);
 }

@@ -22,7 +22,7 @@ public class Employee : User
         DepartmentId departmentId,
         DateTime hireDate,
         ICareerGroup careerGroup
-        ) : base((UserId)user.Id, user.Email,user.Password, user.Role, user.Profile)
+        ) : base((UserId)user.Id, user.Email,user.Password, user.Role, user.Profile,user.Code)
     {
         DepartmentId = departmentId;
         HireDate = hireDate;

@@ -18,18 +18,19 @@ namespace Portal.Application.Services.Authentication.Commands;
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthResult>>
 {
     private readonly IUserRepository _userRepository;
-    private readonly IEmployeeRepository _employeeRepository;
+    //private readonly IEmployeeRepository _employeeRepository;
     private readonly IJWTGenerator _jwtGenerator;
     private static readonly Regex EmailRegex = new Regex(
             @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-    public RegisterCommandHandler(IUserRepository userRepository, IJWTGenerator jwtGenerator, 
-        IEmployeeRepository employeeRepository)
+    public RegisterCommandHandler(IUserRepository userRepository, IJWTGenerator jwtGenerator
+        //,IEmployeeRepository employeeRepository
+        )
     {
         _userRepository = userRepository;
         _jwtGenerator = jwtGenerator;
-        _employeeRepository = employeeRepository;
+        //_employeeRepository = employeeRepository;
     }
     public async Task<ErrorOr<AuthResult>> Handle(RegisterCommand registerRequest, CancellationToken cancellationToken)
     {
@@ -63,21 +64,21 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
                  registerRequest.Address.PostalCode,
                  registerRequest.Address.Country
               )
-            )
+            ),registerRequest.Code
          );
-        if (registerRequest.Role == RoleEnum.Employee)
-        {
-            ICareerTitle title1 = CareerTitle.Create("Software Engineer");
-            ICareerTitle title2 = CareerTitle.Create("Civil Engineer");
+        //if (registerRequest.Role == RoleEnum.Employee)
+        //{
+        //    ICareerTitle title1 = CareerTitle.Create("Software Engineer");
+        //    ICareerTitle title2 = CareerTitle.Create("Civil Engineer");
 
-            ICareerSpecialization specialization = 
-                CareerSpecialization.Create("Contracts", new List<ICareerTitle>() { title1, title2 });
-            ICareerGroup careerGroup = CareerGroup.Create("Contracts", new List<ICareerSpecialization>() { specialization });
-            var emp = Employee.Create(user, DepartmentId.CreateUnique(), DateTime.Now, careerGroup);
-            _employeeRepository.AddEmployee(emp);
-            Token = _jwtGenerator.GenerateToken(emp);
-            return new AuthResult(emp, Token);
-        }
+        //    ICareerSpecialization specialization = 
+        //        CareerSpecialization.Create("Contracts", new List<ICareerTitle>() { title1, title2 });
+        //    ICareerGroup careerGroup = CareerGroup.Create("Contracts", new List<ICareerSpecialization>() { specialization });
+        //    var emp = Employee.Create(user, DepartmentId.CreateUnique(), DateTime.Now, careerGroup);
+        //    _employeeRepository.AddEmployee(emp);
+        //    Token = _jwtGenerator.GenerateToken(emp);
+        //    return new AuthResult(emp, Token);
+        //}
         _userRepository.AddUser(user);
          Token = _jwtGenerator.GenerateToken(user);
         return new AuthResult(user, Token);

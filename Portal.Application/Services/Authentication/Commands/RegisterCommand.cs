@@ -6,6 +6,7 @@ namespace Portal.Application.Services.Authentication.Commands;
 
 public record RegisterCommand
 (
+    int? Code,
     string FirstName,
     string MiddleName,
     string LastName,

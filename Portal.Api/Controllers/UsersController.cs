@@ -17,7 +17,13 @@ namespace Portal.Api.Controllers
             _userRepository = userRepository;
         }
         [HttpGet]
-        public IActionResult GetAllUsers()
-            => Ok(_userRepository.GetAllUsers());
+        public async Task<IActionResult> GetAllUsers()
+        {
+            await Task.CompletedTask;
+            var users = _userRepository.GetAllUsers();
+            return Ok(users);
+
+        }
+        
     }
 }

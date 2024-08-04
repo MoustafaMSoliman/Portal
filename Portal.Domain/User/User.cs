@@ -20,17 +20,18 @@ public class User:AggregateRoot<UserId, Guid>,IUser
 #pragma warning disable CS8618
     protected internal User() { }
 #pragma warning restore CS8618
-    protected internal User(UserId id, string email, string password, RoleEnum role, Profile profile)
+    protected internal User(UserId id, string email, string password, RoleEnum role, Profile profile,int? code)
     {
         Id = id;
         Email = email; 
         Password = password;
         Role = role;
         Profile = profile;
+        Code = code ?? 1;
     }
-    public static User Create(string email, string password, RoleEnum role, Profile profile)
+    public static User Create(string email, string password, RoleEnum role, Profile profile, int? code)
     {
-        return new(UserId.CreateUnique(), email, password, role, profile);
+        return new(UserId.CreateUnique(), email, password, role, profile,code);
     }
 
     

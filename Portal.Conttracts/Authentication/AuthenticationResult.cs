@@ -1,7 +1,10 @@
-﻿namespace Portal.Conttracts.Authentication;
+﻿using Portal.Conttracts.User;
+
+namespace Portal.Conttracts.Authentication;
 
 public record AuthenticationResult
 (
+    int Code,
     string FirstName,
     string MiddleName,
     string LastName,
@@ -10,10 +13,9 @@ public record AuthenticationResult
     long NationalId,
     string Gender,
     DateTime DateOfBirth,
-    string ContactNumber,
-    //AddressResult Address,
-    string Role,
+    long ContactNumber,
     string Email,
+    string Role,
     string Token
 );
 

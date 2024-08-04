@@ -2,6 +2,7 @@
 
 public record RegisterRequest
 (
+    int? Code,
     string FirstName,
     string MiddleName,
     string LastName,
