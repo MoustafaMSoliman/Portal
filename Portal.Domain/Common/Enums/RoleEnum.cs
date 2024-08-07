@@ -2,12 +2,7 @@
 
 public enum RoleEnum
 {
-    AcademicStaff,
-    Employee,
-    Student,
-    ExternalInstructor,
-    Alumni,
-    Guest,
-    UELAuditor,
-    Other
+    Administrator,
+    Manager,
+    NormalUser
 }

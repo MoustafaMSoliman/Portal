@@ -13,6 +13,7 @@ public record RegisterRequest
     DateTime DateOfBirth,
     string ContactNumber,
     Address Address,
+    string UserType,
     string Role,
     string Email,
     string Password

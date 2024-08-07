@@ -15,6 +15,7 @@ public record AuthenticationResult
     DateTime DateOfBirth,
     long ContactNumber,
     string Email,
+    string UserType,
     string Role,
     string Token
 );

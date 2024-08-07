@@ -48,6 +48,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         User user = User.Create(
             registerRequest.Email,
             registerRequest.Password,
+            registerRequest.UserType,
             registerRequest.Role,
             Profile.Create(registerRequest.FirstName,
               registerRequest.MiddleName,
@@ -64,7 +65,9 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
                  registerRequest.Address.PostalCode,
                  registerRequest.Address.Country
               )
-            ),registerRequest.Code
+            ),registerRequest.Code,
+            registerRequest.CreatedBy,
+            registerRequest.UpdatedBy
          );
         //if (registerRequest.Role == RoleEnum.Employee)
         //{

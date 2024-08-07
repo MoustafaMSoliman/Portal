@@ -19,6 +19,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{92
 		RegiserRequest.http = RegiserRequest.http
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{95BCFB5D-44C3-47E0-A018-685C7B9A0072}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{AC1B1BA0-64DC-4CD4-8125-F810B6F86230}"
+	ProjectSection(SolutionItems) = preProject
+		Student.md = Student.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User", "User", "{5F5E5FAD-A9AD-4004-A792-38D7FF2A79D4}"
+	ProjectSection(SolutionItems) = preProject
+		User.md = User.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +60,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC1B1BA0-64DC-4CD4-8125-F810B6F86230} = {5F5E5FAD-A9AD-4004-A792-38D7FF2A79D4}
+		{5F5E5FAD-A9AD-4004-A792-38D7FF2A79D4} = {95BCFB5D-44C3-47E0-A018-685C7B9A0072}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E91E179-11F4-42F6-8C0A-4DC048E0A9FF}

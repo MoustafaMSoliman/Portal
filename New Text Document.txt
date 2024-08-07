@@ -1,0 +1,16 @@
+mysqldump
+ -u postgraduate  -p postgrad_faculty  
+erp_employees_attendance 
+erp_attendance_claims
+ erp_attendance_history 
+erp_attendance_raw 
+erp_employees_delay_penalties
+ erp_employees_missions
+ erp_employees_overtime
+ erp_employees_permissions
+ erp_employees_time_compensation
+ erp_vacations
+ erp_national_vacations
+ erp_employees_vacations_balance 
+ erp_employees_vacations_history  > erp.sql
+--------------------------------------------------------------------------------------------

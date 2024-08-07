@@ -21,7 +21,8 @@ Content-Type: application/json
     "postalCode": "27511",
     "country": "Egypt"
   },
-  "role": "Employee",
+  "userType": "Employee",
+  "role": "NormalUser",
   "email": "string2@str.com",
   "password": "string"
 }

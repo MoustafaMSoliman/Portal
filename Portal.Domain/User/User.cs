@@ -9,30 +9,35 @@ namespace Portal.Domain.User;
 
 public class User:AggregateRoot<UserId, Guid>,IUser
 {
-    public string UserName { get; private set; } = null!;
     public int Code { get; private set; }
+    public Profile Profile { get; private set; }
     public string Email { get; private set; } = null!;
     public string Password { get; private set; } = null!;
+    public UserType UserType { get; private set; }
     public RoleEnum Role { get; private set; }
-    public Profile Profile { get; private set; }
     public UserStatus Status { get; private set; }
+    public UserId? CreatedBy { get;  set; }
+    public UserId? UpdatedBy { get; set; }
 
 #pragma warning disable CS8618
     protected internal User() { }
 #pragma warning restore CS8618
-    protected internal User(UserId id, string email, string password, RoleEnum role, Profile profile,int? code)
+    protected internal User(UserId id,string email, string password,UserType userType, RoleEnum role, Profile profile,int? code, UserId? createdBy, UserId? updatedBy)
     {
         Id = id;
+        Code = code ?? 1;
         Email = email; 
         Password = password;
-        Role = role;
+        UserType = userType;
+        Role = role ;
         Profile = profile;
-        Code = code ?? 1;
+        CreatedBy = createdBy ?? id;
+        UpdatedBy = updatedBy ?? id;
     }
-    public static User Create(string email, string password, RoleEnum role, Profile profile, int? code)
+    public static User Create(string email, string password,UserType userType, RoleEnum? role, Profile profile, int? code, UserId? createdBy, UserId? updatedBy)
     {
-        return new(UserId.CreateUnique(), email, password, role, profile,code);
+        return new(UserId.CreateUnique(), email, password,userType, role ?? RoleEnum.NormalUser, profile,code,createdBy,updatedBy);
     }
-
+    
     
 }

@@ -1,5 +1,5 @@
 ﻿using Portal.Domain.User;
-using Portal.Domain.User.Entities;
+using Portal.Domain.User.Entities.Employee;
 
 namespace Portal.Application.Common.Interfaces.Persistence;
 

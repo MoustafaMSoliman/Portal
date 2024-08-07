@@ -5,42 +5,32 @@ namespace Portal.Domain.User.Entities;
 
 public class AcademicStaff : User
 {
+
     string Title { get; set; } = null!;
     string OfficeLocation { get; set; } = null!;
     AcademicStaffDepartments Department { get; set; }
+
+
 #pragma warning disable CS8681
     protected internal AcademicStaff() { }
 #pragma warning restore CS8681
 
     protected internal AcademicStaff(
-        UserId userId,
-        int code,
-        string username,
-        string email,
-        string password,
-        RoleEnum role,
-        Profile profile,
+        User user,
         string title,
         string officeLocation,
         AcademicStaffDepartments department
         )
-        :base(userId, email, password, role, profile,code)
+        :base((UserId)user.Id, user.Email, user.Password,UserType.AcademicStaff,RoleEnum.NormalUser , user.Profile, user.Code, user.CreatedBy, user.UpdatedBy)
     {
         Title = title;
         OfficeLocation = officeLocation;
         Department = department;
     }
     public static AcademicStaff Create(
-        UserId userId,
-        int code,
-        string username,
-        string email,
-        string password,
-        RoleEnum role,
-        Profile profile,
+       User user,
         string title,
         string officeLocation,
         AcademicStaffDepartments department)
-        => new(userId, code, username, email, password, role, profile,
-            title, officeLocation, department);
+        => new(user,title, officeLocation, department);
 }

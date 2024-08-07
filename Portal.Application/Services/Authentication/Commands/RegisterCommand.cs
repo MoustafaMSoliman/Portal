@@ -2,6 +2,7 @@
 using MediatR;
 using Portal.Application.Services.Authentication.Common;
 using Portal.Domain.Common.Enums;
+using Portal.Domain.User.ValueObjects;
 namespace Portal.Application.Services.Authentication.Commands;
 
 public record RegisterCommand
@@ -17,9 +18,12 @@ public record RegisterCommand
     DateTime DateOfBirth,
     string ContactNumber,
     AddressCommand Address,
+    UserType UserType,
     RoleEnum Role,
     string Email,
-    string Password
+    string Password,
+    UserId CreatedBy,
+    UserId UpdatedBy
   
 ):IRequest<ErrorOr<AuthResult>>;
 public record AddressCommand

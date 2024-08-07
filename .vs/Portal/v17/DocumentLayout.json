@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\entities\\employee\\entities\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\entities\\employee\\entities\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\entities\\employee\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\entities\\employee\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\entities\\employee\\entities\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\entities\\employee\\entities\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\entities\\employee\\entities\\vacation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\entities\\employee\\entities\\vacation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\common\\enums\\user\\employee\\vacationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\common\\enums\\user\\employee\\vacationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\common\\enums\\user\\employee\\vacationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\common\\enums\\user\\employee\\vacationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee.cs",
-              "RelativeDocumentMoniker": "Portal.Domain\\User\\Entities\\Employee.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee.cs",
-              "RelativeToolTip": "Portal.Domain\\User\\Entities\\Employee.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "Claim.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Entities\\Claim.cs",
+              "RelativeDocumentMoniker": "Portal.Domain\\User\\Entities\\Employee\\Entities\\Claim.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Entities\\Claim.cs",
+              "RelativeToolTip": "Portal.Domain\\User\\Entities\\Employee\\Entities\\Claim.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T08:54:46.517Z",
+              "WhenOpened": "2024-08-07T12:57:04.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Attendance.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Entities\\Attendance.cs",
+              "RelativeDocumentMoniker": "Portal.Domain\\User\\Entities\\Employee\\Entities\\Attendance.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Entities\\Attendance.cs",
+              "RelativeToolTip": "Portal.Domain\\User\\Entities\\Employee\\Entities\\Attendance.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAUAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T12:24:46.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
+              "RelativeDocumentMoniker": "Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
+              "RelativeToolTip": "Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAcwBcAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T12:04:34.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VacationStatus.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\Common\\Enums\\User\\Employee\\VacationStatus.cs",
+              "RelativeDocumentMoniker": "Portal.Domain\\Common\\Enums\\User\\Employee\\VacationStatus.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\Common\\Enums\\User\\Employee\\VacationStatus.cs",
+              "RelativeToolTip": "Portal.Domain\\Common\\Enums\\User\\Employee\\VacationStatus.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T11:30:51.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Vacation.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Entities\\Vacation.cs",
+              "RelativeDocumentMoniker": "Portal.Domain\\User\\Entities\\Employee\\Entities\\Vacation.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Entities\\Vacation.cs",
+              "RelativeToolTip": "Portal.Domain\\User\\Entities\\Employee\\Entities\\Vacation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T11:28:09.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VacationType.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\Common\\Enums\\User\\Employee\\VacationType.cs",
+              "RelativeDocumentMoniker": "Portal.Domain\\Common\\Enums\\User\\Employee\\VacationType.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\Common\\Enums\\User\\Employee\\VacationType.cs",
+              "RelativeToolTip": "Portal.Domain\\Common\\Enums\\User\\Employee\\VacationType.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T11:25:46.195Z",
               "EditorCaption": ""
             }
           ]
