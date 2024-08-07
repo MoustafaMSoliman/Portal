@@ -1,0 +1,11 @@
+POST https://localhost:7181/api/Employees/applyVacation
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJQb3J0YWwuRG9tYWluLlVzZXIuVmFsdWVPYmplY3RzLlVzZXJJZCIsIm5hbWUiOiJNb3VzdGFmYSIsImZhbWlseV9uYW1lIjoiU29saW1hbiIsImp0aSI6ImM5NTI0OTMzLTgwMzktNDQyNC04MTg3LTgzNDM4ZmNlNGZkZCIsImV4cCI6MTcyMzA2OTUxNywiaXNzIjoiUG9ydGFsIiwiYXVkIjoiUG9ydGFsIn0.YBd-DA_1OAJ-2HM1k4qKsH5lcDu8CdnWQSL2X0cVodQ
+
+{
+  "employeeId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "startFrom": "2024-08-07T22:23:13.534Z",
+  "endAt": "2024-08-07T22:23:13.534Z",
+  "vacationType": "string",
+  "vacationStatus": "string"
+}

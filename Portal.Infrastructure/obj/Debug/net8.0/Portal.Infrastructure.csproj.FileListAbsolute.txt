@@ -27,7 +27,6 @@ E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Infrastructure\obj\Debu
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Infrastructure\obj\Debug\net8.0\Portal.Infrastructure.AssemblyInfoInputs.cache
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Infrastructure\obj\Debug\net8.0\Portal.Infrastructure.AssemblyInfo.cs
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Infrastructure\obj\Debug\net8.0\Portal.Infrastructure.csproj.CoreCompileInputs.cache
-E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Infrastructure\obj\Debug\net8.0\Portal.Infrastructure.sourcelink.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Infrastructure\obj\Debug\net8.0\Portal.I.3FE15598.Up2Date
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Infrastructure\obj\Debug\net8.0\Portal.Infrastructure.dll
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Infrastructure\obj\Debug\net8.0\refint\Portal.Infrastructure.dll

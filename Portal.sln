@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{92
 	ProjectSection(SolutionItems) = preProject
 		GetAllUsers.http = GetAllUsers.http
 		RegiserRequest.http = RegiserRequest.http
+		Vacation.http = Vacation.http
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{95BCFB5D-44C3-47E0-A018-685C7B9A0072}"

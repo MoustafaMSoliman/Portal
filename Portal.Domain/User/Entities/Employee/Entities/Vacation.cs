@@ -1,4 +1,5 @@
 ﻿using Portal.Domain.Common.Enums.User.Employee;
+using Portal.Domain.Common.Errors;
 using Portal.Domain.User.ValueObjects;
 using System.Runtime.CompilerServices;
 
@@ -23,6 +24,17 @@ public class Vacation
 #pragma warning disable CS8618
     private Vacation() { }
 #pragma warning restore CS8618
+
+    private Vacation(int id, VacationType vacationType, UserId employeeId,
+        DateTime startFrom, DateTime endAt)
+    {
+        Id = id;
+        VacationType = vacationType;
+        VacationStatus = VacationStatus.Pending;
+        EmployeeId = employeeId;
+        StartFrom = startFrom;
+        EndAt = endAt;
+    }
     private Vacation(int id, VacationType vacationType, UserId employeeId,
         DateTime startFrom, DateTime endAt, 
         UserId? acceptedBy, DateTime? acceptedOn, UserId? approvedBy, DateTime? approvedOn,
@@ -42,13 +54,10 @@ public class Vacation
         RejectedOn = rejectedOn;
     }
     public static Vacation Create(int id, VacationType vacationType, UserId employeeId,
-        DateTime startFrom, DateTime endAt,
-        UserId? acceptedBy, DateTime? acceptedOn, UserId? approvedBy, DateTime? approvedOn,
-        UserId? rejectedBy, DateTime? rejectedOn)
+        DateTime startFrom, DateTime endAt
+       )
         => new(id, vacationType,  employeeId,
-         startFrom,  endAt, 
-         acceptedBy,  acceptedOn,  approvedBy,  approvedOn,
-         rejectedBy,  rejectedOn);
+         startFrom,  endAt);
     public  void EditVacationDate(DateTime startFrom, DateTime endAt)
     {
         StartFrom = startFrom;
@@ -59,7 +68,7 @@ public class Vacation
         VacationStatus = status;
         
     }
-    public int GetTotalVacationDays() => (int)(EndAt - StartFrom).TotalDays;
+    public  int GetTotalVacationDays() => (int)(EndAt - StartFrom).TotalDays;
 
     
 }

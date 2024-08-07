@@ -9,13 +9,14 @@ namespace Portal.Domain.User.Entities.Employee;
 
 public class Employee : User
 {
+    public UserId ManagerId { get; set; }
     public DateTime HireDate { get; private set; }
     public int TotalVacationDays { get; private set; }
     public int TotalVacationDaysNormally { get; private set; }
     public int TotalVacationDaysEmergncy { get; private set; }
 
-    private readonly List<Vacation> _vacations = new();
-    public IReadOnlyList<Vacation> Vacations => _vacations.AsReadOnly();
+    private readonly List<int> _vacationsIds = new();
+    public IReadOnlyList<int> VacationsIds => _vacationsIds.AsReadOnly();
     public TimeOnly MustSignInBefore { get; private set; }
     public TimeOnly CanSignOutAfter { get; private set; }
     public int? OvertimeHours {  get; private set; } 

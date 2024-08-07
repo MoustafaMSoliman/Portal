@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "aCgiHdcO8Cw=",
+  "dgSpecHash": "TtiWJQFd92XvPzNCvXF61VbwQ+Bqsy+rIZdcTCrb599ykEU5Bx8OKzuQd+TAkhZzBYGTIy8cHU/7DqPL/XP3gQ==",
   "success": true,
-  "projectFilePath": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\Portal.Domain.csproj",
+  "projectFilePath": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Domain\\Portal.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Desha\\.nuget\\packages\\erroror\\2.0.1\\erroror.2.0.1.nupkg.sha512"
+    "C:\\Users\\Moustafa\\.nuget\\packages\\erroror\\2.0.1\\erroror.2.0.1.nupkg.sha512"
   ],
   "logs": []
 }

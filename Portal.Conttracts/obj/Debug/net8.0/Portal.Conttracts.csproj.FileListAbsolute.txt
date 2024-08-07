@@ -16,7 +16,6 @@ E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\ne
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.AssemblyInfoInputs.cache
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.AssemblyInfo.cs
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.csproj.CoreCompileInputs.cache
-E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.sourcelink.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.dll
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\refint\Portal.Conttracts.dll
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.pdb

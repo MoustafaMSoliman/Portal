@@ -969,24 +969,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Desha\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Moustafa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Portal.Infrastructure.csproj",
+      "projectUniqueName": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Infrastructure\\Portal.Infrastructure.csproj",
       "projectName": "Portal.Infrastructure",
-      "projectPath": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Portal.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Desha\\.nuget\\packages\\",
-      "outputPath": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\obj\\",
+      "projectPath": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Infrastructure\\Portal.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\Moustafa\\.nuget\\packages\\",
+      "outputPath": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Desha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Moustafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -994,15 +989,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Application\\Portal.Application.csproj": {
-              "projectPath": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Application\\Portal.Application.csproj"
+            "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Portal.Application.csproj": {
+              "projectPath": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Portal.Application.csproj"
             }
           }
         }
@@ -1063,7 +1057,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

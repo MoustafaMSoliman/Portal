@@ -102,7 +102,6 @@ E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Po
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.csproj.CoreCompileInputs.cache
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.MvcApplicationPartsAssemblyInfo.cs
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.MvcApplicationPartsAssemblyInfo.cache
-E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.sourcelink.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\staticwebassets.build.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\staticwebassets.development.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\staticwebassets\msbuild.Portal.Api.Microsoft.AspNetCore.StaticWebAssets.props

@@ -9,6 +9,10 @@ public static partial class Errors
              code:"AuthenticationErrors.InvalidCredentials",
              description:"This email or password is incorrect"
             );
+        public static Error InvalidUser => Error.Conflict(
+            code: "AuthenticationErrors.InvalidUser",
+             description: "This user is not exist"
+            );
     }
 
 }

@@ -24,10 +24,7 @@ public class Attendance
             AttendaceStatus = AttendaceStatus.Absent;
         }
 
-        if (ArrivedAt.Hour <= Employee.MustSignInBefore.Hour && ArrivedAt.Minute <= Employee.MustSignInBefore.Minute)
-        {
-            AttendaceStatus = AttendaceStatus.Attend;
-        }
+       
         
     }
 
