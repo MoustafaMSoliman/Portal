@@ -11,6 +11,7 @@ public class AuthenticationMappingConfig : IRegister
     public void Register(TypeAdapterConfig config)
     {
         config.NewConfig<AuthResult, AuthenticationResult>()
+            .Map(dest=>dest.UserId, src=>src.User.Id.Value.ToString())
             .Map(dest=>dest.Code, src=>src.User.Code)
             .Map(dest=>dest.FirstName, src=>src.User.Profile.FirstName)
             .Map(dest => dest.MiddleName, src => src.User.Profile.MiddleName)
@@ -27,24 +28,25 @@ public class AuthenticationMappingConfig : IRegister
             .Map(dest=>dest.Token, src=>src.Token)
             ;
 
-        config.NewConfig<RegisterCommand, RegisterRequest>()
-            .Map(dest=>dest.Code, src => src.Code)
+        config.NewConfig<RegisterRequest, RegisterCommand>()
+            .Map(dest => dest.Code, src => src.Code)
             .Map(dest => dest.FirstName, src => src.FirstName)
             .Map(dest => dest.MiddleName, src => src.MiddleName)
             .Map(dest => dest.LastName, src => src.LastName)
             .Map(dest => dest.ArabicName, src => src.ArabicName)
-            .Map(dest=>dest.Nationality, src=>src.Nationality)
+            .Map(dest => dest.Nationality, src => src.Nationality)
             .Map(dest => dest.NationalId, src => src.NationalId)
-            .Map(dest=>dest.Gender, src=>src.Gender)
-            .Map(dest=>dest.DateOfBirth, src=>src.DateOfBirth)
-            .Map(dest=>dest.ContactNumber, src=>src.ContactNumber)
-            .Map(dest=>dest.Address, src=>src.Address)
+            .Map(dest => dest.Gender, src => src.Gender)
+            .Map(dest => dest.DateOfBirth, src => src.DateOfBirth)
+            .Map(dest => dest.ContactNumber, src => src.ContactNumber)
+            .Map(dest => dest.Address, src => src.Address)
             .Map(dest => dest.UserType, src => src.UserType)
-            .Map(dest=>dest.Role, src=>src.Role)
+            .Map(dest => dest.Role, src => src.Role)
             .Map(dest => dest.Email, src => src.Email)
-            .Map(dest => dest.Password, src => src.Password);
+            .Map(dest => dest.Password, src => src.Password)
+            ;
 
-        config.NewConfig<LoginQuery, LoginRequest>()
+        config.NewConfig<LoginRequest, LoginQuery > ()
             .Map(dest => dest.Email, src => src.Email)
             .Map(dest => dest.Password, src => src.Password);
     }

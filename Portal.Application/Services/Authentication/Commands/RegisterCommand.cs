@@ -2,6 +2,7 @@
 using MediatR;
 using Portal.Application.Services.Authentication.Common;
 using Portal.Domain.Common.Enums;
+using Portal.Domain.User;
 using Portal.Domain.User.ValueObjects;
 namespace Portal.Application.Services.Authentication.Commands;
 
@@ -22,6 +23,7 @@ public record RegisterCommand
     RoleEnum Role,
     string Email,
     string Password,
+    //User User,
     UserId CreatedBy,
     UserId UpdatedBy
   

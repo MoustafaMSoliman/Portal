@@ -2,27 +2,26 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Portal.Application.Common.Interfaces.Persistence;
+using Portal.Domain.User.ValueObjects;
+using Portal.Domain.User;
 
 namespace Portal.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
     [Authorize]
-    public class UsersController : ControllerBase
+    public class UsersController : ApiController
     {
-        private IUserRepository _userRepository;
+        private IAggregateRootRepository<User, UserId,Guid> _userRepository;
 
-        public UsersController(IUserRepository userRepository)
+        public UsersController(IAggregateRootRepository<User, UserId, Guid> userRepository)
         {
             _userRepository = userRepository;
         }
         [HttpGet]
-        public async Task<IActionResult> GetAllUsers()
+        public  IActionResult GetAllUsers()
         {
-            await Task.CompletedTask;
-            var users = _userRepository.GetAllUsers();
-            return Ok(users);
-
+            return Ok(_userRepository.GetAll());
         }
         
     }

@@ -4,10 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Portal.Application.Common.Interfaces.Authentication;
-using Portal.Application.Common.Interfaces.Employment;
 using Portal.Application.Common.Interfaces.Persistence;
 using Portal.Infrastructure.Authentication;
-using Portal.Infrastructure.Employment;
 using Portal.Infrastructure.Persistence;
 using System.Text;
 
@@ -20,9 +18,10 @@ public static class DependencyInjection
         services.AddAuth(configuration);
         
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
-        services.AddSingleton<IUserRepository,UserRepository>();
-        services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
-        services.AddSingleton<IVacationRepository, VacationRepository>();
+        services.AddSingleton(typeof(IRepository<,>),typeof(Repository<,>));
+        services.AddSingleton(typeof(IAggregateRootRepository<,,>), typeof(AggregateRootRepository<,,>));
+
+
 
 
         return services;    

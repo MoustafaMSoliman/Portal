@@ -17,14 +17,13 @@ namespace Portal.Application.Services.Authentication.Commands;
 
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthResult>>
 {
-    private readonly IUserRepository _userRepository;
-    //private readonly IEmployeeRepository _employeeRepository;
+    private readonly IAggregateRootRepository<User,UserId,Guid> _userRepository;
     private readonly IJWTGenerator _jwtGenerator;
     private static readonly Regex EmailRegex = new Regex(
             @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-    public RegisterCommandHandler(IUserRepository userRepository, IJWTGenerator jwtGenerator
+    public RegisterCommandHandler(IAggregateRootRepository<User, UserId, Guid> userRepository, IJWTGenerator jwtGenerator
         //,IEmployeeRepository employeeRepository
         )
     {
@@ -32,13 +31,13 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         _jwtGenerator = jwtGenerator;
         //_employeeRepository = employeeRepository;
     }
-    public async Task<ErrorOr<AuthResult>> Handle(RegisterCommand registerRequest, CancellationToken cancellationToken)
+    public async Task<ErrorOr<AuthResult>> Handle(RegisterCommand registerCommand, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
         string? Token;
-        if (!IsValidEmail(registerRequest.Email))
+        if (!IsValidEmail(registerCommand.Email))
             return Errors.EmailErrors.InValidEmail;
-        if (_userRepository.GetUserByEmail(registerRequest.Email) is not null)
+        if (_userRepository.Find(x=>x.Email == registerCommand.Email) is not null)
         {
             return Errors.UserErrors.DuplicateEmail;
         }
@@ -46,28 +45,28 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         
         
         User user = User.Create(
-            registerRequest.Email,
-            registerRequest.Password,
-            registerRequest.UserType,
-            registerRequest.Role,
-            Profile.Create(registerRequest.FirstName,
-              registerRequest.MiddleName,
-              registerRequest.LastName,
-              registerRequest.ArabicName,
-              registerRequest.Nationality,
-              registerRequest.NationalId,
-              registerRequest.Gender,
-              registerRequest.DateOfBirth,
-              registerRequest.ContactNumber,
-              Address.Create(registerRequest.Address.Street,
-                 registerRequest.Address.City,
-                 registerRequest.Address.State,
-                 registerRequest.Address.PostalCode,
-                 registerRequest.Address.Country
+            registerCommand.Email,
+            registerCommand.Password,
+            registerCommand.UserType,
+            registerCommand.Role,
+            Profile.Create(registerCommand.FirstName,
+              registerCommand.MiddleName,
+              registerCommand.LastName,
+              registerCommand.ArabicName,
+              registerCommand.Nationality,
+              registerCommand.NationalId,
+              registerCommand.Gender,
+              registerCommand.DateOfBirth,
+              registerCommand.ContactNumber,
+              Address.Create(registerCommand.Address.Street,
+                 registerCommand.Address.City,
+                 registerCommand.Address.State,
+                 registerCommand.Address.PostalCode,
+                 registerCommand.Address.Country
               )
-            ),registerRequest.Code,
-            registerRequest.CreatedBy,
-            registerRequest.UpdatedBy
+            ), registerCommand.Code,
+            registerCommand.CreatedBy,
+            registerCommand.UpdatedBy
          );
         //if (registerRequest.Role == RoleEnum.Employee)
         //{
@@ -82,7 +81,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         //    Token = _jwtGenerator.GenerateToken(emp);
         //    return new AuthResult(emp, Token);
         //}
-        _userRepository.AddUser(user);
+        _userRepository.AddNew(user);
          Token = _jwtGenerator.GenerateToken(user);
         return new AuthResult(user, Token);
     }

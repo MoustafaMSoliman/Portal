@@ -5,15 +5,16 @@ using Portal.Application.Common.Interfaces.Persistence;
 using Portal.Application.Services.Authentication.Common;
 using Portal.Domain.Common.Errors;
 using Portal.Domain.User;
+using Portal.Domain.User.ValueObjects;
 
 namespace Portal.Application.Services.Authentication.Queries;
 
 public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthResult>>
 {
-    private readonly IUserRepository _userRepository;
+    private readonly IRepository<User, UserId> _userRepository;
     private readonly IJWTGenerator _jwtGenerator;
 
-    public LoginQueryHandler(IUserRepository userRepository, IJWTGenerator jWTGenerator)
+    public LoginQueryHandler(IRepository<User, UserId> userRepository, IJWTGenerator jWTGenerator)
     {
         _userRepository = userRepository;
         _jwtGenerator = jWTGenerator;
@@ -21,7 +22,7 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthResult>
     public async Task<ErrorOr<AuthResult>> Handle(LoginQuery loginQuery, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        if (_userRepository.GetUserByEmail(loginQuery.Email)  is not User user)
+        if (_userRepository.Find(x => x.Email == loginQuery.Email) is not User user)
         {
             return Errors.AuthenticationErrors.InvalidCredentials;
         }

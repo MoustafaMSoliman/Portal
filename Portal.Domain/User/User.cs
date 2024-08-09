@@ -7,7 +7,7 @@ using Portal.Domain.User.ValueObjects;
 
 namespace Portal.Domain.User;
 
-public class User:AggregateRoot<UserId, Guid>,IUser
+public class User:AggregateRoot<UserId, Guid>
 {
     public int Code { get; private set; }
     public Profile Profile { get; private set; }

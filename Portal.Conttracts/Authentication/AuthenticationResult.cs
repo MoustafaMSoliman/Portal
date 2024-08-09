@@ -4,6 +4,7 @@ namespace Portal.Conttracts.Authentication;
 
 public record AuthenticationResult
 (
+    string UserId,
     int Code,
     string FirstName,
     string MiddleName,

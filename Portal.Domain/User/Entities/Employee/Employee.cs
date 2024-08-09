@@ -1,4 +1,5 @@
-﻿using Portal.Domain.Common.Enums;
+﻿
+using Portal.Domain.Common.Enums;
 using Portal.Domain.Common.Interfaces.User;
 using Portal.Domain.Department.ValueObjects;
 using Portal.Domain.User.Entities.Employee.Entities;
@@ -9,7 +10,6 @@ namespace Portal.Domain.User.Entities.Employee;
 
 public class Employee : User
 {
-    public UserId ManagerId { get; set; }
     public DateTime HireDate { get; private set; }
     public int TotalVacationDays { get; private set; }
     public int TotalVacationDaysNormally { get; private set; }

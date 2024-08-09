@@ -53,10 +53,10 @@ public class Vacation
         RejectedBy = rejectedBy;
         RejectedOn = rejectedOn;
     }
-    public static Vacation Create(int id, VacationType vacationType, UserId employeeId,
+    public static Vacation Create( VacationType vacationType, UserId employeeId,
         DateTime startFrom, DateTime endAt
        )
-        => new(id, vacationType,  employeeId,
+        => new(1, vacationType,  employeeId,
          startFrom,  endAt);
     public  void EditVacationDate(DateTime startFrom, DateTime endAt)
     {

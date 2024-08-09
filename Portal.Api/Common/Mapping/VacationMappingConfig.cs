@@ -9,8 +9,8 @@ public class VacationMappingConfig : IRegister
 {
     public void Register(TypeAdapterConfig config)
     {
-        config.NewConfig<VacationCommand, VacationRequest>()
-            .Map(dest=>dest.EmployeeId, src=>src.EmployeeId.Value)
+        config.NewConfig<VacationRequest, VacationCommand>()
+            .Map(dest=>dest.EmployeeId.Value, src=>src.EmployeeId)
             .Map(dest=>dest.StartFrom, src=>src.StartFrom)
             .Map(dest=>dest.EndAt, src=>src.EndAt)
             .Map(dest=>dest.VacationType, src=>src.VacationType.ToString())

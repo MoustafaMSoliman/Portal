@@ -7,7 +7,7 @@ public class UserId : AggregateRootId<Guid>
     public override Guid Value { get ; protected set; }
 
 #pragma warning disable CS8618
-    private UserId()
+    public UserId()
     {}
 #pragma warning restore CS8618
     public UserId(Guid id)

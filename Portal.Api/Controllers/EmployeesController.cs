@@ -33,7 +33,7 @@ namespace Portal.Api.Controllers
             return vacationResult.Match(
                 vacationResult=>Ok(_mapper.Map<VacationResponse>(vacationResult)),
                 errors=>Problem(errors)
-                );
+             );
 
         }
     }

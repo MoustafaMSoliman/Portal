@@ -1,10 +1,11 @@
 ﻿using ErrorOr;
 using MediatR;
-using Portal.Application.Common.Interfaces.Employment;
 using Portal.Application.Common.Interfaces.Persistence;
 using Portal.Application.Services.Employement.Common;
 using Portal.Domain.Common.Errors;
+using Portal.Domain.User;
 using Portal.Domain.User.Entities.Employee.Entities;
+using Portal.Domain.User.ValueObjects;
 using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 
@@ -12,43 +13,42 @@ namespace Portal.Application.Services.Employement.Commands;
 
 public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<VacationResult>>
 {
-    private readonly IUserRepository _userRepository;
-    private readonly IVacationRepository _vacationRepository;
+    private readonly IAggregateRootRepository<User, UserId,Guid> _userRepository;
+    //private readonly IRepository<Vacation,int> _vacationRepository;
     //private readonly INotification _notification;
 
-    public VacationCommandHandler(IUserRepository userRepository,
-        IVacationRepository vacationRepository
+    public VacationCommandHandler(IAggregateRootRepository<User, UserId, Guid> userRepository
+        //, IRepository<Vacation, int> vacationRepository
         //, INotification notification
         )
     {
         _userRepository = userRepository;
-        _vacationRepository = vacationRepository;
+        //_vacationRepository = vacationRepository;
         //_notification = notification;
     }
     public async Task<ErrorOr<VacationResult>> Handle(VacationCommand request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        if (_userRepository.GetUserById(request.EmployeeId.Value) is null)
+        if (_userRepository.GetById(request.EmployeeId) is null)
         {
             return Errors.AuthenticationErrors.InvalidUser;
         }
 
-        if (_vacationRepository.GetByStartFrom(request.EmployeeId, request.StartFrom) is not null
-            && _vacationRepository.GetByEndAt(request.EmployeeId, request.EndAt) is not null)
-        {
-            return Errors.VacationDate.InvalidStartVacationDate;
-        }
+        //if (_vacationRepository.Find(v=>v.EmployeeId == request.EmployeeId
+        //        && v.StartFrom==request.StartFrom && v.EndAt == request.EndAt) is not null
+        //    )
+        //{
+        //    return Errors.VacationDate.InvalidStartVacationDate;
+        //}
 
         var vacation = Vacation.Create(
-             _vacationRepository.GetCount(),
              request.VacationType,
              request.EmployeeId,
              request.StartFrom,
              request.EndAt
          );
-        _vacationRepository.Add( vacation );
+        //_vacationRepository.AddNew( vacation );
         
-        return new VacationResult(vacation
-            );
+        return new VacationResult(vacation);
     }
 }
