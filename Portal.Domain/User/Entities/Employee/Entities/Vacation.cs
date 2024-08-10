@@ -1,13 +1,14 @@
 ﻿using Portal.Domain.Common.Enums.User.Employee;
 using Portal.Domain.Common.Errors;
+using Portal.Domain.Common.Models;
+using Portal.Domain.User.Entities.Employee.ValueObjects;
 using Portal.Domain.User.ValueObjects;
 using System.Runtime.CompilerServices;
 
 namespace Portal.Domain.User.Entities.Employee.Entities;
 
-public class Vacation 
+public class Vacation :Entity<VacationId>
 {
-    public int Id { get; private set; }
     public VacationType VacationType { get; private set; }
     public VacationStatus VacationStatus { get; private set; }
     public UserId EmployeeId { get; private set; } = null!;
@@ -25,22 +26,24 @@ public class Vacation
     private Vacation() { }
 #pragma warning restore CS8618
 
-    private Vacation(int id, VacationType vacationType, UserId employeeId,
+    private Vacation(VacationId id, VacationType vacationType, UserId employeeId,
         DateTime startFrom, DateTime endAt)
+        :base(id)
     {
-        Id = id;
         VacationType = vacationType;
         VacationStatus = VacationStatus.Pending;
         EmployeeId = employeeId;
         StartFrom = startFrom;
         EndAt = endAt;
+        TotalVacationDays = GetTotalVacationDays();
     }
-    private Vacation(int id, VacationType vacationType, UserId employeeId,
+    private Vacation(VacationId id, VacationType vacationType, UserId employeeId,
         DateTime startFrom, DateTime endAt, 
         UserId? acceptedBy, DateTime? acceptedOn, UserId? approvedBy, DateTime? approvedOn,
         UserId? rejectedBy, DateTime? rejectedOn)
+        : base(id)
+
     {
-        Id = id;
         VacationType = vacationType;
         VacationStatus=VacationStatus.Pending;
         EmployeeId = employeeId;
@@ -56,7 +59,7 @@ public class Vacation
     public static Vacation Create( VacationType vacationType, UserId employeeId,
         DateTime startFrom, DateTime endAt
        )
-        => new(1, vacationType,  employeeId,
+        => new(VacationId.CreateUnique(), vacationType,  employeeId,
          startFrom,  endAt);
     public  void EditVacationDate(DateTime startFrom, DateTime endAt)
     {
@@ -68,7 +71,7 @@ public class Vacation
         VacationStatus = status;
         
     }
-    public  int GetTotalVacationDays() => (int)(EndAt - StartFrom).TotalDays;
+    public  int GetTotalVacationDays() => (int)(EndAt - StartFrom).TotalDays+1;
 
     
 }

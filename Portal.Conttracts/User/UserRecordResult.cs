@@ -5,6 +5,7 @@ namespace Portal.Conttracts.User;
 
 public record UserRecordResult
 (
+    string UserId,
     string FirstName,
     string MiddleName,
     string LastName,
@@ -15,12 +16,21 @@ public record UserRecordResult
     DateTime DateOfBirth,
     string ContactNumber,
     AddressRecordResult Address,
-    string UserName,
     int Code,
     string Email,
     string Password,
     string Role,
-    string Status
+    string Status,
+    List<Vacation> Vacations
+    );
+
+public record Vacation
+    (
+      int Id,
+      string VacationType,
+      string VacationStatus,
+      DateTime StartFrom,
+      DateTime EndAt
     );
 public record AddressRecordResult
     (

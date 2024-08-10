@@ -2,7 +2,10 @@
 using Portal.Application.Services.Authentication.Commands;
 using Portal.Application.Services.Authentication.Common;
 using Portal.Application.Services.Authentication.Queries;
+using Portal.Application.Services.Employement.EmpVacation.Commands;
+using Portal.Application.Services.Employement.EmpVacation.Common;
 using Portal.Conttracts.Authentication;
+using Portal.Conttracts.User.Employee;
 
 namespace Portal.Api.Common.Mapping;
 
@@ -49,5 +52,7 @@ public class AuthenticationMappingConfig : IRegister
         config.NewConfig<LoginRequest, LoginQuery > ()
             .Map(dest => dest.Email, src => src.Email)
             .Map(dest => dest.Password, src => src.Password);
+
+        
     }
 }

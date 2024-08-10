@@ -3,40 +3,24 @@
   "WorkspaceRootPath": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DF041DDB-2CCE-46F2-B7B7-328586456933}|Portal.Api\\Portal.Api.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.api\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF041DDB-2CCE-46F2-B7B7-328586456933}|Portal.Api\\Portal.Api.csproj|solutionrelative:portal.api\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF041DDB-2CCE-46F2-B7B7-328586456933}|Portal.Api\\Portal.Api.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF041DDB-2CCE-46F2-B7B7-328586456933}|Portal.Api\\Portal.Api.csproj|solutionrelative:portal.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF041DDB-2CCE-46F2-B7B7-328586456933}|Portal.Api\\Portal.Api.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF041DDB-2CCE-46F2-B7B7-328586456933}|Portal.Api\\Portal.Api.csproj|solutionrelative:portal.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.application\\services\\employement\\commands\\vacationcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|solutionrelative:portal.application\\services\\employement\\commands\\vacationcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Vacation.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|solutionrelative:Vacation.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.application\\services\\authentication\\commands\\registercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|solutionrelative:portal.application\\services\\authentication\\commands\\registercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|solutionrelative:portal.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\RegiserRequest.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|solutionrelative:RegiserRequest.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.application\\services\\employement\\commands\\vacationcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|solutionrelative:portal.application\\services\\employement\\commands\\vacationcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF041DDB-2CCE-46F2-B7B7-328586456933}|Portal.Api\\Portal.Api.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF041DDB-2CCE-46F2-B7B7-328586456933}|Portal.Api\\Portal.Api.csproj|solutionrelative:portal.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.application\\services\\employement\\empvacation\\commands\\vacationcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|solutionrelative:portal.application\\services\\employement\\empvacation\\commands\\vacationcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF041DDB-2CCE-46F2-B7B7-328586456933}|Portal.Api\\Portal.Api.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.api\\portal.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DF041DDB-2CCE-46F2-B7B7-328586456933}|Portal.Api\\Portal.Api.csproj|solutionrelative:portal.api\\portal.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,24 +30,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Api\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "Portal.Api\\DependencyInjection.cs",
-              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Api\\DependencyInjection.cs",
-              "RelativeToolTip": "Portal.Api\\DependencyInjection.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAowAwAAAAeAAAA",
+              "DocumentIndex": 2,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Api\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "Portal.Api\\Controllers\\EmployeesController.cs",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Api\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "Portal.Api\\Controllers\\EmployeesController.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAA1wCYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T21:52:48.564Z",
+              "WhenOpened": "2024-08-10T20:16:35.994Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Portal.Api",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Api\\Portal.Api.csproj",
+              "RelativeDocumentMoniker": "Portal.Api\\Portal.Api.csproj",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Api\\Portal.Api.csproj",
+              "RelativeToolTip": "Portal.Api\\Portal.Api.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-10T20:16:29.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VacationCommandHandler.cs",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Employement\\EmpVacation\\Commands\\VacationCommandHandler.cs",
+              "RelativeDocumentMoniker": "Portal.Application\\Services\\Employement\\EmpVacation\\Commands\\VacationCommandHandler.cs",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Employement\\EmpVacation\\Commands\\VacationCommandHandler.cs",
+              "RelativeToolTip": "Portal.Application\\Services\\Employement\\EmpVacation\\Commands\\VacationCommandHandler.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAADwvxIAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T20:16:02.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Vacation.http",
               "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Vacation.http",
               "RelativeDocumentMoniker": "Vacation.http",
@@ -71,98 +81,20 @@
               "RelativeToolTip": "Vacation.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-08-09T21:26:05.523Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Api\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Portal.Api\\Controllers\\AuthController.cs",
-              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Api\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Portal.Api\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAcwCEAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T21:24:22.203Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RegiserRequest.http",
-              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\RegiserRequest.http",
-              "RelativeDocumentMoniker": "RegiserRequest.http",
-              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\RegiserRequest.http",
-              "RelativeToolTip": "RegiserRequest.http",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwgAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-08-09T21:24:32.625Z",
+              "WhenOpened": "2024-08-10T20:13:41.326Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EmployeesController.cs",
-              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Api\\Controllers\\EmployeesController.cs",
-              "RelativeDocumentMoniker": "Portal.Api\\Controllers\\EmployeesController.cs",
-              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Api\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "Portal.Api\\Controllers\\EmployeesController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAA0wB8AAABbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T21:24:10.439Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RegisterCommandHandler.cs",
-              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
-              "RelativeDocumentMoniker": "Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
-              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
-              "RelativeToolTip": "Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAAvwFYAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T21:23:44.909Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "VacationCommandHandler.cs",
-              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Employement\\Commands\\VacationCommandHandler.cs",
-              "RelativeDocumentMoniker": "Portal.Application\\Services\\Employement\\Commands\\VacationCommandHandler.cs",
-              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Employement\\Commands\\VacationCommandHandler.cs",
-              "RelativeToolTip": "Portal.Application\\Services\\Employement\\Commands\\VacationCommandHandler.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAMwDQAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T21:23:26.632Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "VacationCommand.cs",
-              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Employement\\Commands\\VacationCommand.cs",
-              "RelativeDocumentMoniker": "Portal.Application\\Services\\Employement\\Commands\\VacationCommand.cs",
-              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Employement\\Commands\\VacationCommand.cs",
-              "RelativeToolTip": "Portal.Application\\Services\\Employement\\Commands\\VacationCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T21:23:23.331Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "Portal.Application\\DependencyInjection.cs",
-              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\DependencyInjection.cs",
-              "RelativeToolTip": "Portal.Application\\DependencyInjection.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAAAA8AAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T21:22:49.908Z",
+              "Title": "RegiserRequest.http",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\RegiserRequest.http",
+              "RelativeDocumentMoniker": "RegiserRequest.http",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\RegiserRequest.http",
+              "RelativeToolTip": "RegiserRequest.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-08-10T20:13:07.051Z",
               "EditorCaption": ""
             }
           ]
