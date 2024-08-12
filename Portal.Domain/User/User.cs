@@ -38,6 +38,9 @@ public class User:AggregateRoot<UserId, Guid>
     {
         return new(UserId.CreateUnique(), email, password,userType, role ?? RoleEnum.NormalUser, profile,code,createdBy,updatedBy);
     }
-    
-    
+    public static User Create(UserId userd, string email, string password, UserType userType, RoleEnum? role, Profile profile, int? code, UserId? createdBy, UserId? updatedBy)
+    {
+        return new(userd, email, password, userType, role ?? RoleEnum.NormalUser, profile, code, createdBy, updatedBy);
+    }
+
 }

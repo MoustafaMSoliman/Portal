@@ -15,11 +15,11 @@ public record VacationResult
     VacationStatus VacationStatus,
     DateTime StartFrom,
     DateTime EndAt,
-    int TotalVacationDays
-//    UserId? AcceptedBy,
-//    DateTime? AcceptedOn,
-//    UserId? ApprovedBy,
-//    DateTime? ApprovedOn,
-//    UserId? RejectedBy,
-//    DateTime? RejectedOn
+    int TotalVacationDays,
+    UserId? AcceptedBy,
+    DateTime? AcceptedOn,
+    UserId? ApprovedBy,
+    DateTime? ApprovedOn,
+    UserId? RejectedBy,
+    DateTime? RejectedOn
 );

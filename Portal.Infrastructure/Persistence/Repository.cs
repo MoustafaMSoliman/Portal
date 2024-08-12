@@ -10,26 +10,15 @@ public class Repository<T, I> : IRepository<T, I> where T : Entity<I> where I : 
 { 
     private readonly List<T> _list= new();
 
-    public void AddNew(T t)
-    {
-        _list.Add(t);
-    }
+    public void AddNew(T t) => _list.Add(t);
+ 
+    public T Find(Func<T, bool> match) => _list.SingleOrDefault(match);
+  
+    public IEnumerable<T> FindAll(Func<T,bool> match) => _list.Where(match);
 
-    public T Find(Func<T, bool> match)
-    {
-        return _list.SingleOrDefault(match);
-        
-    }
+    public IEnumerable<T> GetAll() => _list;
+   
 
-    public IEnumerable<T> GetAll()
-    {
-        return _list;
-    }
-
-    public T GetById(I id)
-    {
-        
-        return _list.SingleOrDefault(e => e.Id == id);
-
-    }
+    public T GetById(I id) => _list.SingleOrDefault(e => e.Id == id);
+   
 }

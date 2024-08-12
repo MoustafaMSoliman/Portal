@@ -16,7 +16,7 @@ public class Employee : User
     public int TotalVacationDaysEmergncy { get; private set; }
 
     private readonly List<Vacation> _vacations = new();
-    public IReadOnlyList<Vacation> VacationsIds => _vacations.AsReadOnly();
+    public IReadOnlyList<Vacation> Vacations => _vacations.AsReadOnly();
     public TimeOnly MustSignInBefore { get; private set; }
     public TimeOnly CanSignOutAfter { get; private set; }
     public int? OvertimeHours {  get; private set; } 
@@ -25,7 +25,8 @@ public class Employee : User
     private readonly List<int> attendanceIds = new();
     public IReadOnlyList<int> AttendanceIds => attendanceIds.AsReadOnly();
     
-    public DepartmentId DepartmentId { get; set; }
+    public DepartmentId DepartmentId { get; private set; } = null!;
+    public Department.Department Department { get; private set; } = null!;
     public ICareerGroup CareerGroup { get; private set; }
 
 

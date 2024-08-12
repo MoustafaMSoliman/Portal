@@ -25,12 +25,12 @@ public class VacationMappingConfig : IRegister
             .Map(dest => dest.StartFrom, src => src.StartFrom)
             .Map(dest => dest.EndAt, src => src.EndAt)
             .Map(dest => dest.TotalVacationDays, src => src.TotalVacationDays)
-            //.Map(dest => dest.AcceptedBy, src => src.AcceptedBy.Value.ToString())
-            //.Map(dest => dest.AcceptedOn, src => src.AcceptedOn)
-            //.Map(dest => dest.ApprovedBy, src => src.ApprovedBy.Value.ToString())
-            //.Map(dest => dest.ApprovedOn, src => src.ApprovedOn)
-            //.Map(dest => dest.RejectedBy, src => src.RejectedBy.Value.ToString())
-            //.Map(dest => dest.RejectedOn, src => src.RejectedOn)
+            .Map(dest => dest.AcceptedBy, src => src.AcceptedBy.Value.ToString())
+            .Map(dest => dest.AcceptedOn, src => src.AcceptedOn)
+            .Map(dest => dest.ApprovedBy, src => src.ApprovedBy.Value.ToString())
+            .Map(dest => dest.ApprovedOn, src => src.ApprovedOn)
+            .Map(dest => dest.RejectedBy, src => src.RejectedBy.Value.ToString())
+            .Map(dest => dest.RejectedOn, src => src.RejectedOn)
             ;
 
     }

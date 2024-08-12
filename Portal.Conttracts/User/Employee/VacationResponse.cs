@@ -9,11 +9,11 @@ public record VacationResponse
     string VacationStatus,
     DateTime StartFrom,
     DateTime EndAt,
-    int TotalVacationDays
-    //string? AcceptedBy,
-    //DateTime? AcceptedOn,
-    //string? ApprovedBy,
-    //DateTime? ApprovedOn,
-    //string? RejectedBy,
-    //DateTime? RejectedOn
+    int TotalVacationDays,
+    string? AcceptedBy,
+    DateTime? AcceptedOn,
+    string? ApprovedBy,
+    DateTime? ApprovedOn,
+    string? RejectedBy,
+    DateTime? RejectedOn
 );

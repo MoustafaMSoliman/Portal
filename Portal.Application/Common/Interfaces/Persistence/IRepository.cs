@@ -10,5 +10,6 @@ public interface IRepository<TId, TIdType> where TId : class where TIdType : not
     TId Find(Func<TId, bool> match);
     void AddNew(TId t);
     IEnumerable<TId> GetAll();
+    IEnumerable<TId> FindAll(Func<TId,bool> perdicate);
 }
 

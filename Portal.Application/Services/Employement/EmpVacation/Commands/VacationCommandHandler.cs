@@ -58,13 +58,13 @@ public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<V
             vacation.VacationStatus,
             vacation.StartFrom,
             vacation.EndAt,
-            vacation.TotalVacationDays
-            //vacation.AcceptedBy,
-            //vacation.AcceptedOn,
-            //vacation.ApprovedBy,
-            //vacation.ApprovedOn,
-            //vacation.RejectedBy,
-            //vacation.RejectedOn
+            vacation.TotalVacationDays,
+            vacation.AcceptedBy ?? UserId.Create(Guid.Empty),
+            vacation.AcceptedOn,
+            vacation.ApprovedBy ?? UserId.Create(Guid.Empty),
+            vacation.ApprovedOn,
+            vacation.RejectedBy ?? UserId.Create(Guid.Empty),
+            vacation.RejectedOn
             );
     }
 }

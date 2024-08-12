@@ -13,23 +13,27 @@ using Portal.Domain.User.Entities;
 using Portal.Domain.Common.Interfaces.User;
 using Portal.Domain.User.Career;
 using Portal.Domain.Department.ValueObjects;
+using Portal.Domain.User.Entities.Employee;
 namespace Portal.Application.Services.Authentication.Commands;
 
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthResult>>
 {
     private readonly IAggregateRootRepository<User,UserId,Guid> _userRepository;
+    private readonly IAggregateRootRepository<Employee, UserId, Guid> _employeeRepository;
+
     private readonly IJWTGenerator _jwtGenerator;
     private static readonly Regex EmailRegex = new Regex(
             @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
     public RegisterCommandHandler(IAggregateRootRepository<User, UserId, Guid> userRepository, IJWTGenerator jwtGenerator
-        //,IEmployeeRepository employeeRepository
+        ,IAggregateRootRepository<Employee, UserId, Guid> employeeRepository
         )
     {
         _userRepository = userRepository;
         _jwtGenerator = jwtGenerator;
-        //_employeeRepository = employeeRepository;
+        _employeeRepository = employeeRepository;
+        
     }
     public async Task<ErrorOr<AuthResult>> Handle(RegisterCommand registerCommand, CancellationToken cancellationToken)
     {
@@ -82,6 +86,16 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         //    return new AuthResult(emp, Token);
         //}
         _userRepository.AddNew(user);
+        if (registerCommand.UserType == UserType.Employee)
+        {
+            var careerTitles = CareerTitle.Create("مهندس شبكات");
+            var carrerSpecialization = CareerSpecialization.Create("يومية",new List<ICareerTitle>{ careerTitles});
+            var carrerGroup = CareerGroup.Create("عقود", new List<ICareerSpecialization>{ carrerSpecialization } );
+
+            _employeeRepository.AddNew(Employee.Create(user, DepartmentId.CreateUnique(), DateTime.Now, carrerGroup
+                ));
+        }
+            
          Token = _jwtGenerator.GenerateToken(user);
         return new AuthResult(user, Token);
     }
