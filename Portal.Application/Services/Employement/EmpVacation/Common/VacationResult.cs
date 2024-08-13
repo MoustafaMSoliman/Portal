@@ -12,7 +12,7 @@ public record VacationResult
     UserId EmployeeId,
     //string EmployeeName,
     VacationType VacationType,
-    VacationStatus VacationStatus,
+    VacationStatus? VacationStatus,
     DateTime StartFrom,
     DateTime EndAt,
     int TotalVacationDays,

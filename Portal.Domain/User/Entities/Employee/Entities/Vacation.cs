@@ -10,7 +10,7 @@ namespace Portal.Domain.User.Entities.Employee.Entities;
 public class Vacation :Entity<VacationId>
 {
     public VacationType VacationType { get; private set; }
-    public VacationStatus VacationStatus { get; private set; }
+    public VacationStatus? VacationStatus { get; private set; }
     public UserId EmployeeId { get; private set; } = null!;
     public DateTime StartFrom { get; private set; }
     public DateTime EndAt { get; private set; }
@@ -26,18 +26,18 @@ public class Vacation :Entity<VacationId>
     private Vacation() { }
 #pragma warning restore CS8618
 
-    private Vacation(VacationId id, VacationType vacationType, UserId employeeId,
+    private Vacation(VacationId id, VacationType vacationType, VacationStatus? vacationStatus, UserId employeeId,
         DateTime startFrom, DateTime endAt)
         :base(id)
     {
         VacationType = vacationType;
-        VacationStatus = VacationStatus.Pending;
+        VacationStatus = vacationStatus ?? Common.Enums.User.Employee.VacationStatus.Pending;
         EmployeeId = employeeId;
         StartFrom = startFrom;
         EndAt = endAt;
         TotalVacationDays = GetTotalVacationDays();
     }
-    private Vacation(VacationId id, VacationType vacationType, UserId employeeId,
+    private Vacation(VacationId id, VacationType vacationType, VacationStatus? vacationStatus, UserId employeeId,
         DateTime startFrom, DateTime endAt, 
         UserId? acceptedBy, DateTime? acceptedOn, UserId? approvedBy, DateTime? approvedOn,
         UserId? rejectedBy, DateTime? rejectedOn)
@@ -45,7 +45,7 @@ public class Vacation :Entity<VacationId>
 
     {
         VacationType = vacationType;
-        VacationStatus=VacationStatus.Pending;
+        VacationStatus= vacationStatus ?? Common.Enums.User.Employee.VacationStatus.Pending;
         EmployeeId = employeeId;
         StartFrom = startFrom;
         EndAt = endAt;
@@ -56,10 +56,10 @@ public class Vacation :Entity<VacationId>
         RejectedBy = rejectedBy;
         RejectedOn = rejectedOn;
     }
-    public static Vacation Create( VacationType vacationType, UserId employeeId,
+    public static Vacation Create( VacationType vacationType, VacationStatus? vacationStatus, UserId employeeId,
         DateTime startFrom, DateTime endAt
        )
-        => new(VacationId.CreateUnique(), vacationType,  employeeId,
+        => new(VacationId.CreateUnique(), vacationType,vacationStatus,null,  employeeId,
          startFrom,  endAt);
     public  void EditVacationDate(DateTime startFrom, DateTime endAt)
     {

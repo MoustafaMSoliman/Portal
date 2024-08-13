@@ -5,6 +5,5 @@ public record VacationRequest
     Guid EmployeeId,
     DateTime StartFrom,
     DateTime EndAt,
-    string VacationType,
-    string VacationStatus
+    string VacationType
 );

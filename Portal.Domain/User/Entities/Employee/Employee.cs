@@ -33,25 +33,25 @@ public class Employee : User
 #pragma warning disable CS8618
     protected internal Employee() { }
 #pragma warning restore CS8618
+   
     protected internal Employee(
-        User user,
+        UserId userId, string email, string password, UserType userType, RoleEnum role, Profile profile, int ? code, UserId? createdBy, UserId? updatedBy,
         DepartmentId departmentId,
         DateTime hireDate,
         ICareerGroup careerGroup
-        ) : base((UserId)user.Id, user.Email, user.Password, UserType.Employee, RoleEnum.NormalUser, user.Profile, user.Code, user.CreatedBy, user.UpdatedBy)
+        ) : base(userId, email, password, userType, role, profile, code, createdBy, updatedBy)
     {
         DepartmentId = departmentId;
         HireDate = hireDate;
         CareerGroup = careerGroup;
     }
-
     public static Employee Create(
         User user,
         DepartmentId departmentId,
         DateTime hireDate,
         ICareerGroup careerGroup)
         => new(
-            user,
+            (UserId)user.Id,user.Email,user.Password,user.UserType,user.Role,user.Profile,user.Code,user.CreatedBy,user.UpdatedBy,
             departmentId,
             hireDate,
             careerGroup

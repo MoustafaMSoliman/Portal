@@ -1,9 +1,0 @@
-Get https://localhost:7181/api/Manager/GetEmployees
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJQb3J0YWwuRG9tYWluLlVzZXIuVmFsdWVPYmplY3RzLlVzZXJJZCIsIm5hbWUiOiJPZGF5IiwiZmFtaWx5X25hbWUiOiJTb2xpbWFuIiwianRpIjoiODA0MzdlMzMtZDA1Zi00NWM0LWFmODQtOTZhZTM0NmIzMjVlIiwiZXhwIjoxNzIzNDY1ODkwLCJpc3MiOiJQb3J0YWwiLCJhdWQiOiJQb3J0YWwifQ.0pCzi0CdXXJerN4RBLBnxpqU9mpRAwDCaGihAEbsfxI
-
-{
-
-  "managerId": "bf4ffece-0eb6-4709-8316-85287d977eb8"
-
-}

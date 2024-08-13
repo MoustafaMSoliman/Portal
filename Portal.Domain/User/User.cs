@@ -2,6 +2,7 @@
 using Portal.Domain.Common.Interfaces.User;
 using Portal.Domain.Common.Models;
 using Portal.Domain.User.ValueObjects;
+using System.Runtime.CompilerServices;
 
 
 
@@ -42,5 +43,8 @@ public class User:AggregateRoot<UserId, Guid>
     {
         return new(userd, email, password, userType, role ?? RoleEnum.NormalUser, profile, code, createdBy, updatedBy);
     }
-
+    public  void SetUserRole(RoleEnum roleEnum)
+    {
+        Role = roleEnum;
+    }
 }

@@ -31,7 +31,8 @@ public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<V
     public async Task<ErrorOr<VacationResult>> Handle(VacationCommand request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        if (_userRepository.GetById(request.EmployeeId) is null)
+        var employee = _userRepository.GetById(request.EmployeeId);
+        if (employee is null)
         {
             return Errors.AuthenticationErrors.InvalidUser;
         }
@@ -45,10 +46,15 @@ public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<V
 
         var vacation = Vacation.Create(
              request.VacationType,
+             request.VacationStatus,
              request.EmployeeId,
              request.StartFrom,
              request.EndAt
          );
+        if (employee.Role == Domain.Common.Enums.RoleEnum.Manager)
+        {
+            vacation.EditVacationStatus(Domain.Common.Enums.User.Employee.VacationStatus.Accepted);
+        }
        _vacationRepository.AddNew( vacation );
 
         return new VacationResult(

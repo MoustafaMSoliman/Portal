@@ -6,7 +6,7 @@ public record VacationResponse
     string EmployeeId,
     //string EmployeeName,
     string VacationType,
-    string VacationStatus,
+    string? VacationStatus,
     DateTime StartFrom,
     DateTime EndAt,
     int TotalVacationDays,

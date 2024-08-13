@@ -14,7 +14,8 @@ public class VacationMappingConfig : IRegister
             .Map(dest => dest.StartFrom, src => src.StartFrom)
             .Map(dest => dest.EndAt, src => src.EndAt)
             .Map(dest => dest.VacationType, src => src.VacationType.ToString())
-            .Map(dest => dest.VacationStatus, src => src.VacationStatus.ToString());
+            //.Map(dest => dest.VacationStatus, src => src.VacationStatus.ToString())
+            ;
 
         config.NewConfig<VacationResult, VacationResponse>()
             .Map(dest => dest.Id, src => src.Id.Value.ToString())

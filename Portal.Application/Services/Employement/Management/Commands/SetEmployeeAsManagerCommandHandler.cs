@@ -67,6 +67,9 @@ public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsM
         var manager = Manager.Create(
             employee
             );
+        //If we use the var employee, no update will done for the repo.
+        _employeessRepository.GetById(command.EmployeeId).SetUserRole( RoleEnum.Manager );
+        _managersRepository.AddNew( manager );
         return new SetEmployeeAsManagerResult(command.AdminId,manager);
     }
 }

@@ -11,6 +11,5 @@ public record VacationCommand
     UserId EmployeeId,
     DateTime StartFrom,
     DateTime EndAt,
-    VacationType VacationType,
-    VacationStatus VacationStatus
+    VacationType VacationType
 ) : IRequest<ErrorOr<VacationResult>>;
