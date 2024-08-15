@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Portal.Application.Common.Interfaces.Persistence;
 using Portal.Domain.User.ValueObjects;
 using Portal.Domain.User;
+using Microsoft.IdentityModel.Tokens;
+using Portal.Conttracts.User;
+using Microsoft.OpenApi.Extensions;
 
 namespace Portal.Api.Controllers
 {
@@ -18,10 +21,31 @@ namespace Portal.Api.Controllers
         {
             _userRepository = userRepository;
         }
-        [HttpGet]
+        [HttpGet("getAllUsers")]
         public  IActionResult GetAllUsers()
         {
-            return Ok(_userRepository.GetAll());
+            List<UserRecordResult> users = new();
+            foreach (var user in _userRepository.GetAll())
+            {
+                users.Add(new UserRecordResult(
+                    user.Id.Value.ToString(),
+                    user.Profile.FirstName,
+                    user.Profile.MiddleName,
+                    user.Profile.LastName,
+                    user.Profile.ArabicName,
+                    user.Profile.Nationality,
+                    user.Profile.NationalId,
+                    user.Profile.Gender.GetDisplayName(),
+                    user.Profile.DateOfBirth,
+                    user.Profile.ContactNumber,
+                    new AddressRecordResult(user.Profile.Address.Street, user.Profile.Address.City, user.Profile.Address.State,user.Profile.Address.PostalCode,user.Profile.Address.Country),
+                    user.Code,
+                    user.Email,
+                    user.Role.GetDisplayName(),
+                    user.Status.GetDisplayName()
+                    ));
+            }
+            return Ok(users);
         }
         
     }

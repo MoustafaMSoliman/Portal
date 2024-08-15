@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using Microsoft.OpenApi.Extensions;
 using Portal.Application.Services.Employement.Management.Commands;
 using Portal.Application.Services.Employement.Management.Common;
 using Portal.Conttracts.User.Management;
@@ -18,7 +19,7 @@ public class AdminMappingConfig : IRegister
             .Map(dest=>dest.ManagerId, src=>src.Manager.Id.Value.ToString())
             .Map(dest=>dest.ManagerFirstName, src=>src.Manager.Profile.FirstName)
             .Map(dest => dest.ManagerLastName, src => src.Manager.Profile.LastName)
-
+            .Map(dest=>dest.Role, src=>src.Manager.Role.GetDisplayName())
             ;
     }
 }

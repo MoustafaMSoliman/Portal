@@ -97,6 +97,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         }
             
          Token = _jwtGenerator.GenerateToken(user);
+        
         return new AuthResult(user, Token);
     }
 

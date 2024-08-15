@@ -50,14 +50,7 @@ namespace Portal.Api.Controllers
             return result
              ;
         }
-        [HttpPost("getAllUsers")]
-        public async Task<IActionResult> GetAllUsers()
-        {
-            await Task.CompletedTask;
-
-            return Ok(_usersRepository.GetAll())
-                ;
-        }
+        
         [HttpPost("getAllManagers")]
         public async Task<IActionResult> GetAllManagers()
         {

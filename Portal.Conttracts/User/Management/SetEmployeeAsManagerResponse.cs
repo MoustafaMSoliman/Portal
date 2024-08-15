@@ -5,5 +5,6 @@ public record SetEmployeeAsManagerResponse
   string AdminId,
   string ManagerId,
   string ManagerFirstName,
-  string ManagerLastName
+  string ManagerLastName,
+  string Role
 );

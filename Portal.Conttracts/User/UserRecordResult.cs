@@ -18,20 +18,10 @@ public record UserRecordResult
     AddressRecordResult Address,
     int Code,
     string Email,
-    string Password,
     string Role,
-    string Status,
-    List<Vacation> Vacations
+    string Status
     );
 
-public record Vacation
-    (
-      int Id,
-      string VacationType,
-      string VacationStatus,
-      DateTime StartFrom,
-      DateTime EndAt
-    );
 public record AddressRecordResult
     (
      string Street,

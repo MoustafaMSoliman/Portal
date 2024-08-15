@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using Microsoft.OpenApi.Extensions;
 using Portal.Application.Services.Authentication.Commands;
 using Portal.Application.Services.Authentication.Common;
 using Portal.Application.Services.Authentication.Queries;
@@ -27,7 +28,7 @@ public class AuthenticationMappingConfig : IRegister
             .Map(dest => dest.ContactNumber, src => src.User.Profile.ContactNumber)
             .Map(dest=>dest.Email, src=>src.User.Email)
             .Map(dest=>dest.UserType, src => src.User.UserType.ToString())
-            .Map(dest=>dest.Role, src=>src.User.Role.ToString())
+            .Map(dest=>dest.Role, src=>src.User.Role.GetDisplayName())
             .Map(dest=>dest.Token, src=>src.Token)
             ;
 

@@ -26,6 +26,17 @@ public class Vacation :Entity<VacationId>
     private Vacation() { }
 #pragma warning restore CS8618
 
+    private Vacation(VacationId id, VacationType vacationType,  UserId employeeId,
+        DateTime startFrom, DateTime endAt)
+        : base(id)
+    {
+        VacationType = vacationType;
+        VacationStatus = Common.Enums.User.Employee.VacationStatus.Pending;
+        EmployeeId = employeeId;
+        StartFrom = startFrom;
+        EndAt = endAt;
+        TotalVacationDays = GetTotalVacationDays();
+    }
     private Vacation(VacationId id, VacationType vacationType, VacationStatus? vacationStatus, UserId employeeId,
         DateTime startFrom, DateTime endAt)
         :base(id)
@@ -56,10 +67,15 @@ public class Vacation :Entity<VacationId>
         RejectedBy = rejectedBy;
         RejectedOn = rejectedOn;
     }
+    public static Vacation Create(VacationType vacationType,  UserId employeeId,
+        DateTime startFrom, DateTime endAt
+       )
+        => new(VacationId.CreateUnique(), vacationType,  employeeId,
+         startFrom, endAt);
     public static Vacation Create( VacationType vacationType, VacationStatus? vacationStatus, UserId employeeId,
         DateTime startFrom, DateTime endAt
        )
-        => new(VacationId.CreateUnique(), vacationType,vacationStatus,null,  employeeId,
+        => new(VacationId.CreateUnique(), vacationType,vacationStatus,  employeeId,
          startFrom,  endAt);
     public  void EditVacationDate(DateTime startFrom, DateTime endAt)
     {
@@ -68,7 +84,7 @@ public class Vacation :Entity<VacationId>
     }
     public void EditVacationStatus(VacationStatus status)
     {
-        VacationStatus = status;
+        this.VacationStatus = status;
         
     }
     public  int GetTotalVacationDays() => (int)(EndAt - StartFrom).TotalDays+1;
