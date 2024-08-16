@@ -61,11 +61,11 @@ public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsM
             adminUser
             ));
 
-        if (_adminsRepository.GetById(command.AdminId) is null)
-            return Errors.AdminsErrors.NotAdmin;
-        if (_employeessRepository.GetById(command.EmployeeId) is null)
+        //if (_adminsRepository.GetById(command.AdminId) is null)
+        //    return Errors.AdminsErrors.NotAdmin;
+        if (_employeessRepository.Find(e=>e.Id==command.EmployeeId) is null)
             return Errors.AuthenticationErrors.InvalidUser;
-        if (_managersRepository.GetById(command.EmployeeId) is not null)
+        if (_managersRepository.Find(m=>m.Id==command.EmployeeId) is not null)
             return Errors.ManagementErrors.AlreadyManager;
       
        

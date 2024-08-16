@@ -11,10 +11,10 @@ namespace Portal.Application.Services.Authentication.Queries;
 
 public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthResult>>
 {
-    private readonly IRepository<User, UserId> _userRepository;
+    private readonly IAggregateRootRepository<User, UserId,Guid> _userRepository;
     private readonly IJWTGenerator _jwtGenerator;
 
-    public LoginQueryHandler(IRepository<User, UserId> userRepository, IJWTGenerator jWTGenerator)
+    public LoginQueryHandler(IAggregateRootRepository<User, UserId, Guid> userRepository, IJWTGenerator jWTGenerator)
     {
         _userRepository = userRepository;
         _jwtGenerator = jWTGenerator;

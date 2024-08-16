@@ -14,6 +14,10 @@ public static partial class Errors
        code: "ManagementErrors.AlreadyManager",
        description: "This User Id is already a manager"
        );
+        public static Error DuplicateDepartment => Error.Conflict(
+             code:"ManagementErrors.DuplicateDepartment",
+             description:"This Department is already exists"
+            );
     }
 
 }

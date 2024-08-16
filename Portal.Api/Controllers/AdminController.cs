@@ -35,6 +35,12 @@ namespace Portal.Api.Controllers
                 errors=>Problem(errors)
             );
         }
+        [HttpPost("CreateDepartment")]
+        public async Task<IActionResult> CreateDepartment()
+        {
+            await Task.CompletedTask;
+            return Ok();
+        }
        
     }
 }

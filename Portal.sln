@@ -16,8 +16,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{92CF6387-F7F7-42B0-B8FB-738BB321F212}"
 	ProjectSection(SolutionItems) = preProject
 		GetAllUsers.http = GetAllUsers.http
-		RegiserRequest.http = RegiserRequest.http
 		GetManagerEmployees.http = GetManagerEmployees.http
+		LoginRequest.http = LoginRequest.http
+		RegiserRequest.http = RegiserRequest.http
 		SetEmployeeAsManager.http = SetEmployeeAsManager.http
 		Vacation.http = Vacation.http
 	EndProjectSection
