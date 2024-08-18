@@ -31,4 +31,8 @@ public class Department : AggregateRoot<DepartmentId, Guid>
     }
     public static Department Create(string departmentName, UserId? managerId, UserId? secreteryId)
         => new(DepartmentId.CreateUnique(),departmentName, managerId, secreteryId);
+    public static void AddEmployee(DepartmentId id, Employee employee)
+    {
+        
+    }
 }

@@ -1,10 +1,7 @@
-POST https://localhost:7181/api/Employees/applyVacation
+GET https://localhost:7181/api/Employees/GetVacations
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJQb3J0YWwuRG9tYWluLlVzZXIuVmFsdWVPYmplY3RzLlVzZXJJZCIsIm5hbWUiOiJPZGF5IiwiZmFtaWx5X25hbWUiOiJTb2xpbWFuIiwianRpIjoiMTFkMDRlZjktNzUwNS00OTM5LTgzNzYtNGQ1YTYzNmJiMTU4IiwiZXhwIjoxNzI0MDE0MzkwLCJpc3MiOiJQb3J0YWwiLCJhdWQiOiJQb3J0YWwifQ.AcVCg_RfOhPXietMCYqsZQtQXRFclPACGotpdDQxjbU
 
 {
-  "employeeId": "e5391ebb-3bd6-49c8-bc70-d3d760a3997a",
-  "startFrom": "2024-08-08T22:23:13.534Z",
-  "endAt": "2024-08-09T22:23:13.534Z",
-  "vacationType": "≈⁄ Ì«œÌ"
+  "employeeId": "e5391ebb-3bd6-49c8-bc70-d3d760a3997a"
 }

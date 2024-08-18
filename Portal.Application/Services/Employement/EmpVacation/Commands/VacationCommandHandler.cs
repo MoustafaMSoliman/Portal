@@ -59,7 +59,7 @@ public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<V
 
         return new VacationResult(
             vacation.Id,
-            vacation.EmployeeId,
+            //vacation.EmployeeId,
             vacation.VacationType,
             vacation.VacationStatus,
             vacation.StartFrom,

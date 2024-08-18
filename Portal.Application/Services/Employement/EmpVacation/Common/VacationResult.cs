@@ -9,7 +9,7 @@ public record VacationResult
 (
     //Vacation Vacation
     VacationId Id,
-    UserId EmployeeId,
+    //UserId EmployeeId,
     //string EmployeeName,
     VacationType VacationType,
     VacationStatus? VacationStatus,
