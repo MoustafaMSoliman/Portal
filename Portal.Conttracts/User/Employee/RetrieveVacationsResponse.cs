@@ -4,6 +4,6 @@ public record RetrieveVacationsResponse
 (
     string EmployeeId,
     string EmployeeName,
-    List<VacationResponse> Vacations
+    List<VacationResponse>? Vacations
 );
 

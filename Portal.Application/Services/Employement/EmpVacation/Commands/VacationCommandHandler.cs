@@ -4,6 +4,7 @@ using Portal.Application.Common.Interfaces.Persistence;
 using Portal.Application.Services.Employement.EmpVacation.Common;
 using Portal.Domain.Common.Errors;
 using Portal.Domain.User;
+using Portal.Domain.User.Entities.Employee;
 using Portal.Domain.User.Entities.Employee.Entities;
 using Portal.Domain.User.Entities.Employee.ValueObjects;
 using Portal.Domain.User.ValueObjects;
@@ -15,16 +16,16 @@ namespace Portal.Application.Services.Employement.EmpVacation.Commands;
 
 public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<VacationResult>>
 {
-    private readonly IAggregateRootRepository<User, UserId, Guid> _userRepository;
+    private readonly IAggregateRootRepository<Employee, UserId, Guid> _employeeRepository;
     private readonly IRepository<Vacation,VacationId> _vacationRepository;
     //private readonly INotification _notification;
 
-    public VacationCommandHandler(IAggregateRootRepository<User, UserId, Guid> userRepository
+    public VacationCommandHandler(IAggregateRootRepository<Employee, UserId, Guid> employeeRepository
         , IRepository<Vacation, VacationId> vacationRepository
         //, INotification notification
         )
     {
-        _userRepository = userRepository;
+        _employeeRepository = employeeRepository;
         _vacationRepository = vacationRepository;
         //_notification = notification;
     }
@@ -32,7 +33,7 @@ public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<V
     {
         await Task.CompletedTask;
          
-        if (_userRepository.GetById(request.EmployeeId) is null)
+        if (_employeeRepository.GetById(request.EmployeeId) is null)
         {
             return Errors.AuthenticationErrors.InvalidUser;
         }
@@ -51,15 +52,14 @@ public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<V
              request.StartFrom,
              request.EndAt
          );
-        if (_userRepository.GetById(request.EmployeeId).Role == Domain.Common.Enums.RoleEnum.Manager)
+        if (_employeeRepository.GetById(request.EmployeeId).Role == Domain.Common.Enums.RoleEnum.Manager)
         {
             vacation.EditVacationStatus(Domain.Common.Enums.User.Employee.VacationStatus.Accepted);
         }
        _vacationRepository.AddNew( vacation );
-
+        _employeeRepository.GetById(request.EmployeeId).Vacations.Add( vacation );  
         return new VacationResult(
             vacation.Id,
-            //vacation.EmployeeId,
             vacation.VacationType,
             vacation.VacationStatus,
             vacation.StartFrom,

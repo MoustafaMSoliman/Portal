@@ -60,11 +60,11 @@ public class Vacation :Entity<VacationId>
         EmployeeId = employeeId;
         StartFrom = startFrom;
         EndAt = endAt;
-        AcceptedBy = acceptedBy;
+        AcceptedBy = acceptedBy ;
         AcceptedOn = acceptedOn;
-        ApprovedBy = approvedBy;
+        ApprovedBy = approvedBy ;
         ApprovedOn = approvedOn;
-        RejectedBy = rejectedBy;
+        RejectedBy = rejectedBy ;
         RejectedOn = rejectedOn;
     }
     public static Vacation Create(VacationType vacationType,  UserId employeeId,

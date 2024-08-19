@@ -7,7 +7,8 @@ namespace Portal.Application.Services.Employement.EmpVacation.Queries;
 
 public record GetEmployeeVacationsQuery
 (
-    UserId EmployeeId,
+    UserId EmployeeId
+    ,
     DateTime? StartFrom,
     DateTime? EndAt
 

@@ -2,7 +2,8 @@
 
 public record RetrieveEmployeeVacationsRequest
 (
-    Guid EmployeeId,
+    Guid EmployeeId
+    ,
     DateTime? StartFrom,
     DateTime? EndAt
 );

@@ -7,10 +7,7 @@ namespace Portal.Application.Services.Employement.EmpVacation.Common;
 
 public record VacationResult
 (
-    //Vacation Vacation
     VacationId Id,
-    //UserId EmployeeId,
-    //string EmployeeName,
     VacationType VacationType,
     VacationStatus? VacationStatus,
     DateTime StartFrom,

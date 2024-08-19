@@ -4,6 +4,8 @@ using Portal.Application.Services.Employement.EmpVacation.Commands;
 using Portal.Application.Services.Employement.EmpVacation.Common;
 using Portal.Application.Services.Employement.EmpVacation.Queries;
 using Portal.Conttracts.User.Employee;
+using Portal.Domain.Common.Enums.User.Employee;
+using Portal.Domain.User.Entities.Employee.Entities;
 
 namespace Portal.Api.Common.Mapping;
 
@@ -21,8 +23,6 @@ public class VacationMappingConfig : IRegister
 
         config.NewConfig<VacationResult, VacationResponse>()
             .Map(dest => dest.Id, src => src.Id.Value.ToString())
-            //.Map(dest => dest.EmployeeId, src => src.EmployeeId.Value.ToString())
-            //.Map(dest => dest.EmployeeName, src => src.Vacation.EmployeeId.Value.ToString())
             .Map(dest => dest.VacationType, src => src.VacationType.GetDisplayName())
             .Map(dest => dest.VacationStatus, src => src.VacationStatus.GetDisplayName())
             .Map(dest => dest.StartFrom, src => src.StartFrom)
@@ -42,7 +42,7 @@ public class VacationMappingConfig : IRegister
             ;
         config.NewConfig<RetrieveEmployeeVacationsRequest, GetEmployeeVacationsQuery>()
             .Map(dest => dest.EmployeeId.Value, src => src.EmployeeId)
-            .Map(dest=>dest.StartFrom, src=>src.StartFrom)
+            .Map(dest => dest.StartFrom, src => src.StartFrom)
             .Map(dest => dest.EndAt, src => src.EndAt)
             ;
     }

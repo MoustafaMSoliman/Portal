@@ -3,8 +3,6 @@
 public record VacationResponse
 (
     string Id,
-    //string EmployeeId,
-    //string EmployeeName,
     string VacationType,
     string? VacationStatus,
     DateTime StartFrom,

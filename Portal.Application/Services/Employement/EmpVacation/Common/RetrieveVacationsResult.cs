@@ -7,5 +7,5 @@ public record RetrieveVacationsResult
 (
    UserId EmployeeId,
    string EmployeeName,
-   List<VacationResult> Vacations 
+   List<VacationResult>? Vacations 
 );
