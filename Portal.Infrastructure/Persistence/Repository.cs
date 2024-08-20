@@ -1,4 +1,5 @@
-﻿using Portal.Application.Common.Interfaces.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+using Portal.Application.Common.Interfaces.Persistence;
 using Portal.Domain.Common.Models;
 using Portal.Domain.User;
 using System.Linq;
@@ -7,18 +8,27 @@ using System.Linq.Expressions;
 namespace Portal.Infrastructure.Persistence;
 
 public class Repository<T, I> : IRepository<T, I> where T : Entity<I> where I : class
-{ 
-    private readonly List<T> _list= new();
+{
+    //private readonly List<T> _list= new();
+    private readonly PortalDbContext _dbContext;
+    public Repository(PortalDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
 
-    public void AddNew(T t) => _list.Add(t);
- 
-    public T Find(Func<T, bool> match) => _list.SingleOrDefault(match);
+    public void AddNew(T t)
+    {
+        _dbContext.Add(t);
+        _dbContext.SaveChanges();   
+    }
+
+    public T Find(Func<T, bool> match) => _dbContext.Set<T>().SingleOrDefault(match);
   
-    public IEnumerable<T> FindAll(Func<T,bool> match) => _list.Where(match);
+    public IEnumerable<T> FindAll(Func<T,bool> match) => _dbContext.Set<T>().Where(match);
 
-    public IEnumerable<T> GetAll() => _list;
+    public IEnumerable<T> GetAll() => _dbContext.Set<T>();
    
 
-    public T GetById(I id) => _list.SingleOrDefault(e => e.Id == id);
+    public T GetById(I id) => _dbContext.Set<T>().SingleOrDefault(e => e.Id == id);
    
 }

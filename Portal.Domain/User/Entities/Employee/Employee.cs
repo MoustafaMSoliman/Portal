@@ -77,4 +77,8 @@ public class Employee : User
     {
         
     }
+    public void ChangeDepartment(DepartmentId departmentId)
+    {
+        DepartmentId = departmentId;
+    }
 }

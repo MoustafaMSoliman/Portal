@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -20,7 +21,7 @@ public static class DependencyInjection
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         services.AddSingleton(typeof(IRepository<,>),typeof(Repository<,>));
         services.AddSingleton(typeof(IAggregateRootRepository<,,>), typeof(AggregateRootRepository<,,>));
-
+        services.AddDbContext<PortalDbContext>(options => options.UseSqlServer());
 
 
 

@@ -16,18 +16,19 @@ public class Manager : Employee
     protected Manager() { }
 #pragma warning restore CS8618
 
-    protected Manager(Employee employee)
+    protected Manager(Employee employee, DepartmentId departmentId)
         : base((UserId)employee.Id,employee.Email,employee.Password,employee.UserType,RoleEnum.Manager,employee.Profile,
-            employee.Code,employee.CreatedBy,employee.UpdatedBy,employee.DepartmentId,employee.HireDate,employee.CareerGroup)
+            employee.Code,employee.CreatedBy,employee.UpdatedBy,departmentId,employee.HireDate,employee.CareerGroup)
     {
-        
+        employee.ChangeDepartment(departmentId);
 
     }
     
     public static Manager Create(
-        Employee employee
+        Employee employee,
+        DepartmentId departmentId
         )
-        => new(employee);
+        => new(employee, departmentId);
    
 
 }
