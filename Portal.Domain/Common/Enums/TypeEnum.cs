@@ -1,6 +1,6 @@
 ﻿namespace Portal.Domain.Common.Enums;
 
-public enum UserType
+public enum TypeEnum
 {
     AcademicStaff,
     Employee,

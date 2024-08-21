@@ -16,6 +16,10 @@ public class ProfileConfig : IEntityTypeConfiguration<Profile>
             nav.HasKey(x => x.Id);
             nav.Property(x => x.Name).HasColumnName("NationName");
         });
+        builder.OwnsOne(x=>x.Address, add => {
+            add.ToTable("Addresses");
+            
+        });
            
     }
 }

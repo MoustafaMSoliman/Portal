@@ -24,11 +24,26 @@ public class UserConfig : IEntityTypeConfiguration<User>
             .WithOne(p=>p.User)
             .HasForeignKey<User>(u=>u.ProfileId)
             .IsRequired(true);
+
         builder.OwnsOne(x=>x.UserRole, r => {
             r.ToTable("UserRoles");
             r.HasKey(a => a.Id);
-            r.Property(x=>x.Role)
-            .HasColumnName("Role");
+            r.Property(x=>x.Value)
+               .HasColumnName("UserRole");
+        });
+
+        builder.OwnsOne(x => x.UserType, r => {
+            r.ToTable("UserTypes");
+            r.HasKey(a => a.Id);
+            r.Property(x => x.Value)
+               .HasColumnName("UserType");
+        });
+
+        builder.OwnsOne(x => x.UserStatus, r => {
+            r.ToTable("UserStatuses");
+            r.HasKey(a => a.Id);
+            r.Property(x => x.Value)
+               .HasColumnName("UserStatus");
         });
 
         builder.Property(x => x.CreatedBy)

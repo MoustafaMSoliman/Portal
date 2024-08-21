@@ -1,34 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\",
+  "WorkspaceRootPath": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\valueobjects\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\valueobjects\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.domain\\user\\valueobjects\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\valueobjects\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\valueobjects\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\valueobjects\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.infrastructure\\configuration\\userconfiguration\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.infrastructure\\configuration\\userconfiguration\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\configuration\\userconfiguration\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\common\\enums\\roleenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\common\\enums\\roleenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\valueobjects\\userid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\valueobjects\\userid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.infrastructure\\configuration\\userconfiguration\\profileconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.infrastructure\\configuration\\userconfiguration\\profileconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\configuration\\userconfiguration\\profileconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.domain\\user\\valueobjects\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\valueobjects\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.domain\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,15 +30,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Profile.cs",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Domain\\User\\ValueObjects\\Profile.cs",
+              "RelativeDocumentMoniker": "Portal.Domain\\User\\ValueObjects\\Profile.cs",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Domain\\User\\ValueObjects\\Profile.cs",
+              "RelativeToolTip": "Portal.Domain\\User\\ValueObjects\\Profile.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAA4wAkAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T19:18:05.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Address.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\ValueObjects\\Address.cs",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Domain\\User\\ValueObjects\\Address.cs",
               "RelativeDocumentMoniker": "Portal.Domain\\User\\ValueObjects\\Address.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\ValueObjects\\Address.cs",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Domain\\User\\ValueObjects\\Address.cs",
               "RelativeToolTip": "Portal.Domain\\User\\ValueObjects\\Address.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -55,78 +60,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RoleEnum.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\Common\\Enums\\RoleEnum.cs",
-              "RelativeDocumentMoniker": "Portal.Domain\\Common\\Enums\\RoleEnum.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\Common\\Enums\\RoleEnum.cs",
-              "RelativeToolTip": "Portal.Domain\\Common\\Enums\\RoleEnum.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T11:41:47.19Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserRole.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\ValueObjects\\UserRole.cs",
-              "RelativeDocumentMoniker": "Portal.Domain\\User\\ValueObjects\\UserRole.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\ValueObjects\\UserRole.cs",
-              "RelativeToolTip": "Portal.Domain\\User\\ValueObjects\\UserRole.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T11:40:51.668Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserId.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\ValueObjects\\UserId.cs",
-              "RelativeDocumentMoniker": "Portal.Domain\\User\\ValueObjects\\UserId.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\ValueObjects\\UserId.cs",
-              "RelativeToolTip": "Portal.Domain\\User\\ValueObjects\\UserId.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T11:30:53.144Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "ProfileConfig.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\ProfileConfig.cs",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\ProfileConfig.cs",
               "RelativeDocumentMoniker": "Portal.Infrastructure\\Configuration\\UserConfiguration\\ProfileConfig.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\ProfileConfig.cs",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\ProfileConfig.cs",
               "RelativeToolTip": "Portal.Infrastructure\\Configuration\\UserConfiguration\\ProfileConfig.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-21T11:23:45.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "User.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\User.cs",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Domain\\User\\User.cs",
               "RelativeDocumentMoniker": "Portal.Domain\\User\\User.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\User.cs",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Domain\\User\\User.cs",
               "RelativeToolTip": "Portal.Domain\\User\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAYAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-21T11:22:16.759Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "UserConfig.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\UserConfig.cs",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\UserConfig.cs",
               "RelativeDocumentMoniker": "Portal.Infrastructure\\Configuration\\UserConfiguration\\UserConfig.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\UserConfig.cs",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\UserConfig.cs",
               "RelativeToolTip": "Portal.Infrastructure\\Configuration\\UserConfiguration\\UserConfig.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAA6wBwAAAAgAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAywCoAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-21T11:21:22.431Z",
               "EditorCaption": ""

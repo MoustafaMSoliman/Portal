@@ -1,6 +1,6 @@
 ﻿namespace Portal.Domain.Common.Enums;
 
-public enum UserStatus
+public enum StatusEnum
 {
     Active,
     Inactive

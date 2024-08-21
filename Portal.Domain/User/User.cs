@@ -17,35 +17,41 @@ public class User:AggregateRoot<UserId, Guid>
     public string Password { get; private set; } = null!;
     public UserType UserType { get; private set; }
     public UserRole UserRole { get; private set; }
-    public UserStatus Status { get; private set; }
+    public UserStatus UserStatus { get; private set; }
     public UserId? CreatedBy { get;  set; }
     public UserId? UpdatedBy { get; set; }
 
 #pragma warning disable CS8618
     protected internal User() { }
 #pragma warning restore CS8618
-    protected internal User(UserId id,string email, string password,UserType userType, RoleEnum role, Profile profile,int? code, UserId? createdBy, UserId? updatedBy)
+    protected internal User(UserId id,string email, string password,UserType userType, UserRole role, Profile profile,int? code, UserId? createdBy, UserId? updatedBy)
     {
         Id = id;
         Code = code ?? 1;
         Email = email; 
         Password = password;
         UserType = userType;
-        Role = role ;
+        UserRole = role ;
         Profile = profile;
         CreatedBy = createdBy ?? id;
         UpdatedBy = updatedBy ?? id;
     }
-    public static User Create(string email, string password,UserType userType, RoleEnum? role, Profile profile, int? code, UserId? createdBy, UserId? updatedBy)
+    public static User Create(string email, string password,UserType userType, UserRole? role, Profile profile, int? code, UserId? createdBy, UserId? updatedBy)
     {
-        return new(UserId.CreateUnique(), email, password,userType, role ?? RoleEnum.NormalUser, profile,code,createdBy,updatedBy);
+        return new(
+            UserId.CreateUnique(), 
+            email, password,
+            userType,
+            role,
+            profile,
+            code,
+            createdBy,
+            updatedBy
+            );
     }
-    public static User Create(UserId userd, string email, string password, UserType userType, RoleEnum? role, Profile profile, int? code, UserId? createdBy, UserId? updatedBy)
+    public static User Create(UserId userd, string email, string password, UserType userType, UserRole role, Profile profile, int? code, UserId? createdBy, UserId? updatedBy)
     {
-        return new(userd, email, password, userType, role ?? RoleEnum.NormalUser, profile, code, createdBy, updatedBy);
+        return new(userd, email, password, userType, role , profile, code, createdBy, updatedBy);
     }
-    public  void SetUserRole(RoleEnum roleEnum)
-    {
-        Role = roleEnum;
-    }
+   
 }

@@ -7,7 +7,6 @@ public class Profile : ValueObject
 {
     public int Id { get; set; }
     public User User { get; set; } = null!;
-
     public string FirstName { get; private  set; } = null!;
     public string MiddleName { get; private set; } = null!;
     public string LastName { get; private set; } = null!;

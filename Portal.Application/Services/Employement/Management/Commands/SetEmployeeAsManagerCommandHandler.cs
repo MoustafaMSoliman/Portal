@@ -37,7 +37,7 @@ public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsM
         await Task.CompletedTask;
 
         var adminUser = User.Create(UserId.Create(Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6")),
-                "admin1@portal.com", "P2ssw0rd", Domain.Common.Enums.UserType.Employee,
+                "admin1@portal.com", "P2ssw0rd", Domain.Common.Enums.TypeEnum.Employee,
                                                  RoleEnum.Administrator, Profile.Create(
                                                       "Moustafa",
                                                       "Mahmood",
