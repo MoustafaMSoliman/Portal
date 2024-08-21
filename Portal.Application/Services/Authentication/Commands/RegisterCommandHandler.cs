@@ -18,8 +18,9 @@ namespace Portal.Application.Services.Authentication.Commands;
 
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthResult>>
 {
-    private readonly IAggregateRootRepository<User,UserId,Guid> _userRepository;
+    private readonly IAggregateRootRepository<User, UserId, Guid> _userRepository;
     private readonly IAggregateRootRepository<Employee, UserId, Guid> _employeeRepository;
+    //private readonly PortalDbContext _dbContext;
 
     private readonly IJWTGenerator _jwtGenerator;
     private static readonly Regex EmailRegex = new Regex(
@@ -57,7 +58,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
               registerCommand.MiddleName,
               registerCommand.LastName,
               registerCommand.ArabicName,
-              registerCommand.Nationality,
+                Nationality.Create(registerCommand.Nationality),
               registerCommand.NationalId,
               registerCommand.Gender,
               registerCommand.DateOfBirth,

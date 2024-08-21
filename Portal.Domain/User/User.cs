@@ -16,7 +16,7 @@ public class User:AggregateRoot<UserId, Guid>
     public string Email { get; private set; } = null!;
     public string Password { get; private set; } = null!;
     public UserType UserType { get; private set; }
-    public RoleEnum Role { get; private set; }
+    public UserRole UserRole { get; private set; }
     public UserStatus Status { get; private set; }
     public UserId? CreatedBy { get;  set; }
     public UserId? UpdatedBy { get; set; }

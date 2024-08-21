@@ -12,7 +12,8 @@ public class Profile : ValueObject
     public string MiddleName { get; private set; } = null!;
     public string LastName { get; private set; } = null!;
     public string ArabicName { get; private set; } = null!;
-    public string Nationality {  get; private set; } = null!;   
+    public int NationalityId {  get; private set; }
+    public Nationality Nationality { get; private set; }    
     public long NationalId { get; private set; }
     public Gender Gender { get; private set; }
     public DateTime DateOfBirth { get; private set; }
@@ -23,7 +24,7 @@ public class Profile : ValueObject
     private Profile() { }
 #pragma warning restore CS8618
     private Profile(string firstName,string middleName, string lastName, string arabicName,
-        string nationality, long nationalId, Gender gender,
+        Nationality nationality, long nationalId, Gender gender,
         DateTime dateOfBirth, string contactNumber, Address address)
     {
         FirstName = firstName;
@@ -40,7 +41,7 @@ public class Profile : ValueObject
 
     public static Profile Create(
        string firstName, string middleName, string lastName, string arabicName,
-        string nationality, long nationalId, Gender gender,
+        Nationality nationality, long nationalId, Gender gender,
         DateTime dateOfBirth, string contactNumber, Address address)
         =>new(firstName, middleName, lastName, arabicName, nationality, nationalId, gender, dateOfBirth, contactNumber, address);
 

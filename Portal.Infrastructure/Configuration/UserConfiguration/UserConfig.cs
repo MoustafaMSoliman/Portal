@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Portal.Domain.Common.Enums;
 using Portal.Domain.User;
 using Portal.Domain.User.ValueObjects;
 
@@ -23,7 +24,18 @@ public class UserConfig : IEntityTypeConfiguration<User>
             .WithOne(p=>p.User)
             .HasForeignKey<User>(u=>u.ProfileId)
             .IsRequired(true);
-       
+        builder.OwnsOne(x=>x.UserRole, r => {
+            r.ToTable("UserRoles");
+            r.HasKey(a => a.Id);
+            r.Property(x=>x.Role)
+            .HasColumnName("Role");
+        });
+
+        builder.Property(x => x.CreatedBy)
+            .HasConversion(id => id.Value, value => UserId.Create(value));
+        builder.Property(x => x.UpdatedBy)
+            .HasConversion(id => id.Value, value => UserId.Create(value));
+
 
     }
     

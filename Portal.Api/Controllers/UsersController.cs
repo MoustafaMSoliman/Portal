@@ -33,7 +33,7 @@ namespace Portal.Api.Controllers
                     user.Profile.MiddleName,
                     user.Profile.LastName,
                     user.Profile.ArabicName,
-                    user.Profile.Nationality,
+                    user.Profile.Nationality.Name,
                     user.Profile.NationalId,
                     user.Profile.Gender.GetDisplayName(),
                     user.Profile.DateOfBirth,

@@ -14,11 +14,13 @@ public class UserId : AggregateRootId<Guid>
     {
         Value = id;
     }
+    
 
     public static UserId CreateUnique() 
         =>new(Guid.NewGuid());
     public static UserId Create(Guid id)
         =>new(id);
+  
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;

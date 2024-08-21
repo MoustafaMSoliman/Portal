@@ -43,7 +43,7 @@ public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsM
                                                       "Mahmood",
                                                       "Soliman",
                                                       "مصطفي محمود سليمان",
-                                                      "egyptian",
+                                                      Nationality.Create("egyptian"),
                                                       12344567889899,
                                                       Gender.Male,
                                                       DateTime.Now,
@@ -74,7 +74,8 @@ public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsM
         _usersRepository.GetById(command.EmployeeId).SetUserRole(RoleEnum.Manager);
 
         _managersRepository.AddNew(Manager.Create(
-             _employeessRepository.GetById(command.EmployeeId)
+             _employeessRepository.GetById(command.EmployeeId),
+             _employeessRepository.GetById(command.EmployeeId).DepartmentId
             ));
         return new SetEmployeeAsManagerResult(command.AdminId,
             _employeessRepository.GetById(command.EmployeeId));
