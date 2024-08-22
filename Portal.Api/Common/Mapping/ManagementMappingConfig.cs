@@ -42,7 +42,7 @@ namespace Portal.Api.Common.Mapping
             config.NewConfig<Employee, DepartmentEmployees>()
                 .Map(dest=>dest.EmployeeId, src=>src.Id.Value.ToString())
                 .Map(dest=>dest.EmployeeName, src=>src.Profile.FirstName)
-                .Map(dest=>dest.Role, src=>src.Role.GetDisplayName());
+                .Map(dest=>dest.Role, src=>src.UserRole.Value.GetDisplayName());
         }
     }
 }

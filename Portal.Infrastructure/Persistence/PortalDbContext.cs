@@ -5,6 +5,7 @@ using Portal.Domain.User;
 using Portal.Domain.User.Entities.Employee;
 using Portal.Domain.User.Entities.Employee.Entities;
 using Portal.Domain.User.ValueObjects;
+using Portal.Infrastructure.Configuration.UserConfiguration;
 using Department = Portal.Domain.Department.Department;
 
 namespace Portal.Infrastructure.Persistence;
@@ -24,5 +25,14 @@ public class PortalDbContext : DbContext
         : base(dbContextOptions)
     {
         
+    }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserConfig).Assembly);
+    }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
     }
 }

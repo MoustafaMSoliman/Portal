@@ -52,7 +52,7 @@ public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<V
              request.StartFrom,
              request.EndAt
          );
-        if (_employeeRepository.GetById(request.EmployeeId).Role == Domain.Common.Enums.RoleEnum.Manager)
+        if (_employeeRepository.GetById(request.EmployeeId).UserRole.Value == Domain.Common.Enums.RoleEnum.Manager)
         {
             vacation.EditVacationStatus(Domain.Common.Enums.User.Employee.VacationStatus.Accepted);
         }

@@ -26,9 +26,9 @@ public class AuthenticationMappingConfig : IRegister
             .Map(dest => dest.Gender, src => src.User.Profile.Gender.ToString())
             .Map(dest => dest.DateOfBirth, src => src.User.Profile.DateOfBirth)
             .Map(dest => dest.ContactNumber, src => src.User.Profile.ContactNumber)
-            .Map(dest=>dest.Email, src=>src.User.Email)
-            .Map(dest=>dest.UserType, src => src.User.UserType.ToString())
-            .Map(dest=>dest.Role, src=>src.User.Role.GetDisplayName())
+            .Map(dest=>dest.Email, src=>src.User.Email.Value)
+            .Map(dest=>dest.UserType, src => src.User.UserType.Value.GetDisplayName())
+            .Map(dest=>dest.Role, src=>src.User.UserRole.Value.GetDisplayName())
             .Map(dest=>dest.Token, src=>src.Token)
             ;
 

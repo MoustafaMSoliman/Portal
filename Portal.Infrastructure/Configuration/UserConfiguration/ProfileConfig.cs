@@ -18,7 +18,7 @@ public class ProfileConfig : IEntityTypeConfiguration<Profile>
         });
         builder.OwnsOne(x=>x.Address, add => {
             add.ToTable("Addresses");
-            
+            //add.HasKey("Id");
         });
            
     }

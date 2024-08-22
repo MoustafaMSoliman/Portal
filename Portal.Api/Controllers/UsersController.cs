@@ -40,9 +40,9 @@ namespace Portal.Api.Controllers
                     user.Profile.ContactNumber,
                     new AddressRecordResult(user.Profile.Address.Street, user.Profile.Address.City, user.Profile.Address.State,user.Profile.Address.PostalCode,user.Profile.Address.Country),
                     user.Code,
-                    user.Email,
-                    user.Role.GetDisplayName(),
-                    user.Status.GetDisplayName()
+                    user.Email.Value,
+                    user.UserRole.Value.GetDisplayName(),
+                    user.UserStatus.Value.GetDisplayName()
                     ));
             }
             return Ok(users);

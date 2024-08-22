@@ -42,7 +42,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         string? Token;
         if (!IsValidEmail(registerCommand.Email))
             return Errors.EmailErrors.InValidEmail;
-        if (_userRepository.Find(x=>x.Email == registerCommand.Email) is not null)
+        if (_userRepository.Find(x=>x.Email.Value == registerCommand.Email) is not null)
         {
             return Errors.UserErrors.DuplicateEmail;
         }
@@ -50,10 +50,10 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         
         
         User user = User.Create(
-            registerCommand.Email,
+            Email.Create(registerCommand.Email),
             registerCommand.Password,
-            registerCommand.UserType,
-            registerCommand.Role,
+            UserType.Create(registerCommand.UserType),
+            UserRole.Create(registerCommand.Role),
             Profile.Create(registerCommand.FirstName,
               registerCommand.MiddleName,
               registerCommand.LastName,
@@ -87,13 +87,14 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         //    return new AuthResult(emp, Token);
         //}
         _userRepository.AddNew(user);
-        if (registerCommand.UserType == UserType.Employee)
+        if (registerCommand.UserType == TypeEnum.Employee)
         {
             var careerTitles = CareerTitle.Create("مهندس شبكات");
             var carrerSpecialization = CareerSpecialization.Create("يومية",new List<ICareerTitle>{ careerTitles});
             var carrerGroup = CareerGroup.Create("عقود", new List<ICareerSpecialization>{ carrerSpecialization } );
 
-            _employeeRepository.AddNew(Employee.Create(user, DepartmentId.CreateUnique(), DateTime.Now, carrerGroup
+            _employeeRepository.AddNew(Employee.Create(user, DepartmentId.CreateUnique(), DateTime.Now
+                //,carrerGroup
                 ));
         }
             

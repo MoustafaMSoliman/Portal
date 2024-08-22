@@ -8,7 +8,7 @@ namespace Portal.Domain.User.Entities.Employee.Entities;
 
 public class Manager : Employee
 {
-    
+
     
     
 
@@ -17,8 +17,10 @@ public class Manager : Employee
 #pragma warning restore CS8618
 
     protected Manager(Employee employee, DepartmentId departmentId)
-        : base((UserId)employee.Id,employee.Email,employee.Password,employee.UserType,RoleEnum.Manager,employee.Profile,
-            employee.Code,employee.CreatedBy,employee.UpdatedBy,departmentId,employee.HireDate,employee.CareerGroup)
+        : base((UserId)employee.Id,employee.Email,employee.Password,employee.UserType,UserRole.Create(RoleEnum.Manager),employee.Profile,
+            employee.Code,employee.CreatedBy,employee.UpdatedBy,departmentId,employee.HireDate
+            //,employee.CareerGroup
+            )
     {
         employee.ChangeDepartment(departmentId);
 

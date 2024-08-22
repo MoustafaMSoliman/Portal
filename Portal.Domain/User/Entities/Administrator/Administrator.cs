@@ -9,7 +9,7 @@ public class Administrator : User
     private Administrator(){}
 #pragma warning restore CS8618
     private Administrator(User user) 
-        :base((UserId)user.Id,user.Email,user.Password,user.UserType,user.Role,user.Profile,user.Code,user.CreatedBy, user.UpdatedBy)
+        :base((UserId)user.Id,user.Email,user.Password,user.UserType,user.UserRole,user.Profile,user.Code,user.CreatedBy, user.UpdatedBy)
     {
     }
 

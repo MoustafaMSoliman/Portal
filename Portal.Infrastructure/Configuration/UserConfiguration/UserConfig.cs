@@ -25,6 +25,12 @@ public class UserConfig : IEntityTypeConfiguration<User>
             .HasForeignKey<User>(u=>u.ProfileId)
             .IsRequired(true);
 
+        builder.OwnsOne(x=>x.Email, e => {
+            e.ToTable("UserEmails");
+            e.HasKey(a=> a.Value);
+            e.Property(p => p.Value)
+            .HasColumnName("Email");
+        });
         builder.OwnsOne(x=>x.UserRole, r => {
             r.ToTable("UserRoles");
             r.HasKey(a => a.Id);

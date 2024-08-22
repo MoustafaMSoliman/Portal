@@ -19,7 +19,7 @@ public record RegisterCommand
     DateTime DateOfBirth,
     string ContactNumber,
     AddressCommand Address,
-    UserType UserType,
+    TypeEnum UserType,
     RoleEnum Role,
     string Email,
     string Password,

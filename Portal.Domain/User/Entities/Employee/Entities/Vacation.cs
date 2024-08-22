@@ -21,6 +21,8 @@ public class Vacation :Entity<VacationId>
     public DateTime? ApprovedOn { get; private set; }
     public UserId? RejectedBy { get; private set; }
     public DateTime? RejectedOn { get;  private set; }
+    public int TotalVacationDaysNormally { get; private set; }
+    public int TotalVacationDaysEmergncy { get; private set; }
 
 #pragma warning disable CS8618
     private Vacation() { }
@@ -88,6 +90,6 @@ public class Vacation :Entity<VacationId>
         
     }
     public  int GetTotalVacationDays() => (int)(EndAt - StartFrom).TotalDays+1;
-
     
+
 }
