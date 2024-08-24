@@ -23,33 +23,33 @@ public class EmployeeConfig : IEntityTypeConfiguration<Employee>
             .ValueGeneratedNever()
             .IsRequired();
 
-        builder.OwnsMany(x => x.Vacations, vac => {
-            vac.ToTable("Vacations");
-            vac.HasKey(x => x.Id);
-            vac.Property(x=>x.Id)
-               .HasConversion(id => id.Value, value => VacationId.Create(value))
-               .ValueGeneratedNever()
-               .IsRequired();
-            vac.Property(x => x.EmployeeId)
-               .HasConversion(id => id.Value, value => UserId.Create(value))
-               .ValueGeneratedNever()
-               .IsRequired();
-            vac.WithOwner().HasForeignKey(x=>x.EmployeeId);
-        });
+        //builder.OwnsMany(x => x.Vacations, vac => {
+        //    vac.ToTable("Vacations");
+        //    vac.HasKey(x => x.Id);
+        //    vac.Property(x=>x.Id)
+        //       .HasConversion(id => id.Value, value => VacationId.Create(value))
+        //       .ValueGeneratedNever()
+        //       .IsRequired();
+        //    vac.Property(x => x.EmployeeId)
+        //       .HasConversion(id => id.Value, value => UserId.Create(value))
+        //       .ValueGeneratedNever()
+        //       .IsRequired();
+        //    vac.WithOwner().HasForeignKey(x=>x.EmployeeId);
+        //});
 
-        builder.OwnsMany(x => x.Attendances, att => {
-            att.ToTable("Attendances");
-            att.HasKey(x => x.Id);
-            att.WithOwner().HasForeignKey(x=>x.EmployeeId);
-            att.Property(x => x.EmployeeId)
-            .HasConversion(id => id.Value, value => UserId.Create(value))
-            .ValueGeneratedNever()
-            .IsRequired();
-        });
+        builder.HasMany(x => x.Vacations)
+            .WithOne(x => x.Employee)
+            .HasForeignKey(x => x.EmployeeId)
+            .HasPrincipalKey(x=>x.Id);
+
+        builder.HasMany(x => x.Attendances)
+             .WithOne(x => x.Employee)
+             .HasForeignKey(x => x.EmployeeId)
+             .HasPrincipalKey(x => x.Id);
+
         builder.HasOne(x => x.Department)
-            .WithMany(y => y.Employees)
-            .HasForeignKey(x => x.DepartmentId)
-            .IsRequired();
+            .WithMany(x => x.Employees)
+            ;
 
         //builder.OwnsOne(x=>x.CareerGroup, cg => {
         //    cg.ToTable("CareerGroups");
@@ -60,10 +60,10 @@ public class EmployeeConfig : IEntityTypeConfiguration<Employee>
         //        sp.OwnsMany(x=>x.CareerTitles, ct => {
         //            ct.ToTable("CareerTitles");
         //            ct.HasKey("Id");
-                    
+
         //        });
         //    });
         //});
-        
+
     }
 }

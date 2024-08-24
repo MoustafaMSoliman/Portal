@@ -15,5 +15,9 @@ public class DepartmentConfig : IEntityTypeConfiguration<Department>
             .HasConversion(id => id.Value, value => UserId.Create(value))
             .ValueGeneratedNever()
            .IsRequired();
+        builder.HasMany(x => x.Employees)
+            .WithOne(x => x.Department)
+            ;
+       
     }
 }

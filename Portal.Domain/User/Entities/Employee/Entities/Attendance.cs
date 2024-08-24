@@ -1,4 +1,5 @@
 ﻿using Portal.Domain.Common.Enums.User.Employee;
+using Portal.Domain.Common.Models;
 using Portal.Domain.User.ValueObjects;
 
 namespace Portal.Domain.User.Entities.Employee.Entities;
@@ -13,7 +14,8 @@ public class Attendance
     public AttendaceStatus AttendaceStatus { get; private set; }
     public int? OvertimeHours { get; private set; }
     public int? LateHours { get; private set; }
-    public UserId EmployeeId { get; private set; } = null!;
+    public AggregateRootId<Guid> EmployeeId { get; private set; } = null!;
+    public Employee Employee { get; private set; }
     public Claim? Claim { get; private set; }
 
 #pragma warning disable CS8618

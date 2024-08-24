@@ -30,9 +30,13 @@ public class PortalDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserConfig).Assembly);
+        modelBuilder.Ignore<UserId>();
+
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
+        optionsBuilder.UseSqlServer("Server=localhost,1433;Initial Catalog=Portal;User Id = sa;Password=P@ssw0rd;TrustServerCertificate=True;Encrypt=True;")
+                .AddInterceptors(new SlowQueryInterceptor());
     }
 }

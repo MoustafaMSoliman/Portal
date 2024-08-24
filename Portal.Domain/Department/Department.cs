@@ -13,8 +13,10 @@ public class Department : AggregateRoot<DepartmentId, Guid>
     public UserId? ManagerId { get; private set; } = null!;
     public Manager? Manager { get; private set; } = null!;
 
-    private readonly List<Employee> _employees = new();
-    public IReadOnlyList<Employee> Employees => _employees.AsReadOnly();
+    private readonly List<UserId> _employeesIds = new();
+    public IReadOnlyList<UserId> EmployeesIds => _employeesIds.AsReadOnly();
+    private  List<Employee> _employees = new();
+    public List<Employee> Employees => _employees;
 
     public UserId? SecreteryId { get; private set; } = null!;
     public Employee? Secretery { get; private set; } = null!;

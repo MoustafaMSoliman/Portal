@@ -11,7 +11,9 @@ public class Vacation :Entity<VacationId>
 {
     public VacationType VacationType { get; private set; }
     public VacationStatus? VacationStatus { get; private set; }
-    public UserId EmployeeId { get; private set; } = null!;
+    public Employee Employee { get; private set; }
+    public AggregateRootId<Guid> EmployeeId { get; private set; } = null!;
+
     public DateTime StartFrom { get; private set; }
     public DateTime EndAt { get; private set; }
     public int TotalVacationDays { get; private set; }

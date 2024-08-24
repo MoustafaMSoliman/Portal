@@ -1,6 +1,7 @@
 ﻿
 using Portal.Domain.Common.Enums;
 using Portal.Domain.Common.Interfaces.User;
+using Portal.Domain.Common.Models;
 using Portal.Domain.Department.ValueObjects;
 using Portal.Domain.User.Entities.Employee.Entities;
 using Portal.Domain.User.ValueObjects;
@@ -11,13 +12,8 @@ namespace Portal.Domain.User.Entities.Employee;
 public class Employee : User
 {
     public DateTime HireDate { get; private set; }
-
-    private  readonly List<int> _vacationsids = new();
-    public List<int> VacationsIds => _vacationsids;
     public List<Vacation> Vacations { get; private set; }
 
-    private readonly List<int> attendanceIds = new();
-    public IReadOnlyList<int> AttendanceIds => attendanceIds.AsReadOnly();
     public List<Attendance> Attendances { get; private set; }
     public DepartmentId DepartmentId { get; private set; } = null!;
     public Department.Department Department { get; private set; } = null!;
