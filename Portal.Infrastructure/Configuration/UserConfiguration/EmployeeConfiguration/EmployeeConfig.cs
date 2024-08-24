@@ -22,6 +22,8 @@ public class EmployeeConfig : IEntityTypeConfiguration<Employee>
             .HasConversion(id => id.Value, value => DepartmentId.Create(value))
             .ValueGeneratedNever()
             .IsRequired();
+        
+        
 
         //builder.OwnsMany(x => x.Vacations, vac => {
         //    vac.ToTable("Vacations");

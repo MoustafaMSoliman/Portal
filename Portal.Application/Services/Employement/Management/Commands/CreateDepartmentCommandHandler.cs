@@ -30,10 +30,14 @@ public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCo
             return Errors.ManagementErrors.DuplicateDepartment;
         if (command.ManagerId is not null &&_managersRepository.GetById(command.ManagerId) is null)
             return Errors.ManagementErrors.NotManager;
-        var department = Department.Create(command.DepartmentName,command.ManagerId,command.SecreteryId);
+        var department = Department.Create(command.DepartmentName,command.ManagerId
+            //,command.SecreteryId
+            );
         _departmentsRepository.AddNew(department);
+
         return new CreateDepartmentResult((DepartmentId)department.Id,department.DepartmentName,department.ManagerId
-            ,_managersRepository.GetById(department.ManagerId).Profile.FirstName
-            ,department.SecreteryId,department.Secretery.Profile.FirstName,new List<Employee>());
+            ,_managersRepository.GetById((UserId)department.ManagerId).Profile.FirstName
+            //,department.SecreteryId,department.Secretery.Profile.FirstName
+            ,new List<Employee>());
     }
 }

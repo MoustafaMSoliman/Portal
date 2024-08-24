@@ -7,6 +7,7 @@ public class UserType : ValueObject
 {
     public int Id { get; private set; } 
     public TypeEnum Value { get; private set; }
+    public User User { get; private set; }
 #pragma warning disable CS8618
     private UserType() { }
 #pragma warning restore CS8618

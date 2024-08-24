@@ -1,4 +1,5 @@
 ﻿using Portal.Domain.Common.Enums;
+using Portal.Domain.Common.Models;
 using Portal.Domain.Department.ValueObjects;
 using Portal.Domain.User.Entities.Employee;
 using Portal.Domain.User.ValueObjects;
@@ -9,10 +10,10 @@ public record CreateDepartmentResult
 (
     DepartmentId DepartmentId,
     string DepartmentName,
-    UserId ManagerId,
+    AggregateRootId<Guid> ManagerId,
     string ManagerName,
-    UserId SecreteryId,
-    string SecreteryName,
+    //UserId SecreteryId,
+    //string SecreteryName
     List<Employee> DepartmentEmployees
 );
 

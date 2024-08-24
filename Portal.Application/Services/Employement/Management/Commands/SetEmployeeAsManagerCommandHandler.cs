@@ -4,6 +4,7 @@ using Portal.Application.Common.Interfaces.Persistence;
 using Portal.Application.Services.Employement.Management.Common;
 using Portal.Domain.Common.Enums;
 using Portal.Domain.Common.Errors;
+using Portal.Domain.Department.ValueObjects;
 using Portal.Domain.User;
 using Portal.Domain.User.Entities.Administrator;
 using Portal.Domain.User.Entities.Employee;
@@ -76,7 +77,7 @@ public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsM
 
         _managersRepository.AddNew(Manager.Create(
              _employeessRepository.GetById(command.EmployeeId),
-             _employeessRepository.GetById(command.EmployeeId).DepartmentId
+             (DepartmentId) _employeessRepository.GetById(command.EmployeeId).DepartmentId
             ));
         return new SetEmployeeAsManagerResult(command.AdminId,
             _employeessRepository.GetById(command.EmployeeId));

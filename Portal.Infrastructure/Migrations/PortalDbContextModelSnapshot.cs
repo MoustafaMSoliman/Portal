@@ -163,6 +163,9 @@ namespace Portal.Infrastructure.Migrations
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("EmailId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -173,14 +176,52 @@ namespace Portal.Infrastructure.Migrations
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("UserRoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserTypeId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("EmailId")
+                        .IsUnique();
+
                     b.HasIndex("ProfileId")
+                        .IsUnique();
+
+                    b.HasIndex("UserRoleId")
+                        .IsUnique();
+
+                    b.HasIndex("UserStatusId")
+                        .IsUnique();
+
+                    b.HasIndex("UserTypeId")
                         .IsUnique();
 
                     b.ToTable("Users", (string)null);
 
                     b.UseTptMappingStrategy();
+                });
+
+            modelBuilder.Entity("Portal.Domain.User.ValueObjects.Email", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Emails", (string)null);
                 });
 
             modelBuilder.Entity("Portal.Domain.User.ValueObjects.Profile", b =>
@@ -226,6 +267,54 @@ namespace Portal.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Profiles", (string)null);
+                });
+
+            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserStatuses", (string)null);
+                });
+
+            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserTypes", (string)null);
                 });
 
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Employee", b =>
@@ -301,123 +390,45 @@ namespace Portal.Infrastructure.Migrations
 
             modelBuilder.Entity("Portal.Domain.User.User", b =>
                 {
+                    b.HasOne("Portal.Domain.User.ValueObjects.Email", "Email")
+                        .WithOne("User")
+                        .HasForeignKey("Portal.Domain.User.User", "EmailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Portal.Domain.User.ValueObjects.Profile", "Profile")
                         .WithOne("User")
                         .HasForeignKey("Portal.Domain.User.User", "ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("Portal.Domain.User.ValueObjects.Email", "Email", b1 =>
-                        {
-                            b1.Property<string>("Value")
-                                .HasColumnType("nvarchar(450)")
-                                .HasColumnName("Email");
-
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.HasKey("Value");
-
-                            b1.HasIndex("UserId")
-                                .IsUnique();
-
-                            b1.ToTable("UserEmails", (string)null);
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.OwnsOne("Portal.Domain.User.ValueObjects.UserRole", "UserRole", b1 =>
-                        {
-                            b1.Property<int>("Id")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("int");
-
-                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
-
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<int>("Value")
-                                .HasColumnType("int")
-                                .HasColumnName("UserRole");
-
-                            b1.HasKey("Id");
-
-                            b1.HasIndex("UserId")
-                                .IsUnique();
-
-                            b1.ToTable("UserRoles", (string)null);
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.OwnsOne("Portal.Domain.User.ValueObjects.UserStatus", "UserStatus", b1 =>
-                        {
-                            b1.Property<int>("Id")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("int");
-
-                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
-
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<int>("Value")
-                                .HasColumnType("int")
-                                .HasColumnName("UserStatus");
-
-                            b1.HasKey("Id");
-
-                            b1.HasIndex("UserId")
-                                .IsUnique();
-
-                            b1.ToTable("UserStatuses", (string)null);
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.OwnsOne("Portal.Domain.User.ValueObjects.UserType", "UserType", b1 =>
-                        {
-                            b1.Property<int>("Id")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("int");
-
-                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
-
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<int>("Value")
-                                .HasColumnType("int")
-                                .HasColumnName("UserType");
-
-                            b1.HasKey("Id");
-
-                            b1.HasIndex("UserId")
-                                .IsUnique();
-
-                            b1.ToTable("UserTypes", (string)null);
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.Navigation("Email")
+                    b.HasOne("Portal.Domain.User.ValueObjects.UserRole", "UserRole")
+                        .WithOne("User")
+                        .HasForeignKey("Portal.Domain.User.User", "UserRoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Portal.Domain.User.ValueObjects.UserStatus", "UserStatus")
+                        .WithOne("User")
+                        .HasForeignKey("Portal.Domain.User.User", "UserStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Portal.Domain.User.ValueObjects.UserType", "UserType")
+                        .WithOne("User")
+                        .HasForeignKey("Portal.Domain.User.User", "UserTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Email");
 
                     b.Navigation("Profile");
 
-                    b.Navigation("UserRole")
-                        .IsRequired();
+                    b.Navigation("UserRole");
 
-                    b.Navigation("UserStatus")
-                        .IsRequired();
+                    b.Navigation("UserStatus");
 
-                    b.Navigation("UserType")
-                        .IsRequired();
+                    b.Navigation("UserType");
                 });
 
             modelBuilder.Entity("Portal.Domain.User.ValueObjects.Profile", b =>
@@ -516,7 +527,31 @@ namespace Portal.Infrastructure.Migrations
                     b.Navigation("Claim");
                 });
 
+            modelBuilder.Entity("Portal.Domain.User.ValueObjects.Email", b =>
+                {
+                    b.Navigation("User")
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Portal.Domain.User.ValueObjects.Profile", b =>
+                {
+                    b.Navigation("User")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserRole", b =>
+                {
+                    b.Navigation("User")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserStatus", b =>
+                {
+                    b.Navigation("User")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserType", b =>
                 {
                     b.Navigation("User")
                         .IsRequired();

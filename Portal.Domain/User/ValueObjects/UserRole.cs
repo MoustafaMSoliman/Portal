@@ -8,6 +8,7 @@ public class UserRole : ValueObject
 
     public int Id { get; set; }
     public RoleEnum Value { get; set; }
+    public User User { get; set; }
 
 #pragma warning disable CS8618
     private UserRole() { }

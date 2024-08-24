@@ -15,7 +15,7 @@ public class Employee : User
     public List<Vacation> Vacations { get; private set; }
 
     public List<Attendance> Attendances { get; private set; }
-    public DepartmentId DepartmentId { get; private set; } = null!;
+    public AggregateRootId<Guid> DepartmentId { get; private set; } = null!;
     public Department.Department Department { get; private set; } = null!;
     //public ICareerGroup CareerGroup { get; private set; }
 

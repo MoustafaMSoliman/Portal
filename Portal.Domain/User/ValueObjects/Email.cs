@@ -4,8 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace Portal.Domain.User.ValueObjects;
 
-public class Email : AggregateRootId<string>
+public class Email : ValueObject
 {
+
     private static readonly Regex EmailRegex = new Regex(
             @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
             /*
@@ -22,7 +23,9 @@ public class Email : AggregateRootId<string>
      RegexOptions.Compiled -> compile regular exp into assembly
      Regexoptions.IgnoreCase -> UpperCase or LowerCase doesn't matter.
      */
-    public override string Value { get; protected set; }=null!;
+    public int Id { get; set; }
+    public string Value { get; set; } = null!;
+    public User User { get; set; }
 
 #pragma warning disable CS8618
     private Email() { }

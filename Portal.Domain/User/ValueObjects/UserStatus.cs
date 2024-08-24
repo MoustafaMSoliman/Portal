@@ -7,6 +7,8 @@ public class UserStatus : ValueObject
 {
     public int Id { get; set; }
     public StatusEnum Value { get; set; }
+
+    public User User { get; set; }
 #pragma warning disable CS8618
     private UserStatus() { }
 #pragma warning restore CS8618

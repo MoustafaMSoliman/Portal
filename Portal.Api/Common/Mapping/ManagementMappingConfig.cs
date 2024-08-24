@@ -35,8 +35,8 @@ namespace Portal.Api.Common.Mapping
                 .Map(dest => dest.DepartmentName, src => src.DepartmentName)
                 .Map(dest => dest.ManagerId, src => src.ManagerId.Value.ToString())
                 .Map(dest => dest.ManagerName, src => src.ManagerName)
-                .Map(dest => dest.SecreteryId, src => src.SecreteryId.Value.ToString())
-                .Map(dest => dest.SecreteryName, src => src.SecreteryName)
+                //.Map(dest => dest.SecreteryId, src => src.SecreteryId.Value.ToString())
+                //.Map(dest => dest.SecreteryName, src => src.SecreteryName)
                 .Map(dest=>dest.DepartmentEmployees,src=>src.DepartmentEmployees)
                 ;
             config.NewConfig<Employee, DepartmentEmployees>()

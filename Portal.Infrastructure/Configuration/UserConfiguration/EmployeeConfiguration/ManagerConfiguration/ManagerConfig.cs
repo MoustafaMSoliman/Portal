@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Portal.Domain.Common.Enums;
 using Portal.Domain.User.Entities.Employee;
 using Portal.Domain.User.Entities.Employee.Entities;
 using Portal.Domain.User.ValueObjects;
@@ -18,6 +19,10 @@ public class ManagerConfig : IEntityTypeConfiguration<Manager>
         //    .HasConversion(id => id.Value, value => UserId.Create(value))
         //    .ValueGeneratedNever()
         //    .IsRequired();
+        builder.HasOne(x => x.Department)
+            .WithOne()
+            .HasForeignKey("ManagerId");
+
         
     }
 }
