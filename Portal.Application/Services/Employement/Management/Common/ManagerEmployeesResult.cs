@@ -6,7 +6,7 @@ namespace Portal.Application.Services.Employement.Management.Common;
 
 public record ManagerEmployeesResult
 (
-    Manager Manager,
+    Employee Manager,
     List<ManagerEmployee> Employees
 );
 public record ManagerEmployee

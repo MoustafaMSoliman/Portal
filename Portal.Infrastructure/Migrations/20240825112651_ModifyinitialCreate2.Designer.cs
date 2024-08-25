@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Portal.Infrastructure.Persistence;
 
@@ -11,9 +12,11 @@ using Portal.Infrastructure.Persistence;
 namespace Portal.Infrastructure.Migrations
 {
     [DbContext(typeof(PortalDbContext))]
-    partial class PortalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240825112651_ModifyinitialCreate2")]
+    partial class ModifyinitialCreate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,13 +33,16 @@ namespace Portal.Infrastructure.Migrations
                     b.Property<Guid>("ManagerId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("ManagerId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ManagerId");
+                    b.HasIndex("ManagerId1");
 
                     b.ToTable("Departments", (string)null);
                 });
@@ -316,18 +322,18 @@ namespace Portal.Infrastructure.Migrations
                 {
                     b.HasBaseType("Portal.Domain.User.User");
 
-                    b.Property<Guid>("DepartId")
+                    b.Property<Guid>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("ManagerId")
+                    b.Property<Guid>("ManagerId1")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasIndex("DepartId");
+                    b.HasIndex("DepartmentId");
 
-                    b.HasIndex("ManagerId");
+                    b.HasIndex("ManagerId1");
 
                     b.ToTable("Employees", (string)null);
                 });
@@ -336,7 +342,7 @@ namespace Portal.Infrastructure.Migrations
                 {
                     b.HasOne("Portal.Domain.User.Entities.Employee.Employee", "Manager")
                         .WithMany()
-                        .HasForeignKey("ManagerId")
+                        .HasForeignKey("ManagerId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -481,7 +487,7 @@ namespace Portal.Infrastructure.Migrations
                 {
                     b.HasOne("Portal.Domain.Department.Department", "Department")
                         .WithMany("Employees")
-                        .HasForeignKey("DepartId")
+                        .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -493,7 +499,9 @@ namespace Portal.Infrastructure.Migrations
 
                     b.HasOne("Portal.Domain.User.Entities.Employee.Employee", "Manager")
                         .WithMany()
-                        .HasForeignKey("ManagerId");
+                        .HasForeignKey("ManagerId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Department");
 

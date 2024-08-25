@@ -9,9 +9,9 @@ namespace Portal.Domain.Department;
 
 public class Department : AggregateRoot<DepartmentId, Guid>
 {
-    public string DepartmentName { get; private set; } = null!;
-    public AggregateRootId<Guid>? ManagerId { get; private set; } = null!;
-    public Manager? Manager { get; private set; } = null!;
+    public string Name { get; private set; } = null!;
+    public AggregateRootId<Guid> ManagId { get; private set; } = null!;
+    public Employee Manager { get; private set; } = null!;
 
     private readonly List<AggregateRootId<Guid>> _employeesIds = new();
     public IReadOnlyList<AggregateRootId<Guid>> EmployeesIds => _employeesIds.AsReadOnly();
@@ -24,16 +24,16 @@ public class Department : AggregateRoot<DepartmentId, Guid>
 #pragma warning disable CS8618
     private Department() { }
 #pragma warning restore CS8618
-    private Department(DepartmentId id,string departmentName, UserId? managerId
+    private Department(DepartmentId id,string departmentName, UserId managerId
         //,UserId? secreteryId
         )
     {
         Id = id;
-        DepartmentName = departmentName;
-        ManagerId = managerId;
+        Name = departmentName;
+        ManagId = managerId;
         //SecreteryId = secreteryId;
     }
-    public static Department Create(string departmentName, UserId? managerId
+    public static Department Create(string departmentName, UserId managerId
         //, UserId? secreteryId
         )
         => new(DepartmentId.CreateUnique(),departmentName, managerId

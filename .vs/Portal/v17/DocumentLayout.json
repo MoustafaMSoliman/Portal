@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.infrastructure\\configuration\\departmentconfiguration\\departmentconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\configuration\\departmentconfiguration\\departmentconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.application\\services\\employement\\management\\commands\\createdepartmentcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|solutionrelative:portal.application\\services\\employement\\management\\commands\\createdepartmentcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.infrastructure\\configuration\\userconfiguration\\employeeconfiguration\\managerconfiguration\\managerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\configuration\\userconfiguration\\employeeconfiguration\\managerconfiguration\\managerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\department\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\department\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.application\\services\\employement\\management\\queries\\getmanageremployeesqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|solutionrelative:portal.application\\services\\employement\\management\\queries\\getmanageremployeesqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.infrastructure\\configuration\\userconfiguration\\employeeconfiguration\\employeeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\configuration\\userconfiguration\\employeeconfiguration\\employeeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\entities\\employee\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\entities\\employee\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.infrastructure\\configuration\\departmentconfiguration\\departmentconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\configuration\\departmentconfiguration\\departmentconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.infrastructure\\persistence\\portaldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\persistence\\portaldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,56 +42,109 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\User.cs",
               "RelativeDocumentMoniker": "Portal.Domain\\User\\User.cs",
               "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\User.cs",
               "RelativeToolTip": "Portal.Domain\\User\\User.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAqwBIAAAAXAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAUwBUAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-24T09:36:01.409Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EmployeeConfig.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\EmployeeConfig.cs",
-              "RelativeDocumentMoniker": "Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\EmployeeConfig.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\EmployeeConfig.cs",
-              "RelativeToolTip": "Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\EmployeeConfig.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAA0wBkAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T12:39:37.154Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ManagerConfig.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\ManagerConfiguration\\ManagerConfig.cs",
-              "RelativeDocumentMoniker": "Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\ManagerConfiguration\\ManagerConfig.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\ManagerConfiguration\\ManagerConfig.cs",
-              "RelativeToolTip": "Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\ManagerConfiguration\\ManagerConfig.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAkwBkAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T12:37:33.719Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CreateDepartmentCommandHandler.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Application\\Services\\Employement\\Management\\Commands\\CreateDepartmentCommandHandler.cs",
+              "RelativeDocumentMoniker": "Portal.Application\\Services\\Employement\\Management\\Commands\\CreateDepartmentCommandHandler.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Application\\Services\\Employement\\Management\\Commands\\CreateDepartmentCommandHandler.cs",
+              "RelativeToolTip": "Portal.Application\\Services\\Employement\\Management\\Commands\\CreateDepartmentCommandHandler.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAA0wCcAAABmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T11:58:23.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetManagerEmployeesQueryHandler.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Application\\Services\\Employement\\Management\\Queries\\GetManagerEmployeesQueryHandler.cs",
+              "RelativeDocumentMoniker": "Portal.Application\\Services\\Employement\\Management\\Queries\\GetManagerEmployeesQueryHandler.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Application\\Services\\Employement\\Management\\Queries\\GetManagerEmployeesQueryHandler.cs",
+              "RelativeToolTip": "Portal.Application\\Services\\Employement\\Management\\Queries\\GetManagerEmployeesQueryHandler.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAUwB0AAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T11:57:05.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PortalDbContext.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Persistence\\PortalDbContext.cs",
+              "RelativeDocumentMoniker": "Portal.Infrastructure\\Persistence\\PortalDbContext.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Persistence\\PortalDbContext.cs",
+              "RelativeToolTip": "Portal.Infrastructure\\Persistence\\PortalDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T10:08:25.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
+              "RelativeDocumentMoniker": "Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
+              "RelativeToolTip": "Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAuwD4AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T10:04:45.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeeConfig.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\EmployeeConfig.cs",
+              "RelativeDocumentMoniker": "Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\EmployeeConfig.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\EmployeeConfig.cs",
+              "RelativeToolTip": "Portal.Infrastructure\\Configuration\\UserConfiguration\\EmployeeConfiguration\\EmployeeConfig.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAywCMAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T09:35:09.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Department.cs",
+              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\Department\\Department.cs",
+              "RelativeDocumentMoniker": "Portal.Domain\\Department\\Department.cs",
+              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\Department\\Department.cs",
+              "RelativeToolTip": "Portal.Domain\\Department\\Department.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAA1wCAAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T07:37:30.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "DepartmentConfig.cs",
               "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\DepartmentConfiguration\\DepartmentConfig.cs",
               "RelativeDocumentMoniker": "Portal.Infrastructure\\Configuration\\DepartmentConfiguration\\DepartmentConfig.cs",
               "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Configuration\\DepartmentConfiguration\\DepartmentConfig.cs",
               "RelativeToolTip": "Portal.Infrastructure\\Configuration\\DepartmentConfiguration\\DepartmentConfig.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAkwB0AAAAIAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAzwBIAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-24T12:36:35.69Z",
               "EditorCaption": ""

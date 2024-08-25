@@ -16,20 +16,17 @@ namespace Portal.Application.Services.Employement.Management.Commands;
 public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsManagerCommand, ErrorOr<SetEmployeeAsManagerResult>>
 {
     private readonly IAggregateRootRepository<Administrator, UserId, Guid> _adminsRepository;
-    private readonly IAggregateRootRepository<Manager, UserId, Guid> _managersRepository;
     private readonly IAggregateRootRepository<Employee, UserId, Guid> _employeessRepository;
     private readonly IAggregateRootRepository<User, UserId, Guid> _usersRepository;
 
 
 
     public SetEmployeeAsManagerCommandHandler(IAggregateRootRepository<Administrator, UserId, Guid> adminsRepository,
-        IAggregateRootRepository<Manager, UserId, Guid> managersRepository,
         IAggregateRootRepository<Employee, UserId, Guid> employeessRepository,
         IAggregateRootRepository<User, UserId, Guid> usersRepository
         )
     {
         _adminsRepository = adminsRepository;
-        _managersRepository = managersRepository;
         _employeessRepository = employeessRepository;
         _usersRepository = usersRepository;
     }
@@ -67,7 +64,7 @@ public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsM
         //    return Errors.AdminsErrors.NotAdmin;
         if (_employeessRepository.Find(e=>e.Id==command.EmployeeId) is null)
             return Errors.AuthenticationErrors.InvalidUser;
-        if (_managersRepository.Find(m=>m.Id==command.EmployeeId) is not null)
+        if (_employeessRepository.Find(m=>m.Id==command.EmployeeId).UserRole.Value == RoleEnum.Manager)
             return Errors.ManagementErrors.AlreadyManager;
       
        
@@ -75,10 +72,8 @@ public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsM
         _employeessRepository.GetById(command.EmployeeId).SetUserRole(UserRole.Create( RoleEnum.Manager) );
         _usersRepository.GetById(command.EmployeeId).SetUserRole(UserRole.Create(RoleEnum.Manager));
 
-        _managersRepository.AddNew(Manager.Create(
-             _employeessRepository.GetById(command.EmployeeId),
-             (DepartmentId) _employeessRepository.GetById(command.EmployeeId).DepartmentId
-            ));
+       
+       
         return new SetEmployeeAsManagerResult(command.AdminId,
             _employeessRepository.GetById(command.EmployeeId));
     }

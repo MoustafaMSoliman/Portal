@@ -15,10 +15,12 @@ public class Employee : User
     public List<Vacation> Vacations { get; private set; }
 
     public List<Attendance> Attendances { get; private set; }
-    public AggregateRootId<Guid> DepartmentId { get; private set; } = null!;
+    public AggregateRootId<Guid> DepartId { get; private set; } = null!;
     public Department.Department Department { get; private set; } = null!;
     //public ICareerGroup CareerGroup { get; private set; }
-
+    public AggregateRootId<Guid>? ManagerId { get; private set; } 
+    public Employee Manager { get; private set; }
+    
 
 #pragma warning disable CS8618
     protected internal Employee() { }
@@ -31,9 +33,10 @@ public class Employee : User
         //, ICareerGroup careerGroup
         ) : base(userId, email, password, userType, role, profile, code, createdBy, updatedBy)
     {
-        DepartmentId = departmentId;
+        DepartId = departmentId;
         HireDate = hireDate;
         //CareerGroup = careerGroup;
+        
     }
     public static Employee Create(
         User user,
@@ -57,7 +60,7 @@ public class Employee : User
     }
     public void ChangeDepartment(DepartmentId departmentId)
     {
-        DepartmentId = departmentId;
+        DepartId = departmentId;
     }
    
 }

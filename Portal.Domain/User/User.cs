@@ -16,14 +16,14 @@ public class User:AggregateRoot<UserId, Guid>
     public int EmailId { get; private set; }
     public Email Email { get; private set; } = null!;
     public string Password { get; private set; } = null!;
-    public int UserTypeId { get; private set; }
 
+    public int UserTypeId { get; private set; }
     public UserType UserType { get; private set; }
     public int UserRoleId { get; private set; }
     public UserRole UserRole { get; private set; }
     public int UserStatusId { get; private set; }
-
     public UserStatus UserStatus { get; private set; }
+
     public UserId? CreatedBy { get;  set; }
     public UserId? UpdatedBy { get; set; }
 

@@ -24,17 +24,14 @@ namespace Portal.Api.Controllers
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
         private readonly IAggregateRootRepository<Employee,UserId,Guid> _employeesRepository;
-        private readonly IAggregateRootRepository<Manager, UserId, Guid> _managersRepository;
 
 
         public EmployeesController(IMediator mediator, IMapper mapper, 
-            IAggregateRootRepository<Employee, UserId, Guid> usersRepository,
-            IAggregateRootRepository<Manager, UserId, Guid> managersRepository)
+            IAggregateRootRepository<Employee, UserId, Guid> usersRepository)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _employeesRepository = usersRepository;
-            _managersRepository = managersRepository;
         }
         [HttpPost("applyVacation")]
         public async Task<IActionResult> ApplyVacation(VacationRequest vacationRequest)
@@ -70,7 +67,7 @@ namespace Portal.Api.Controllers
         {
             await Task.CompletedTask;
 
-            return Ok(_managersRepository.GetAll())
+            return Ok()
                 ;
         }
     }

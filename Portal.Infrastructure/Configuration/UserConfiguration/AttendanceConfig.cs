@@ -18,5 +18,6 @@ public class AttendanceConfig : IEntityTypeConfiguration<Attendance>
         att.HasOne(x => x.Employee)
              .WithMany(y => y.Attendances)
              .HasForeignKey(x => x.EmployeeId);
+        
     }
 }
