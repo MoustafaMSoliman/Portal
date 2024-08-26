@@ -12,6 +12,19 @@ namespace Portal.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Emails",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Emails", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Profiles",
                 columns: table => new
                 {
@@ -30,6 +43,45 @@ namespace Portal.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Profiles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserRoles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Value = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserStatuses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Value = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserStatuses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Value = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -79,7 +131,11 @@ namespace Portal.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Code = table.Column<int>(type: "int", nullable: false),
                     ProfileId = table.Column<int>(type: "int", nullable: false),
+                    EmailId = table.Column<int>(type: "int", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserTypeId = table.Column<int>(type: "int", nullable: false),
+                    UserRoleId = table.Column<int>(type: "int", nullable: false),
+                    UserStatusId = table.Column<int>(type: "int", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
@@ -87,87 +143,33 @@ namespace Portal.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Users_Emails_EmailId",
+                        column: x => x.EmailId,
+                        principalTable: "Emails",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Users_Profiles_ProfileId",
                         column: x => x.ProfileId,
                         principalTable: "Profiles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserEmails",
-                columns: table => new
-                {
-                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserEmails", x => x.Email);
                     table.ForeignKey(
-                        name: "FK_UserEmails_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_Users_UserRoles_UserRoleId",
+                        column: x => x.UserRoleId,
+                        principalTable: "UserRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserRoles",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserRole = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserRoles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserRoles_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_Users_UserStatuses_UserStatusId",
+                        column: x => x.UserStatusId,
+                        principalTable: "UserStatuses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserStatuses",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserStatus = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserStatuses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserStatuses_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserTypes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserType = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserTypes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_UserTypes_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_Users_UserTypes_UserTypeId",
+                        column: x => x.UserTypeId,
+                        principalTable: "UserTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -217,9 +219,8 @@ namespace Portal.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DepartmentName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ManagerId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    SecreteryId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManagerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -232,15 +233,14 @@ namespace Portal.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DepartmentId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    DepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employees", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Employees_Departments_DepartmentId1",
-                        column: x => x.DepartmentId1,
+                        name: "FK_Employees_Departments_DepartmentId",
+                        column: x => x.DepartmentId,
                         principalTable: "Departments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -256,7 +256,8 @@ namespace Portal.Infrastructure.Migrations
                 name: "Managers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Office = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -266,7 +267,7 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.Id,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete:ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -280,8 +281,11 @@ namespace Portal.Infrastructure.Migrations
                     StartFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TotalVacationDays = table.Column<int>(type: "int", nullable: false),
+                    AcceptedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     AcceptedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ApprovedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ApprovedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    RejectedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     RejectedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     TotalVacationDaysNormally = table.Column<int>(type: "int", nullable: false),
                     TotalVacationDaysEmergncy = table.Column<int>(type: "int", nullable: false)
@@ -309,30 +313,20 @@ namespace Portal.Infrastructure.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Departments_ManagerId1",
+                name: "IX_Departments_ManagerId",
                 table: "Departments",
-                column: "ManagerId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Departments_SecreteryId1",
-                table: "Departments",
-                column: "SecreteryId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Employees_DepartmentId1",
-                table: "Employees",
-                column: "DepartmentId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserEmails_UserId",
-                table: "UserEmails",
-                column: "UserId",
+                column: "ManagerId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserRoles_UserId",
-                table: "UserRoles",
-                column: "UserId",
+                name: "IX_Employees_DepartmentId",
+                table: "Employees",
+                column: "DepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_EmailId",
+                table: "Users",
+                column: "EmailId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -342,15 +336,21 @@ namespace Portal.Infrastructure.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserStatuses_UserId",
-                table: "UserStatuses",
-                column: "UserId",
+                name: "IX_Users_UserRoleId",
+                table: "Users",
+                column: "UserRoleId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserTypes_UserId",
-                table: "UserTypes",
-                column: "UserId",
+                name: "IX_Users_UserStatusId",
+                table: "Users",
+                column: "UserStatusId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_UserTypeId",
+                table: "Users",
+                column: "UserTypeId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -367,18 +367,12 @@ namespace Portal.Infrastructure.Migrations
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Departments_Employees_SecreteryId1",
+                name: "FK_Departments_Managers_ManagerId",
                 table: "Departments",
-                column: "SecreteryId1",
-                principalTable: "Employees",
-                principalColumn: "Id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Departments_Managers_ManagerId1",
-                table: "Departments",
-                column: "ManagerId1",
+                column: "ManagerId",
                 principalTable: "Managers",
-                principalColumn: "Id");
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
@@ -387,10 +381,6 @@ namespace Portal.Infrastructure.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_Users_Profiles_ProfileId",
                 table: "Users");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Departments_Employees_SecreteryId1",
-                table: "Departments");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Managers_Employees_Id",
@@ -404,18 +394,6 @@ namespace Portal.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Nations");
-
-            migrationBuilder.DropTable(
-                name: "UserEmails");
-
-            migrationBuilder.DropTable(
-                name: "UserRoles");
-
-            migrationBuilder.DropTable(
-                name: "UserStatuses");
-
-            migrationBuilder.DropTable(
-                name: "UserTypes");
 
             migrationBuilder.DropTable(
                 name: "Vacations");
@@ -437,6 +415,18 @@ namespace Portal.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Managers");
+
+            migrationBuilder.DropTable(
+                name: "Emails");
+
+            migrationBuilder.DropTable(
+                name: "UserRoles");
+
+            migrationBuilder.DropTable(
+                name: "UserStatuses");
+
+            migrationBuilder.DropTable(
+                name: "UserTypes");
         }
     }
 }

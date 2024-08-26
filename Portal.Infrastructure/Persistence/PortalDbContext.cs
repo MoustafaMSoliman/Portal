@@ -16,6 +16,7 @@ public class PortalDbContext : DbContext
     public DbSet<User> Users { get; set; } 
     public DbSet<Profile> Profiles { get; set; }
     public DbSet<Employee> Employees { get; set; }
+    public DbSet<Manager> Managers { get; set; }
     //public DbSet<Secretery> Secreteries { get; set; }
    
     public DbSet<Department> Departments { get; set; }

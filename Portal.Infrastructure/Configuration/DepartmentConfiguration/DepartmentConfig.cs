@@ -19,6 +19,11 @@ public class DepartmentConfig : IEntityTypeConfiguration<Department>
             .HasConversion(id => id.Value, value => DepartmentId.Create(value))
             .ValueGeneratedNever()
            .IsRequired();
-
+        builder.HasOne(x => x.Manager)
+            .WithOne(y => y.Department)
+            .HasForeignKey<Department>(x=>x.ManagerId);
+        builder.HasMany(x => x.Employees)
+             .WithOne()
+             .HasForeignKey(x => x.DepartmentId);
     }
 }

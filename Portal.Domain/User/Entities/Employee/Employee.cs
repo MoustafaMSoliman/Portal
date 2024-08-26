@@ -15,11 +15,10 @@ public class Employee : User
     public List<Vacation> Vacations { get; private set; }
 
     public List<Attendance> Attendances { get; private set; }
-    public AggregateRootId<Guid> DepartId { get; private set; } = null!;
+    public AggregateRootId<Guid> DepartmentId { get; private set; } = null!;
     public Department.Department Department { get; private set; } = null!;
     //public ICareerGroup CareerGroup { get; private set; }
-    public AggregateRootId<Guid>? ManagerId { get; private set; } 
-    public Employee Manager { get; private set; }
+    
     
 
 #pragma warning disable CS8618
@@ -33,7 +32,7 @@ public class Employee : User
         //, ICareerGroup careerGroup
         ) : base(userId, email, password, userType, role, profile, code, createdBy, updatedBy)
     {
-        DepartId = departmentId;
+        DepartmentId = departmentId;
         HireDate = hireDate;
         //CareerGroup = careerGroup;
         
@@ -60,7 +59,7 @@ public class Employee : User
     }
     public void ChangeDepartment(DepartmentId departmentId)
     {
-        DepartId = departmentId;
+        DepartmentId = departmentId;
     }
    
 }

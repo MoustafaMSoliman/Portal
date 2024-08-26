@@ -23,5 +23,24 @@ public class VacationConfig : IEntityTypeConfiguration<Vacation>
         builder.HasOne(x => x.Employee)
             .WithMany(y => y.Vacations)
             .HasForeignKey(x => x.EmployeeId);
+        builder.Property(x => x.AcceptedBy)
+            .HasColumnName("AcceptedBy")
+            .HasConversion(x=>x.Value, value=>UserId.Create(value));
+        builder.Property(x => x.RejectedBy)
+            .HasColumnName("RejectedBy")
+            .HasConversion(x => x.Value, value => UserId.Create(value));
+        builder.Property(x => x.ApprovedBy)
+            .HasColumnName("ApprovedBy")
+            .HasConversion(x => x.Value, value => UserId.Create(value));
+        //builder.HasOne(x => x.AcceptedBy)
+        //    .WithOne()
+        //    .HasForeignKey<Vacation>(x => x.AcceptedBy);
+        //builder.HasOne(x => x.RejectedBy)
+        //    .WithOne()
+        //    .HasForeignKey<Vacation>(x => x.RejectedBy);
+        //builder.HasOne(x => x.ApprovedBy)
+        //    .WithOne()
+        //    .HasForeignKey<Vacation>(x => x.ApprovedBy);
+
     }
 }

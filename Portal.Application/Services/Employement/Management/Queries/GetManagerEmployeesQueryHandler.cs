@@ -27,7 +27,7 @@ public class GetManagerEmployeesQueryHandler : IRequestHandler<GetManagerEmploye
             return Errors.ManagementErrors.NotManager;
         }
         var manager = _employeesRepository.GetById(query.ManagerId);
-        var employees = _employeesRepository.FindAll(e=>e.DepartId == manager.DepartId).ToList();  
+        var employees = _employeesRepository.FindAll(e=>e.DepartmentId == manager.DepartmentId).ToList();  
         var emps = new List<ManagerEmployee>();
         foreach (var employee in employees) 
         {

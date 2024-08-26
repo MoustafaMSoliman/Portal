@@ -37,8 +37,8 @@ public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCo
             );
         _departmentsRepository.AddNew(department);
 
-        return new CreateDepartmentResult((DepartmentId)department.Id,department.Name,department.ManagId
-            , _empsRepository.GetById((UserId)department.ManagId).Profile.FirstName
+        return new CreateDepartmentResult((DepartmentId)department.Id,department.Name,department.ManagerId
+            , _empsRepository.GetById((UserId)department.ManagerId).Profile.FirstName
             //,department.SecreteryId,department.Secretery.Profile.FirstName
             ,new List<Employee>());
     }

@@ -36,7 +36,8 @@ namespace Portal.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ManagerId");
+                    b.HasIndex("ManagerId")
+                        .IsUnique();
 
                     b.ToTable("Departments", (string)null);
                 });
@@ -107,8 +108,16 @@ namespace Portal.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("AcceptedBy")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("AcceptedBy");
+
                     b.Property<DateTime?>("AcceptedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ApprovedBy")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("ApprovedBy");
 
                     b.Property<DateTime?>("ApprovedOn")
                         .HasColumnType("datetime2");
@@ -118,6 +127,10 @@ namespace Portal.Infrastructure.Migrations
 
                     b.Property<DateTime>("EndAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("RejectedBy")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("RejectedBy");
 
                     b.Property<DateTime?>("RejectedOn")
                         .HasColumnType("datetime2");
@@ -316,27 +329,34 @@ namespace Portal.Infrastructure.Migrations
                 {
                     b.HasBaseType("Portal.Domain.User.User");
 
-                    b.Property<Guid>("DepartId")
+                    b.Property<Guid>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("HireDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("ManagerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasIndex("DepartId");
-
-                    b.HasIndex("ManagerId");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Employees", (string)null);
                 });
 
+            modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Entities.Manager", b =>
+                {
+                    b.HasBaseType("Portal.Domain.User.Entities.Employee.Employee");
+
+                    b.Property<string>("Office")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Office");
+
+                    b.ToTable("Managers", (string)null);
+                });
+
             modelBuilder.Entity("Portal.Domain.Department.Department", b =>
                 {
-                    b.HasOne("Portal.Domain.User.Entities.Employee.Employee", "Manager")
-                        .WithMany()
-                        .HasForeignKey("ManagerId")
+                    b.HasOne("Portal.Domain.User.Entities.Employee.Entities.Manager", "Manager")
+                        .WithOne("Department")
+                        .HasForeignKey("Portal.Domain.Department.Department", "ManagerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -479,9 +499,9 @@ namespace Portal.Infrastructure.Migrations
 
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Employee", b =>
                 {
-                    b.HasOne("Portal.Domain.Department.Department", "Department")
+                    b.HasOne("Portal.Domain.Department.Department", null)
                         .WithMany("Employees")
-                        .HasForeignKey("DepartId")
+                        .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -490,14 +510,15 @@ namespace Portal.Infrastructure.Migrations
                         .HasForeignKey("Portal.Domain.User.Entities.Employee.Employee", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.HasOne("Portal.Domain.User.Entities.Employee.Employee", "Manager")
-                        .WithMany()
-                        .HasForeignKey("ManagerId");
-
-                    b.Navigation("Department");
-
-                    b.Navigation("Manager");
+            modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Entities.Manager", b =>
+                {
+                    b.HasOne("Portal.Domain.User.Entities.Employee.Employee", null)
+                        .WithOne()
+                        .HasForeignKey("Portal.Domain.User.Entities.Employee.Entities.Manager", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Portal.Domain.Department.Department", b =>
@@ -545,6 +566,12 @@ namespace Portal.Infrastructure.Migrations
                     b.Navigation("Attendances");
 
                     b.Navigation("Vacations");
+                });
+
+            modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Entities.Manager", b =>
+                {
+                    b.Navigation("Department")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

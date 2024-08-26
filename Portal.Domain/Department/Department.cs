@@ -10,11 +10,9 @@ namespace Portal.Domain.Department;
 public class Department : AggregateRoot<DepartmentId, Guid>
 {
     public string Name { get; private set; } = null!;
-    public AggregateRootId<Guid> ManagId { get; private set; } = null!;
-    public Employee Manager { get; private set; } = null!;
+    public AggregateRootId<Guid> ManagerId { get; private set; } = null!;
+    public Manager Manager { get; private set; } = null!;
 
-    private readonly List<AggregateRootId<Guid>> _employeesIds = new();
-    public IReadOnlyList<AggregateRootId<Guid>> EmployeesIds => _employeesIds.AsReadOnly();
     private  List<Employee> _employees = new();
     public List<Employee> Employees => _employees;
 
@@ -30,7 +28,7 @@ public class Department : AggregateRoot<DepartmentId, Guid>
     {
         Id = id;
         Name = departmentName;
-        ManagId = managerId;
+        ManagerId = managerId;
         //SecreteryId = secreteryId;
     }
     public static Department Create(string departmentName, UserId managerId

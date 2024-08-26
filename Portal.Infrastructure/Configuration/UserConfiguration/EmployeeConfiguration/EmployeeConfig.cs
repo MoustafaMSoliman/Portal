@@ -29,15 +29,8 @@ public class EmployeeConfig : IEntityTypeConfiguration<Employee>
              .WithOne(x => x.Employee)
              .HasForeignKey(x => x.EmployeeId)
              .HasPrincipalKey(x => x.Id);
-
         
-        builder.HasOne(x => x.Department)
-            .WithMany(x => x.Employees)
-            .HasForeignKey(x => x.DepartId)
-            ;
-        builder.HasOne(x => x.Manager)
-            .WithMany()
-            .HasForeignKey(x => x.ManagerId);
+        
 
         
     }
