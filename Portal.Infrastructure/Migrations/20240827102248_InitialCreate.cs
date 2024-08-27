@@ -267,7 +267,7 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.Id,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete:ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -372,7 +372,7 @@ namespace Portal.Infrastructure.Migrations
                 column: "ManagerId",
                 principalTable: "Managers",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.NoAction);
         }
 
         /// <inheritdoc />

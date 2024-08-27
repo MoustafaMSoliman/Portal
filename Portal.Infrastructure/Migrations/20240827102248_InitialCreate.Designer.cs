@@ -12,7 +12,7 @@ using Portal.Infrastructure.Persistence;
 namespace Portal.Infrastructure.Migrations
 {
     [DbContext(typeof(PortalDbContext))]
-    [Migration("20240826221302_InitialCreate")]
+    [Migration("20240827102248_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

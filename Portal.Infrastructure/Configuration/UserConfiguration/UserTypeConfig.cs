@@ -10,5 +10,7 @@ public class UserTypeConfig : IEntityTypeConfiguration<UserType>
     {
         builder.ToTable("UserTypes");
         builder.HasKey(x => x.Id);
+        builder.Ignore(x => x.Value);
+        builder.Property(x => x.TypeName).IsRequired().HasColumnName("Type");
     }
 }

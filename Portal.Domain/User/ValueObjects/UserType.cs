@@ -6,6 +6,7 @@ namespace Portal.Domain.User.ValueObjects;
 public class UserType : ValueObject
 {
     public int Id { get; private set; } 
+    public string TypeName { get; private set; }
     public TypeEnum Value { get; private set; }
     public User User { get; private set; }
 #pragma warning disable CS8618
@@ -14,10 +15,11 @@ public class UserType : ValueObject
     private UserType(TypeEnum value) 
     {
         Value = value;
+        TypeName= Value.ToString();
     }
     public static UserType Create(string input)
     {
-        _ = Enum.TryParse<TypeEnum>(input, true, out TypeEnum value);
+        _ = Enum.TryParse(input, true, out TypeEnum value);
 
         return new(value);
         

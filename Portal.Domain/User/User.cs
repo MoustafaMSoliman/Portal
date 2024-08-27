@@ -30,7 +30,7 @@ public class User:AggregateRoot<UserId, Guid>
 #pragma warning disable CS8618
     protected internal User() { }
 #pragma warning restore CS8618
-    protected internal User(UserId id,Email email, string password,UserType userType, UserRole role, Profile profile,int? code, UserId? createdBy, UserId? updatedBy)
+    protected internal User(UserId id,Email email, string password,UserType userType, UserRole role, UserStatus userStatus, Profile profile,int? code, UserId? createdBy, UserId? updatedBy)
     {
         Id = id;
         Code = code ?? 1;
@@ -38,17 +38,19 @@ public class User:AggregateRoot<UserId, Guid>
         Password = password;
         UserType = userType;
         UserRole = role ;
+        UserStatus = userStatus;
         Profile = profile;
         CreatedBy = createdBy ?? id;
         UpdatedBy = updatedBy ?? id;
     }
-    public static User Create(Email email, string password,UserType userType, UserRole? role, Profile profile, int? code, UserId? createdBy, UserId? updatedBy)
+    public static User Create(Email email, string password,UserType userType, UserRole? role, UserStatus userStatus, Profile profile, int? code, UserId? createdBy, UserId? updatedBy)
     {
         return new(
             UserId.CreateUnique(), 
             email, password,
             userType,
             role ?? UserRole.Create("NormalUser"),
+            UserStatus.Create(StatusEnum.Active),
             profile,
             code,
             createdBy,
@@ -57,7 +59,7 @@ public class User:AggregateRoot<UserId, Guid>
     }
     public static User Create(UserId userd, Email email, string password, UserType userType, UserRole role, Profile profile, int? code, UserId? createdBy, UserId? updatedBy)
     {
-        return new(userd, email, password, userType, role , profile, code, createdBy, updatedBy);
+        return new(userd, email, password, userType, role , UserStatus.Create(StatusEnum.Active), profile, code, createdBy, updatedBy);
     }
     public void SetUserRole(UserRole role)
     {

@@ -22,7 +22,7 @@ public class Repository<T, I> : IRepository<T, I> where T : Entity<I> where I : 
         _dbContext.SaveChanges();   
     }
 
-    public T Find(Func<T, bool> match) => _dbContext.Set<T>().SingleOrDefault(match);
+    public T Find(Func<T, bool> match) => _dbContext.Set<T>().FirstOrDefault(match);
   
     public IEnumerable<T> FindAll(Func<T,bool> match) => _dbContext.Set<T>().Where(match);
 

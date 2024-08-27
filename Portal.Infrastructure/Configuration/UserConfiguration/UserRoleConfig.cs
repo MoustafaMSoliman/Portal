@@ -10,5 +10,7 @@ public class UserRoleConfig : IEntityTypeConfiguration<UserRole>
     {
         builder.ToTable("UserRoles");
         builder.HasKey(x=> x.Id);   
+        builder.Ignore(x => x.Value);
+        builder.Property(x=>x.RoleName).IsRequired().HasColumnName("Role");
     }
 }

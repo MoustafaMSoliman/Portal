@@ -19,8 +19,8 @@ public static class DependencyInjection
         services.AddAuth(configuration);
         
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
-        services.AddTransient(typeof(IRepository<,>), typeof(Repository<,>));
-        services.AddTransient(typeof(IAggregateRootRepository<,,>), typeof(AggregateRootRepository<,,>));
+        services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
+        services.AddScoped(typeof(IAggregateRootRepository<,,>), typeof(AggregateRootRepository<,,>));
         services.AddDbContext<PortalDbContext>(options => options.UseSqlServer());
 
 

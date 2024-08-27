@@ -18,11 +18,12 @@ public class AggregateRootRepository<AG, AGId, AGIdType> : IAggregateRootReposit
     public void AddNew(AG t)
     {
         _dbContext.Set<AG>().Add(t);
+        _dbContext.SaveChanges();
     }
 
     public AG Find(Func<AG, bool> match)
     {
-        return _dbContext.Set<AG>().SingleOrDefault(match);
+        return _dbContext.Set<AG>().FirstOrDefault(match);
     }
 
     public IEnumerable<AG> FindAll(Func<AG, bool> perdicate)

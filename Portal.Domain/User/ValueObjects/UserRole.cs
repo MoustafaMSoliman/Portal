@@ -7,6 +7,7 @@ public class UserRole : ValueObject
 {
 
     public int Id { get; set; }
+    public string RoleName { get; set; }
     public RoleEnum Value { get; set; }
     public User User { get; set; }
 
@@ -16,10 +17,12 @@ public class UserRole : ValueObject
     private UserRole(RoleEnum value) 
     {
         Value = value;
+        RoleName = Value.ToString();
+        
     }
     public static UserRole Create(string role)
     {
-        _=Enum.TryParse<RoleEnum>(role, true, out RoleEnum roleEnum);
+        _=Enum.TryParse(role, true, out RoleEnum roleEnum);
         return new(roleEnum);
     }
 

@@ -3,4 +3,6 @@
 public class Manager : Employee
 {
     public string Office { get; set; }
+    
+
 }

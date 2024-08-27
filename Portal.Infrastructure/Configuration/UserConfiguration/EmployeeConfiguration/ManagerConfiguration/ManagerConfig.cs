@@ -11,6 +11,7 @@ public class ManagerConfig : IEntityTypeConfiguration<Manager>
         builder.ToTable("Managers");
         builder.Property(x => x.Office)
             .HasColumnName("Office");
+       
 
     }
 }

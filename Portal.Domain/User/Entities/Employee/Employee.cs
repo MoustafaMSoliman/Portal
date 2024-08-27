@@ -26,11 +26,11 @@ public class Employee : User
 #pragma warning restore CS8618
    
     protected internal Employee(
-        UserId userId, Email email, string password, UserType userType, UserRole role, Profile profile, int ? code, UserId? createdBy, UserId? updatedBy,
+        User user,
         DepartmentId departmentId,
         DateTime hireDate
         //, ICareerGroup careerGroup
-        ) : base(userId, email, password, userType, role, profile, code, createdBy, updatedBy)
+        ) : base((UserId)user.Id, user.Email, user.Password, user.UserType, user.UserRole, user.UserStatus,user.Profile, user.Code, user.CreatedBy, user.UpdatedBy)
     {
         DepartmentId = departmentId;
         HireDate = hireDate;
@@ -44,7 +44,7 @@ public class Employee : User
         //, ICareerGroup careerGroup
         )
         => new(
-            (UserId)user.Id,user.Email,user.Password,user.UserType,user.UserRole,user.Profile,user.Code,user.CreatedBy,user.UpdatedBy,
+            user,
             departmentId,
             hireDate
             //,careerGroup

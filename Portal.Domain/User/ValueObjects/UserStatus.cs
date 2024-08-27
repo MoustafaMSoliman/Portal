@@ -6,8 +6,9 @@ namespace Portal.Domain.User.ValueObjects;
 public class UserStatus : ValueObject
 {
     public int Id { get; set; }
+    public string StatusName { get; set; }
     public StatusEnum Value { get; set; }
-
+    
     public User User { get; set; }
 #pragma warning disable CS8618
     private UserStatus() { }
@@ -15,10 +16,11 @@ public class UserStatus : ValueObject
     private UserStatus(StatusEnum value)
     {
         Value = value;
+        StatusName = value.ToString();
     }
     public static UserStatus Create(string input)
     {
-        _ = Enum.TryParse<StatusEnum>(input, true, out StatusEnum value);
+        _ = Enum.TryParse(input, true, out StatusEnum value);
 
         return new(value);
 
