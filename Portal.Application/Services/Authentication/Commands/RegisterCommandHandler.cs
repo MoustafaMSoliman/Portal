@@ -42,7 +42,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         string? Token;
         if (!IsValidEmail(registerCommand.Email))
             return Errors.EmailErrors.InValidEmail;
-        if (_userRepository.Find(x=>x.Email.Value == registerCommand.Email) is not null)
+        if (_userRepository.Find(x=>x.Email == registerCommand.Email) is not null)
         {
             return Errors.UserErrors.DuplicateEmail;
         }
@@ -50,7 +50,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         
         
         User user = User.Create(
-            Email.Create(registerCommand.Email),
+            registerCommand.Email,
             registerCommand.Password,
             UserType.Create(registerCommand.UserType),
             UserRole.Create(registerCommand.Role),

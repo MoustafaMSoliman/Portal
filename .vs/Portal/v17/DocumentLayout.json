@@ -1,50 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\",
+  "WorkspaceRootPath": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.application\\services\\authentication\\queries\\loginqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|solutionrelative:portal.application\\services\\authentication\\queries\\loginqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.infrastructure\\authentication\\jwtgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\authentication\\jwtgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.infrastructure\\persistence\\aggregaterootrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\persistence\\aggregaterootrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\RegiserRequest.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|solutionrelative:RegiserRequest.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\LoginRequest.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "AbsoluteMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\LoginRequest.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|solutionrelative:LoginRequest.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.application\\services\\authentication\\commands\\registercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\RegiserRequest.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{92CF6387-F7F7-42B0-B8FB-738BB321F212}|Requests{92CF6387-F7F7-42B0-B8FB-738BB321F212}|solutionrelative:RegiserRequest.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.application\\services\\authentication\\queries\\loginqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|solutionrelative:portal.application\\services\\authentication\\queries\\loginqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|e:\\dotnet\\domain-driven design\\my projects\\portal\\portal.application\\services\\authentication\\commands\\registercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{97724350-1E57-4DF2-B0FD-F186D6EC15C3}|Portal.Application\\Portal.Application.csproj|solutionrelative:portal.application\\services\\authentication\\commands\\registercommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.infrastructure\\persistence\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54772927-7985-4ED4-804D-F29C2C594895}|Portal.Infrastructure\\Portal.Infrastructure.csproj|solutionrelative:portal.infrastructure\\persistence\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\entities\\employee\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\entities\\employee\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\entities\\administrator\\administrator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\entities\\administrator\\administrator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\entities\\academicstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\entities\\academicstaff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|d:\\dotnet core\\domain driver design\\projects\\portal\\portal.domain\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D10614-DF25-4529-AA3E-DF05586641DB}|Portal.Domain\\Portal.Domain.csproj|solutionrelative:portal.domain\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,149 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "Portal.Infrastructure\\DependencyInjection.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\DependencyInjection.cs",
-              "RelativeToolTip": "Portal.Infrastructure\\DependencyInjection.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAA3wBYAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T11:32:00.172Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LoginQueryHandler.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Application\\Services\\Authentication\\Queries\\LoginQueryHandler.cs",
-              "RelativeDocumentMoniker": "Portal.Application\\Services\\Authentication\\Queries\\LoginQueryHandler.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Application\\Services\\Authentication\\Queries\\LoginQueryHandler.cs",
-              "RelativeToolTip": "Portal.Application\\Services\\Authentication\\Queries\\LoginQueryHandler.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAowBIAAAAIAAAA",
+              "Title": "JWTGenerator.cs",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Infrastructure\\Authentication\\JWTGenerator.cs",
+              "RelativeDocumentMoniker": "Portal.Infrastructure\\Authentication\\JWTGenerator.cs",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Infrastructure\\Authentication\\JWTGenerator.cs",
+              "RelativeToolTip": "Portal.Infrastructure\\Authentication\\JWTGenerator.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAqwBkAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T11:28:22.604Z",
+              "WhenOpened": "2024-08-28T20:08:15.716Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LoginRequest.http",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\LoginRequest.http",
-              "RelativeDocumentMoniker": "LoginRequest.http",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\LoginRequest.http",
-              "RelativeToolTip": "LoginRequest.http",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "RegiserRequest.http",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\RegiserRequest.http",
+              "RelativeDocumentMoniker": "RegiserRequest.http",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\RegiserRequest.http",
+              "RelativeToolTip": "RegiserRequest.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-08-27T11:26:36.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Persistence\\Repository.cs",
-              "RelativeDocumentMoniker": "Portal.Infrastructure\\Persistence\\Repository.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Persistence\\Repository.cs",
-              "RelativeToolTip": "Portal.Infrastructure\\Persistence\\Repository.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAcwBgAAABTAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T11:22:39.237Z",
+              "WhenOpened": "2024-08-28T20:01:27.286Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AggregateRootRepository.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Persistence\\AggregateRootRepository.cs",
-              "RelativeDocumentMoniker": "Portal.Infrastructure\\Persistence\\AggregateRootRepository.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Infrastructure\\Persistence\\AggregateRootRepository.cs",
-              "RelativeToolTip": "Portal.Infrastructure\\Persistence\\AggregateRootRepository.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAQwBkAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T11:21:49.532Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
-              "RelativeDocumentMoniker": "Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
-              "RelativeToolTip": "Portal.Domain\\User\\Entities\\Employee\\Employee.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAYwCwAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T11:15:54.026Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Administrator.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Administrator\\Administrator.cs",
-              "RelativeDocumentMoniker": "Portal.Domain\\User\\Entities\\Administrator\\Administrator.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\Administrator\\Administrator.cs",
-              "RelativeToolTip": "Portal.Domain\\User\\Entities\\Administrator\\Administrator.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAjwAsAAABjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T11:15:20.168Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AcademicStaff.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\AcademicStaff.cs",
-              "RelativeDocumentMoniker": "Portal.Domain\\User\\Entities\\AcademicStaff.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\Entities\\AcademicStaff.cs",
-              "RelativeToolTip": "Portal.Domain\\User\\Entities\\AcademicStaff.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAIA2wBcAAACXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T11:14:22.011Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\User.cs",
-              "RelativeDocumentMoniker": "Portal.Domain\\User\\User.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Domain\\User\\User.cs",
-              "RelativeToolTip": "Portal.Domain\\User\\User.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAA2wD0AAABhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T11:08:30.596Z",
+              "Title": "LoginRequest.http",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\LoginRequest.http",
+              "RelativeDocumentMoniker": "LoginRequest.http",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\LoginRequest.http",
+              "RelativeToolTip": "LoginRequest.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-08-28T20:01:08.414Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "RegiserRequest.http",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\RegiserRequest.http",
-              "RelativeDocumentMoniker": "RegiserRequest.http",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\RegiserRequest.http",
-              "RelativeToolTip": "RegiserRequest.http",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-08-27T11:07:08.844Z",
+              "Title": "LoginQueryHandler.cs",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Authentication\\Queries\\LoginQueryHandler.cs",
+              "RelativeDocumentMoniker": "Portal.Application\\Services\\Authentication\\Queries\\LoginQueryHandler.cs",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Authentication\\Queries\\LoginQueryHandler.cs",
+              "RelativeToolTip": "Portal.Application\\Services\\Authentication\\Queries\\LoginQueryHandler.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAAAB4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T19:59:29.817Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "RegisterCommandHandler.cs",
-              "DocumentMoniker": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
+              "DocumentMoniker": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
               "RelativeDocumentMoniker": "Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
-              "ToolTip": "D:\\DotNet Core\\Domain Driver Design\\Projects\\Portal\\Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
+              "ToolTip": "E:\\DotNet\\Domain-driven design\\My Projects\\Portal\\Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
               "RelativeToolTip": "Portal.Application\\Services\\Authentication\\Commands\\RegisterCommandHandler.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAA2wCwAAAAkAAAA",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAkwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T11:06:55.77Z",
+              "WhenOpened": "2024-08-28T19:59:07.844Z",
               "EditorCaption": ""
             }
           ]

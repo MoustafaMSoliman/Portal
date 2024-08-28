@@ -26,10 +26,7 @@ public class UserConfig : IEntityTypeConfiguration<User>
             .HasForeignKey<User>(u=>u.ProfileId)
             .IsRequired(true);
 
-        builder.HasOne(x=>x.Email)
-            .WithOne(y=>y.User)
-            .HasForeignKey<User>(x=>x.EmailId)
-            .IsRequired(true);
+        
 
         builder.HasOne(x=>x.UserRole)
             .WithOne(y=>y.User)

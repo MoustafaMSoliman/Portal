@@ -25,7 +25,7 @@ public class JWTGenerator : IJWTGenerator
             );
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id.Value.ToString()),
             new Claim(JwtRegisteredClaimNames.Name, user.Profile.FirstName),
             new Claim(JwtRegisteredClaimNames.FamilyName, user.Profile.LastName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())

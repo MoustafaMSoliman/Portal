@@ -12,7 +12,7 @@ using Portal.Infrastructure.Persistence;
 namespace Portal.Infrastructure.Migrations
 {
     [DbContext(typeof(PortalDbContext))]
-    [Migration("20240827102248_InitialCreate")]
+    [Migration("20240828193754_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -174,8 +174,9 @@ namespace Portal.Infrastructure.Migrations
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("EmailId")
-                        .HasColumnType("int");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -198,9 +199,6 @@ namespace Portal.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmailId")
-                        .IsUnique();
-
                     b.HasIndex("ProfileId")
                         .IsUnique();
 
@@ -216,23 +214,6 @@ namespace Portal.Infrastructure.Migrations
                     b.ToTable("Users", (string)null);
 
                     b.UseTptMappingStrategy();
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.Email", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Emails", (string)null);
                 });
 
             modelBuilder.Entity("Portal.Domain.User.ValueObjects.Profile", b =>
@@ -288,8 +269,10 @@ namespace Portal.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Value")
-                        .HasColumnType("int");
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Role");
 
                     b.HasKey("Id");
 
@@ -304,8 +287,10 @@ namespace Portal.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Value")
-                        .HasColumnType("int");
+                    b.Property<string>("StatusName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Status");
 
                     b.HasKey("Id");
 
@@ -320,8 +305,10 @@ namespace Portal.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Value")
-                        .HasColumnType("int");
+                    b.Property<string>("TypeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Type");
 
                     b.HasKey("Id");
 
@@ -399,12 +386,6 @@ namespace Portal.Infrastructure.Migrations
 
             modelBuilder.Entity("Portal.Domain.User.User", b =>
                 {
-                    b.HasOne("Portal.Domain.User.ValueObjects.Email", "Email")
-                        .WithOne("User")
-                        .HasForeignKey("Portal.Domain.User.User", "EmailId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Portal.Domain.User.ValueObjects.Profile", "Profile")
                         .WithOne("User")
                         .HasForeignKey("Portal.Domain.User.User", "ProfileId")
@@ -428,8 +409,6 @@ namespace Portal.Infrastructure.Migrations
                         .HasForeignKey("Portal.Domain.User.User", "UserTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Email");
 
                     b.Navigation("Profile");
 
@@ -532,12 +511,6 @@ namespace Portal.Infrastructure.Migrations
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Entities.Attendance", b =>
                 {
                     b.Navigation("Claim");
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.Email", b =>
-                {
-                    b.Navigation("User")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Portal.Domain.User.ValueObjects.Profile", b =>
