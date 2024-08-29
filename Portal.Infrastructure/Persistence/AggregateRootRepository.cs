@@ -1,5 +1,7 @@
-﻿using Portal.Application.Common.Interfaces.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+using Portal.Application.Common.Interfaces.Persistence;
 using Portal.Domain.Common.Models;
+using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 
 namespace Portal.Infrastructure.Persistence;
@@ -29,6 +31,16 @@ public class AggregateRootRepository<AG, AGId, AGIdType> : IAggregateRootReposit
     public IEnumerable<AG> FindAll(Func<AG, bool> perdicate)
     {
         return _dbContext.Set<AG>().Where(perdicate);
+    }
+
+    public AG FindWithInclue(Func<AG, bool> match, params Expression<Func<AG, object>>[] includeProperties)
+    {
+        IQueryable<AG> query = _dbContext.Set<AG>();
+        foreach (var property in includeProperties) 
+        {
+            query= query.Include(property);
+        }
+        return query.FirstOrDefault(match);
     }
 
     public IEnumerable<AG> GetAll()

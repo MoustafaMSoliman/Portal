@@ -9,6 +9,7 @@ public interface IRepository<TId, TIdType> where TId : class where TIdType : not
     TId GetById(TIdType id);
    
     TId Find(Func<TId, bool> match);
+    TId FindWithInclue(Func<TId, bool> match, params Expression<Func<TId, object>>[] includeProperties);
     void AddNew(TId t);
     IEnumerable<TId> GetAll();
     IEnumerable<TId> FindAll(Func<TId,bool> perdicate);

@@ -28,7 +28,7 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthResult>
     {
         await Task.CompletedTask;
        
-        if (_userRepository.Find(x => x.Email == loginQuery.Email) is not User user)
+        if (_userRepository.FindWithInclue(x => x.Email == loginQuery.Email, u => u.Profile, u=>u.UserType, u => u.UserRole, u => u.UserStatus) is not User user)
         {
             return Errors.AuthenticationErrors.InvalidCredentials;
         }
@@ -36,6 +36,7 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthResult>
         {
             return Errors.AuthenticationErrors.InvalidCredentials;
         }
+        
         var Token = _jwtGenerator.GenerateToken(user);
 
 
