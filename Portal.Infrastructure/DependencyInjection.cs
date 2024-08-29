@@ -21,6 +21,7 @@ public static class DependencyInjection
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
         services.AddScoped(typeof(IAggregateRootRepository<,,>), typeof(AggregateRootRepository<,,>));
+        services.AddScoped<IUnitOfWork, UnitOfWork>();  
         services.AddDbContext<PortalDbContext>(options => options.UseSqlServer());
 
 

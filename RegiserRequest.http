@@ -5,12 +5,12 @@ Content-Type: application/json
 
 {
   "code":"3",
-  "firstName": "Oday",
-  "middleName": "Abdu",
+  "firstName": "Moustafa",
+  "middleName": "Mahmood",
   "lastName": "Soliman",
-  "arabicName": "⁄œÌ ⁄»œ«·—Õ„‰ ”·Ì„«‰",
+  "arabicName": "„’ÿ›Ì „Õ„Êœ ”·Ì„«‰",
   "nationality": "Egyptian",
-  "nationalId": 224496123135354321,
+  "nationalId": 22446673155432441,
   "gender": "Male",
   "dateOfBirth": "2024-08-03T19:58:53.382Z",
   "contactNumber": "0100000",
@@ -23,6 +23,6 @@ Content-Type: application/json
   },
   "userType": "Employee",
   "role": "NormalUser",
-  "email": "oday@str.com",
+  "email": "moustafa@str.com",
   "password": "string"
 }

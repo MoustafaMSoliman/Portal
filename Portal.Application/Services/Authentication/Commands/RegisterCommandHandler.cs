@@ -18,8 +18,7 @@ namespace Portal.Application.Services.Authentication.Commands;
 
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthResult>>
 {
-    private readonly IAggregateRootRepository<User, UserId, Guid> _userRepository;
-    private readonly IAggregateRootRepository<Employee, UserId, Guid> _employeeRepository;
+    private readonly IUnitOfWork _unitOfWork;
     //private readonly PortalDbContext _dbContext;
 
     private readonly IJWTGenerator _jwtGenerator;
@@ -27,13 +26,11 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
             @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-    public RegisterCommandHandler(IAggregateRootRepository<User, UserId, Guid> userRepository, IJWTGenerator jwtGenerator
-        ,IAggregateRootRepository<Employee, UserId, Guid> employeeRepository
-        )
+    public RegisterCommandHandler(IJWTGenerator jwtGenerator,IUnitOfWork unitOfWork)
     {
-        _userRepository = userRepository;
+        _unitOfWork = unitOfWork;
         _jwtGenerator = jwtGenerator;
-        _employeeRepository = employeeRepository;
+        
         
     }
     public async Task<ErrorOr<AuthResult>> Handle(RegisterCommand registerCommand, CancellationToken cancellationToken)
@@ -42,7 +39,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         string? Token;
         if (!IsValidEmail(registerCommand.Email))
             return Errors.EmailErrors.InValidEmail;
-        if (_userRepository.Find(x=>x.Email == registerCommand.Email) is not null)
+        if (_unitOfWork.UsersRepository.Find(x=>x.Email == registerCommand.Email) is not null)
         {
             return Errors.UserErrors.DuplicateEmail;
         }
@@ -87,7 +84,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         //    Token = _jwtGenerator.GenerateToken(emp);
         //    return new AuthResult(emp, Token);
         //}
-        _userRepository.AddNew(user);
+        _unitOfWork.UsersRepository.AddNew(user);
 
         if (registerCommand.UserType == TypeEnum.Employee)
         {

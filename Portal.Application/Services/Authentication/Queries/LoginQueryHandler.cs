@@ -11,24 +11,19 @@ namespace Portal.Application.Services.Authentication.Queries;
 
 public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthResult>>
 {
-    private readonly IAggregateRootRepository<User, UserId, Guid> _userRepository;
-    //private readonly IRepository<Email, int> _emailRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly IJWTGenerator _jwtGenerator;
 
-    public LoginQueryHandler(
-        IAggregateRootRepository<User, UserId, Guid> userRepository, IJWTGenerator jWTGenerator
-        //, IRepository<Email, int> emailRepository
-        )
+    public LoginQueryHandler(IJWTGenerator jWTGenerator, IUnitOfWork unitOfWork)
     {
-        _userRepository = userRepository;
         _jwtGenerator = jWTGenerator;
-        //_emailRepository = emailRepository;
+        _unitOfWork = unitOfWork;
     }
     public async Task<ErrorOr<AuthResult>> Handle(LoginQuery loginQuery, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
        
-        if (_userRepository.FindWithInclue(x => x.Email == loginQuery.Email, u => u.Profile, u=>u.UserType, u => u.UserRole, u => u.UserStatus) is not User user)
+        if (_unitOfWork.UsersRepository.FindWithInclue(x => x.Email == loginQuery.Email, u => u.Profile, u=>u.UserType, u => u.UserRole, u => u.UserStatus) is not User user)
         {
             return Errors.AuthenticationErrors.InvalidCredentials;
         }
