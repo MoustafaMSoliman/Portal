@@ -1,10 +1,10 @@
 POST https://localhost:7181/api/Admin/SetEmployeeAsManager
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJQb3J0YWwuRG9tYWluLlVzZXIuVmFsdWVPYmplY3RzLlVzZXJJZCIsIm5hbWUiOiJPZGF5IiwiZmFtaWx5X25hbWUiOiJTb2xpbWFuIiwianRpIjoiMTk2YWM1ZWQtZWNlMS00ODY1LTlmZTItZmNmNDZhNmI4OThkIiwiZXhwIjoxNzI0MTQyNTIwLCJpc3MiOiJQb3J0YWwiLCJhdWQiOiJQb3J0YWwifQ.IRG6O5og_1lMd89UFY-h_iRTa53O52chA4vwTleNxiU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlZDhiZDkxZi04YzA3LTQ2YTYtYTM0MC01MDMxZTRiYWM1MzMiLCJuYW1lIjoiU2VsZW0iLCJmYW1pbHlfbmFtZSI6IlNvbGltYW4iLCJqdGkiOiJmZjVkZGYzYS1lNmQxLTRlZTQtYTkwYi1kYjcwZGFjNmYxOWMiLCJleHAiOjE3MjUxMzM4MjksImlzcyI6IlBvcnRhbCIsImF1ZCI6IlBvcnRhbCJ9.GZeWzu0gbpFCUBBhrywHxa8IyC_hJYO4odcIfqMYCWM
 
 {
 
     "adminId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "employeeId": "a536075f-08af-4d64-997f-e3f5fe558d41"
+    "employeeId": "ed8bd91f-8c07-46a6-a340-5031e4bac533"
 
 }

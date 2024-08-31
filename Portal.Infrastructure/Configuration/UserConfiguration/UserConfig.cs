@@ -28,20 +28,9 @@ public class UserConfig : IEntityTypeConfiguration<User>
 
         
 
-        builder.HasOne(x=>x.UserRole)
-            .WithOne(y=>y.User)
-            .HasForeignKey<User>(x=>x.UserRoleId)
-            .IsRequired(true);
+       
 
-        builder.HasOne(x => x.UserType)
-            .WithOne(y=>y.User)
-            .HasForeignKey<User>(x=>x.UserTypeId)
-            .IsRequired(true);
-
-        builder.HasOne(x => x.UserStatus)
-           .WithOne(y => y.User)
-           .HasForeignKey<User>(x => x.UserStatusId)
-           .IsRequired(true);
+        
 
         
 

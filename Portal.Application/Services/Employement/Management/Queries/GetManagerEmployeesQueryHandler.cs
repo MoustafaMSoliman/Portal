@@ -22,7 +22,7 @@ public class GetManagerEmployeesQueryHandler : IRequestHandler<GetManagerEmploye
     public async Task<ErrorOr<ManagerEmployeesResult>> Handle(GetManagerEmployeesQuery query, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        if (_employeesRepository.GetById(query.ManagerId).UserRole.Value != Domain.Common.Enums.RoleEnum.Manager)
+        if (_employeesRepository.GetById(query.ManagerId).UserRole != Domain.Common.Enums.RoleEnum.Manager)
         {
             return Errors.ManagementErrors.NotManager;
         }
@@ -31,7 +31,7 @@ public class GetManagerEmployeesQueryHandler : IRequestHandler<GetManagerEmploye
         var emps = new List<ManagerEmployee>();
         foreach (var employee in employees) 
         {
-            if(employee.UserRole.Value != Domain.Common.Enums.RoleEnum.Manager)
+            if(employee.UserRole != Domain.Common.Enums.RoleEnum.Manager)
               emps.Add(new ManagerEmployee( employee.Id.Value, employee.Profile.FirstName ));
             
         }

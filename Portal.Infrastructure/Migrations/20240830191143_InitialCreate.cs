@@ -33,45 +33,6 @@ namespace Portal.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserRoles",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserRoles", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserStatuses",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserStatuses", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserTypes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserTypes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Addresses",
                 columns: table => new
                 {
@@ -120,9 +81,9 @@ namespace Portal.Infrastructure.Migrations
                     ProfileId = table.Column<int>(type: "int", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserTypeId = table.Column<int>(type: "int", nullable: false),
-                    UserRoleId = table.Column<int>(type: "int", nullable: false),
-                    UserStatusId = table.Column<int>(type: "int", nullable: false),
+                    UserType = table.Column<int>(type: "int", nullable: false),
+                    UserRole = table.Column<int>(type: "int", nullable: false),
+                    UserStatus = table.Column<int>(type: "int", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
@@ -133,24 +94,6 @@ namespace Portal.Infrastructure.Migrations
                         name: "FK_Users_Profiles_ProfileId",
                         column: x => x.ProfileId,
                         principalTable: "Profiles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Users_UserRoles_UserRoleId",
-                        column: x => x.UserRoleId,
-                        principalTable: "UserRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Users_UserStatuses_UserStatusId",
-                        column: x => x.UserStatusId,
-                        principalTable: "UserStatuses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Users_UserTypes_UserTypeId",
-                        column: x => x.UserTypeId,
-                        principalTable: "UserTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -311,24 +254,6 @@ namespace Portal.Infrastructure.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_UserRoleId",
-                table: "Users",
-                column: "UserRoleId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_UserStatusId",
-                table: "Users",
-                column: "UserStatusId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_UserTypeId",
-                table: "Users",
-                column: "UserTypeId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Vacations_EmployeeId",
                 table: "Vacations",
                 column: "EmployeeId");
@@ -346,8 +271,7 @@ namespace Portal.Infrastructure.Migrations
                 table: "Departments",
                 column: "ManagerId",
                 principalTable: "Managers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.NoAction);
+                principalColumn: "Id");
         }
 
         /// <inheritdoc />
@@ -390,15 +314,6 @@ namespace Portal.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Managers");
-
-            migrationBuilder.DropTable(
-                name: "UserRoles");
-
-            migrationBuilder.DropTable(
-                name: "UserStatuses");
-
-            migrationBuilder.DropTable(
-                name: "UserTypes");
         }
     }
 }

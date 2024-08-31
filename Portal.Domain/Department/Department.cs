@@ -1,4 +1,5 @@
-﻿using Portal.Domain.Common.Models;
+﻿using Portal.Domain.Common.AccessContorl;
+using Portal.Domain.Common.Models;
 using Portal.Domain.Department.ValueObjects;
 using Portal.Domain.User.Entities;
 using Portal.Domain.User.Entities.Employee;
@@ -15,6 +16,8 @@ public class Department : AggregateRoot<DepartmentId, Guid>
 
     private  List<Employee> _employees = new();
     public List<Employee> Employees => _employees;
+    private readonly List<AdministratorDepartment> _administratorDepartments = new();
+    public List<AdministratorDepartment> AdministratorDepartments => _administratorDepartments;
 
     //public UserId? SecreteryId { get; private set; } = null!;
     //public Secretery? Secretery { get; private set; } = null!;

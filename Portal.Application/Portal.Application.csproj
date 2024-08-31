@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Common\Interfaces\Employment\" />
+    <Folder Include="Services\Departments\Queries\" />
   </ItemGroup>
 
 </Project>

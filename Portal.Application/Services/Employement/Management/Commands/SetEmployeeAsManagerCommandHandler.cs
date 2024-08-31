@@ -15,66 +15,58 @@ namespace Portal.Application.Services.Employement.Management.Commands;
 
 public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsManagerCommand, ErrorOr<SetEmployeeAsManagerResult>>
 {
-    private readonly IAggregateRootRepository<Administrator, UserId, Guid> _adminsRepository;
-    private readonly IAggregateRootRepository<Employee, UserId, Guid> _employeessRepository;
-    private readonly IAggregateRootRepository<User, UserId, Guid> _usersRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
 
 
-    public SetEmployeeAsManagerCommandHandler(IAggregateRootRepository<Administrator, UserId, Guid> adminsRepository,
-        IAggregateRootRepository<Employee, UserId, Guid> employeessRepository,
-        IAggregateRootRepository<User, UserId, Guid> usersRepository
-        )
+    public SetEmployeeAsManagerCommandHandler(IUnitOfWork unitOfWork)
     {
-        _adminsRepository = adminsRepository;
-        _employeessRepository = employeessRepository;
-        _usersRepository = usersRepository;
+        _unitOfWork = unitOfWork;
     }
     public async Task<ErrorOr<SetEmployeeAsManagerResult>> Handle(SetEmployeeAsManagerCommand command, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
 
-        var adminUser = User.Create(UserId.Create(Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6")),
-                "admin1@portal.com", "P2ssw0rd", 
-               UserType.Create(TypeEnum.Employee),
-                                                 UserRole.Create(RoleEnum.Administrator), Profile.Create(
-                                                      "Moustafa",
-                                                      "Mahmood",
-                                                      "Soliman",
-                                                      "مصطفي محمود سليمان",
-                                                      Nationality.Create("egyptian"),
-                                                      12344567889899,
-                                                      Gender.Male,
-                                                      DateTime.Now,
-                                                      "010002",
-                                                      Address.Create(
-                                                           "anasary",
-                                                           "cairo",
-                                                           "cairo",
-                                                           "1234",
-                                                           "egypt"
-                                                      )
-                                                    ), 1, UserId.Create(Guid.Empty), UserId.Create(Guid.Empty)
-                );
-        _adminsRepository.AddNew(Administrator.Create(
-            adminUser
-            ));
+        //var adminUser = User.Create(UserId.Create(Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6")),
+        //        "admin1@portal.com", "P2ssw0rd", 
+        //       TypeEnum.Employee,
+        //                                         RoleEnum.Administrator, Profile.Create(
+        //                                              "Moustafa",
+        //                                              "Mahmood",
+        //                                              "Soliman",
+        //                                              "مصطفي محمود سليمان",
+        //                                              Nationality.Create("egyptian"),
+        //                                              12344567889899,
+        //                                              Gender.Male,
+        //                                              DateTime.Now,
+        //                                              "010002",
+        //                                              Address.Create(
+        //                                                   "anasary",
+        //                                                   "cairo",
+        //                                                   "cairo",
+        //                                                   "1234",
+        //                                                   "egypt"
+        //                                              )
+        //                                            ), 1, UserId.Create(Guid.Empty), UserId.Create(Guid.Empty)
+        //        );
+        //_adminsRepository.AddNew(Administrator.Create(
+        //    adminUser
+        //    ));
 
-        //if (_adminsRepository.GetById(command.AdminId) is null)
-        //    return Errors.AdminsErrors.NotAdmin;
-        if (_employeessRepository.Find(e=>e.Id==command.EmployeeId) is null)
+        if (_unitOfWork.AdministratorsRepository.GetById(command.AdminId) is null)
+            return Errors.AdminsErrors.NotAdmin;
+        if (_unitOfWork.UsersRepository.Find(e=>e.Id==command.EmployeeId) is null)
             return Errors.AuthenticationErrors.InvalidUser;
-        if (_employeessRepository.Find(m=>m.Id==command.EmployeeId).UserRole.Value == RoleEnum.Manager)
+        if (_unitOfWork.EmployeesRepository.Find(e => e.Id == command.EmployeeId) is null)
+            return Errors.EmploymentErrors.NotEmployee;
+        if (_unitOfWork.ManagersRepository.GetById(command.EmployeeId) is not null)
             return Errors.ManagementErrors.AlreadyManager;
-      
-       
-        //If we use the var employee, no update will done for the repo.
-        _employeessRepository.GetById(command.EmployeeId).SetUserRole(UserRole.Create( RoleEnum.Manager) );
-        _usersRepository.GetById(command.EmployeeId).SetUserRole(UserRole.Create(RoleEnum.Manager));
 
-       
+
+        //If we use the var employee, no update will done for the repo.
+        _unitOfWork.EmployeesRepository.GetByIdWithInclude(command.EmployeeId,x=>x.UserRole).SetUserRole( RoleEnum.Manager );
        
         return new SetEmployeeAsManagerResult(command.AdminId,
-            _employeessRepository.GetById(command.EmployeeId));
+            _unitOfWork.EmployeesRepository.GetByIdWithInclude(command.EmployeeId,e=>e.Profile,e=>e.UserRole,e=>e.UserType));
     }
 }

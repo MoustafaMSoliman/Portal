@@ -1,4 +1,6 @@
-﻿using Portal.Domain.User;
+﻿using Portal.Domain.Department;
+using Portal.Domain.Department.ValueObjects;
+using Portal.Domain.User;
 using Portal.Domain.User.Entities.Administrator;
 using Portal.Domain.User.Entities.Employee;
 using Portal.Domain.User.Entities.Employee.Entities;
@@ -14,6 +16,8 @@ public interface IUnitOfWork : IDisposable
     IAggregateRootRepository<Manager, UserId, Guid> ManagersRepository { get; }
 
     IAggregateRootRepository<Administrator, UserId, Guid> AdministratorsRepository { get; }
+    IAggregateRootRepository<Department, DepartmentId, Guid> DepartmentsRepository { get; }
+
     IRepository<Vacation,VacationId> VacationsRepository { get; }
 
 

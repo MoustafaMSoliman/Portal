@@ -23,7 +23,7 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthResult>
     {
         await Task.CompletedTask;
        
-        if (_unitOfWork.UsersRepository.FindWithInclue(x => x.Email == loginQuery.Email, u => u.Profile, u=>u.UserType, u => u.UserRole, u => u.UserStatus) is not User user)
+        if (_unitOfWork.UsersRepository.FindWithInclue(x => x.Email == loginQuery.Email, u => u.Profile) is not User user)
         {
             return Errors.AuthenticationErrors.InvalidCredentials;
         }

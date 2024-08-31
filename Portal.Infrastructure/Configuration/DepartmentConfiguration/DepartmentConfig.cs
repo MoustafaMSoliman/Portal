@@ -27,10 +27,14 @@ public class DepartmentConfig : IEntityTypeConfiguration<Department>
 
         builder.HasOne(x => x.Manager)
             .WithOne(x => x.Department)
-            .HasForeignKey<Department>(x => x.ManagerId);
+            .HasForeignKey<Department>(x => x.ManagerId)
+            .OnDelete(DeleteBehavior.NoAction)
+            .IsRequired(false);
 
         builder.HasMany(x => x.Employees)
              .WithOne()
              .HasForeignKey(x => x.DepartmentId);
+
+       
     }
 }

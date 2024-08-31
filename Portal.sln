@@ -36,6 +36,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User", "User", "{5F5E5FAD-A
 		User.md = User.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Department", "Department", "{D1DC7168-299F-4BC4-ADFF-844EC0CB8AD0}"
+	ProjectSection(SolutionItems) = preProject
+		CreateDepartment.http = CreateDepartment.http
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +74,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{AC1B1BA0-64DC-4CD4-8125-F810B6F86230} = {5F5E5FAD-A9AD-4004-A792-38D7FF2A79D4}
 		{5F5E5FAD-A9AD-4004-A792-38D7FF2A79D4} = {95BCFB5D-44C3-47E0-A018-685C7B9A0072}
+		{D1DC7168-299F-4BC4-ADFF-844EC0CB8AD0} = {92CF6387-F7F7-42B0-B8FB-738BB321F212}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E91E179-11F4-42F6-8C0A-4DC048E0A9FF}

@@ -1,4 +1,6 @@
 ﻿using Portal.Application.Common.Interfaces.Persistence;
+using Portal.Domain.Department;
+using Portal.Domain.Department.ValueObjects;
 using Portal.Domain.User;
 using Portal.Domain.User.Entities.Administrator;
 using Portal.Domain.User.Entities.Employee;
@@ -21,6 +23,8 @@ public class UnitOfWork : IUnitOfWork
 
     public IRepository<Vacation, VacationId> VacationsRepository { get; private set; }
 
+    public IAggregateRootRepository<Department, DepartmentId, Guid> DepartmentsRepository { get; private set; }
+
     public UnitOfWork(
         PortalDbContext dbContext
         , IAggregateRootRepository<User, UserId, Guid> usersRepository
@@ -28,6 +32,7 @@ public class UnitOfWork : IUnitOfWork
         , IAggregateRootRepository<Manager, UserId, Guid> managersRepository
         , IAggregateRootRepository<Administrator, UserId, Guid> administratorsRepository
         , IRepository<Vacation, VacationId> vacationsRepository
+        , IAggregateRootRepository<Department, DepartmentId, Guid> departmentsRepository
         )
     {
         _dbContext = dbContext;
@@ -36,9 +41,11 @@ public class UnitOfWork : IUnitOfWork
         ManagersRepository = managersRepository;
         AdministratorsRepository = administratorsRepository;
         VacationsRepository = vacationsRepository;
+        DepartmentsRepository = departmentsRepository;
     }
     public async Task<int> CompleteAsync()
     {
+        _dbContext.ChangeTracker.Clear();
         return await _dbContext.SaveChangesAsync();
     }
 

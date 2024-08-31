@@ -24,7 +24,14 @@ public class Employee : User
 #pragma warning disable CS8618
     protected internal Employee() { }
 #pragma warning restore CS8618
-   
+    protected internal Employee(UserId id, DepartmentId departmentId,
+        DateTime hireDate)
+        
+    {
+        Id = id;
+        DepartmentId = departmentId;
+        HireDate = hireDate;
+    }
     protected internal Employee(
         User user,
         DepartmentId departmentId,
@@ -45,6 +52,18 @@ public class Employee : User
         )
         => new(
             user,
+            departmentId,
+            hireDate
+            //,careerGroup
+            );
+    public static Employee Create(
+        UserId userId,
+        DepartmentId departmentId,
+        DateTime hireDate
+        //, ICareerGroup careerGroup
+        )
+        => new(
+            userId,
             departmentId,
             hireDate
             //,careerGroup

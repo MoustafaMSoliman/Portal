@@ -5,12 +5,12 @@ Content-Type: application/json
 
 {
   "code":"3",
-  "firstName": "Moustafa",
-  "middleName": "Mahmood",
+  "firstName": "Wafaa",
+  "middleName": "Moustafa",
   "lastName": "Soliman",
-  "arabicName": "„’ÿ›Ì „Õ„Êœ ”·Ì„«‰",
+  "arabicName": "Ê›«¡ „’ÿ›Ì ”·Ì„«‰",
   "nationality": "Egyptian",
-  "nationalId": 22446673155432441,
+  "natUserStatuses'ionalId": 22446673155432441,
   "gender": "Male",
   "dateOfBirth": "2024-08-03T19:58:53.382Z",
   "contactNumber": "0100000",
@@ -22,7 +22,7 @@ Content-Type: application/json
     "country": "Egypt"
   },
   "userType": "Employee",
-  "role": "NormalUser",
-  "email": "moustafa@str.com",
+  "role": "Manager",
+  "email": "wafaa@str.com",
   "password": "string"
 }

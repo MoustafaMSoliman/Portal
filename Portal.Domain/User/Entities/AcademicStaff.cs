@@ -21,7 +21,7 @@ public class AcademicStaff : User
         string officeLocation,
         AcademicStaffDepartments department
         )
-        :base((UserId)user.Id, user.Email, user.Password,UserType.Create(TypeEnum.AcademicStaff),UserRole.Create(RoleEnum.NormalUser) , user.UserStatus, user.Profile, user.Code, user.CreatedBy, user.UpdatedBy)
+        :base((UserId)user.Id, user.Email, user.Password,TypeEnum.AcademicStaff,RoleEnum.NormalUser , user.UserStatus, user.Profile, user.Code, user.CreatedBy, user.UpdatedBy)
     {
         Title = title;
         OfficeLocation = officeLocation;

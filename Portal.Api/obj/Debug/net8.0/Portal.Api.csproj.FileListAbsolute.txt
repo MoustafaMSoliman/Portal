@@ -154,6 +154,13 @@ D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Api\obj\Debug\net8.0\
 D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.pdb
 D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.genruntimeconfig.cache
 D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Api\obj\Debug\net8.0\ref\Portal.Api.dll
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.csproj.AssemblyReference.cache
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.GeneratedMSBuildEditorConfig.editorconfig
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.AssemblyInfoInputs.cache
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.AssemblyInfo.cs
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.csproj.CoreCompileInputs.cache
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.MvcApplicationPartsAssemblyInfo.cs
+E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.MvcApplicationPartsAssemblyInfo.cache
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\bin\Debug\net8.0\appsettings.Development.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\bin\Debug\net8.0\appsettings.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\bin\Debug\net8.0\Portal.Api.exe
@@ -290,13 +297,6 @@ E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\bin\Debug\net8.0\Po
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\bin\Debug\net8.0\Portal.Conttracts.pdb
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\bin\Debug\net8.0\Portal.Infrastructure.pdb
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\bin\Debug\net8.0\Portal.Domain.pdb
-E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.csproj.AssemblyReference.cache
-E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.GeneratedMSBuildEditorConfig.editorconfig
-E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.AssemblyInfoInputs.cache
-E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.AssemblyInfo.cs
-E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.csproj.CoreCompileInputs.cache
-E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.MvcApplicationPartsAssemblyInfo.cs
-E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\Portal.Api.MvcApplicationPartsAssemblyInfo.cache
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\staticwebassets.build.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\staticwebassets.development.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Api\obj\Debug\net8.0\staticwebassets\msbuild.Portal.Api.Microsoft.AspNetCore.StaticWebAssets.props

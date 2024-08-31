@@ -22,12 +22,27 @@ namespace Portal.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Portal.Domain.Common.AccessContorl.AdministratorDepartment", b =>
+                {
+                    b.Property<Guid>("DepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AdminId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("DepartmentId", "AdminId");
+
+                    b.HasIndex("AdminId");
+
+                    b.ToTable("AdminsDepartments", (string)null);
+                });
+
             modelBuilder.Entity("Portal.Domain.Department.Department", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ManagerId")
+                    b.Property<Guid?>("ManagerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -37,7 +52,8 @@ namespace Portal.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ManagerId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ManagerId] IS NOT NULL");
 
                     b.ToTable("Departments", (string)null);
                 });
@@ -185,27 +201,18 @@ namespace Portal.Infrastructure.Migrations
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("UserRoleId")
+                    b.Property<int>("UserRole")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserStatusId")
+                    b.Property<int>("UserStatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserTypeId")
+                    b.Property<int>("UserType")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProfileId")
-                        .IsUnique();
-
-                    b.HasIndex("UserRoleId")
-                        .IsUnique();
-
-                    b.HasIndex("UserStatusId")
-                        .IsUnique();
-
-                    b.HasIndex("UserTypeId")
                         .IsUnique();
 
                     b.ToTable("Users", (string)null);
@@ -258,58 +265,11 @@ namespace Portal.Infrastructure.Migrations
                     b.ToTable("Profiles", (string)null);
                 });
 
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserRole", b =>
+            modelBuilder.Entity("Portal.Domain.User.Entities.Administrator.Administrator", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.HasBaseType("Portal.Domain.User.User");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("RoleName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Role");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("StatusName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Status");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserStatuses", (string)null);
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("TypeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Type");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserTypes", (string)null);
+                    b.ToTable("Administrators", (string)null);
                 });
 
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Employee", b =>
@@ -339,13 +299,31 @@ namespace Portal.Infrastructure.Migrations
                     b.ToTable("Managers", (string)null);
                 });
 
+            modelBuilder.Entity("Portal.Domain.Common.AccessContorl.AdministratorDepartment", b =>
+                {
+                    b.HasOne("Portal.Domain.User.Entities.Administrator.Administrator", "Administrator")
+                        .WithMany("AdministratorDepartments")
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Portal.Domain.Department.Department", "Department")
+                        .WithMany("AdministratorDepartments")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Administrator");
+
+                    b.Navigation("Department");
+                });
+
             modelBuilder.Entity("Portal.Domain.Department.Department", b =>
                 {
                     b.HasOne("Portal.Domain.User.Entities.Employee.Entities.Manager", "Manager")
                         .WithOne("Department")
                         .HasForeignKey("Portal.Domain.Department.Department", "ManagerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Manager");
                 });
@@ -389,31 +367,7 @@ namespace Portal.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Portal.Domain.User.ValueObjects.UserRole", "UserRole")
-                        .WithOne("User")
-                        .HasForeignKey("Portal.Domain.User.User", "UserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Portal.Domain.User.ValueObjects.UserStatus", "UserStatus")
-                        .WithOne("User")
-                        .HasForeignKey("Portal.Domain.User.User", "UserStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Portal.Domain.User.ValueObjects.UserType", "UserType")
-                        .WithOne("User")
-                        .HasForeignKey("Portal.Domain.User.User", "UserTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Profile");
-
-                    b.Navigation("UserRole");
-
-                    b.Navigation("UserStatus");
-
-                    b.Navigation("UserType");
                 });
 
             modelBuilder.Entity("Portal.Domain.User.ValueObjects.Profile", b =>
@@ -476,6 +430,15 @@ namespace Portal.Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Portal.Domain.User.Entities.Administrator.Administrator", b =>
+                {
+                    b.HasOne("Portal.Domain.User.User", null)
+                        .WithOne()
+                        .HasForeignKey("Portal.Domain.User.Entities.Administrator.Administrator", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Employee", b =>
                 {
                     b.HasOne("Portal.Domain.Department.Department", null)
@@ -502,6 +465,8 @@ namespace Portal.Infrastructure.Migrations
 
             modelBuilder.Entity("Portal.Domain.Department.Department", b =>
                 {
+                    b.Navigation("AdministratorDepartments");
+
                     b.Navigation("Employees");
                 });
 
@@ -516,22 +481,9 @@ namespace Portal.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserRole", b =>
+            modelBuilder.Entity("Portal.Domain.User.Entities.Administrator.Administrator", b =>
                 {
-                    b.Navigation("User")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserStatus", b =>
-                {
-                    b.Navigation("User")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserType", b =>
-                {
-                    b.Navigation("User")
-                        .IsRequired();
+                    b.Navigation("AdministratorDepartments");
                 });
 
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Employee", b =>

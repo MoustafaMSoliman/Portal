@@ -14,6 +14,9 @@ using Portal.Domain.Common.Interfaces.User;
 using Portal.Domain.User.Career;
 using Portal.Domain.Department.ValueObjects;
 using Portal.Domain.User.Entities.Employee;
+using Portal.Domain.User.Entities.Administrator;
+using Portal.Domain.Department;
+using Portal.Domain.User.Entities.Employee.Entities;
 namespace Portal.Application.Services.Authentication.Commands;
 
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthResult>>
@@ -37,6 +40,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
     {
         await Task.CompletedTask;
         string? Token;
+        Employee employee;
         if (!IsValidEmail(registerCommand.Email))
             return Errors.EmailErrors.InValidEmail;
         if (_unitOfWork.UsersRepository.Find(x=>x.Email == registerCommand.Email) is not null)
@@ -49,9 +53,9 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         User user = User.Create(
             registerCommand.Email,
             registerCommand.Password,
-            UserType.Create(registerCommand.UserType),
-            UserRole.Create(registerCommand.Role),
-            UserStatus.Create(StatusEnum.Active),
+            registerCommand.UserType,
+           registerCommand.Role,
+            StatusEnum.Active,
             Profile.Create(registerCommand.FirstName,
               registerCommand.MiddleName,
               registerCommand.LastName,
@@ -71,35 +75,46 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
             registerCommand.CreatedBy,
             registerCommand.UpdatedBy
          );
-        //if (registerRequest.Role == RoleEnum.Employee)
+        //if (registerCommand.Role == RoleEnum.Manager)
         //{
-        //    ICareerTitle title1 = CareerTitle.Create("Software Engineer");
-        //    ICareerTitle title2 = CareerTitle.Create("Civil Engineer");
-
-        //    ICareerSpecialization specialization = 
-        //        CareerSpecialization.Create("Contracts", new List<ICareerTitle>() { title1, title2 });
-        //    ICareerGroup careerGroup = CareerGroup.Create("Contracts", new List<ICareerSpecialization>() { specialization });
-        //    var emp = Employee.Create(user, DepartmentId.CreateUnique(), DateTime.Now, careerGroup);
-        //    _employeeRepository.AddEmployee(emp);
-        //    Token = _jwtGenerator.GenerateToken(emp);
-        //    return new AuthResult(emp, Token);
+        //    _unitOfWork.ManagersRepository.AddNew(Manager.Create());
         //}
-        _unitOfWork.UsersRepository.AddNew(user);
+
 
         if (registerCommand.UserType == TypeEnum.Employee)
         {
-            var careerTitles = CareerTitle.Create("مهندس شبكات");
-            var carrerSpecialization = CareerSpecialization.Create("يومية",new List<ICareerTitle>{ careerTitles});
-            var carrerGroup = CareerGroup.Create("عقود", new List<ICareerSpecialization>{ carrerSpecialization } );
+            var department = _unitOfWork.DepartmentsRepository.Find(x => x.Name == "IT");
+            employee = Employee.Create(user, (DepartmentId)department.Id, DateTime.Now);
 
-            //_employeeRepository.AddNew(Employee.Create(user, DepartmentId.CreateUnique(), DateTime.Now
-            //    //,carrerGroup
-            //    ));
-        }
+            _unitOfWork.EmployeesRepository.AddNew(employee);
+            await _unitOfWork.CompleteAsync();
             
-         Token = _jwtGenerator.GenerateToken(user);
+          
+            Token = _jwtGenerator.GenerateToken(user);
+
+            return new AuthResult(user, Token);
+        }
         
-        return new AuthResult(user, Token);
+        
+        
+
+
+            _unitOfWork.UsersRepository.AddNew(user);
+        await _unitOfWork.CompleteAsync();
+
+        //if (registerCommand.Role == RoleEnum.Administrator)
+        //{
+
+
+        //    _unitOfWork.AdministratorsRepository.AddNew(Administrator.Create(user));
+        //    await _unitOfWork.CompleteAsync();
+
+        //}
+
+        Token = _jwtGenerator.GenerateToken(user);
+
+            return new AuthResult(user, Token);
+        
     }
 
     private bool IsValidEmail(string email)
@@ -107,4 +122,5 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         return EmailRegex.IsMatch(email);
         
     }
+   
 }

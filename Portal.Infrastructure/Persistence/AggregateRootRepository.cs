@@ -52,4 +52,12 @@ public class AggregateRootRepository<AG, AGId, AGIdType> : IAggregateRootReposit
     {
         return _dbContext.Set<AG>().SingleOrDefault(a=>a.Id==id);
     }
+
+    public AG GetByIdWithInclude(AGId id, params Expression<Func<AG, object>>[] includeProperties)
+    {
+        IQueryable<AG> query = _dbContext.Set<AG>();
+        foreach(var property in includeProperties)
+        { query= query.Include(property); }
+        return query.SingleOrDefault(x => x.Id == id);
+    }
 }

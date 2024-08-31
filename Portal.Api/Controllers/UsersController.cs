@@ -41,8 +41,8 @@ namespace Portal.Api.Controllers
                     new AddressRecordResult(user.Profile.Address.Street, user.Profile.Address.City, user.Profile.Address.State,user.Profile.Address.PostalCode,user.Profile.Address.Country),
                     user.Code,
                     user.Email,
-                    user.UserRole.Value.GetDisplayName(),
-                    user.UserStatus.Value.GetDisplayName()
+                    user.UserRole.GetDisplayName(),
+                    user.UserStatus.GetDisplayName()
                     ));
             }
             return Ok(users);

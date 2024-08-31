@@ -12,7 +12,7 @@ using Portal.Infrastructure.Persistence;
 namespace Portal.Infrastructure.Migrations
 {
     [DbContext(typeof(PortalDbContext))]
-    [Migration("20240828193754_InitialCreate")]
+    [Migration("20240830191143_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -188,27 +188,18 @@ namespace Portal.Infrastructure.Migrations
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("UserRoleId")
+                    b.Property<int>("UserRole")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserStatusId")
+                    b.Property<int>("UserStatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserTypeId")
+                    b.Property<int>("UserType")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProfileId")
-                        .IsUnique();
-
-                    b.HasIndex("UserRoleId")
-                        .IsUnique();
-
-                    b.HasIndex("UserStatusId")
-                        .IsUnique();
-
-                    b.HasIndex("UserTypeId")
                         .IsUnique();
 
                     b.ToTable("Users", (string)null);
@@ -261,60 +252,6 @@ namespace Portal.Infrastructure.Migrations
                     b.ToTable("Profiles", (string)null);
                 });
 
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserRole", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("RoleName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Role");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("StatusName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Status");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserStatuses", (string)null);
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("TypeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Type");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserTypes", (string)null);
-                });
-
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Employee", b =>
                 {
                     b.HasBaseType("Portal.Domain.User.User");
@@ -347,7 +284,7 @@ namespace Portal.Infrastructure.Migrations
                     b.HasOne("Portal.Domain.User.Entities.Employee.Entities.Manager", "Manager")
                         .WithOne("Department")
                         .HasForeignKey("Portal.Domain.Department.Department", "ManagerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Manager");
@@ -392,31 +329,7 @@ namespace Portal.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Portal.Domain.User.ValueObjects.UserRole", "UserRole")
-                        .WithOne("User")
-                        .HasForeignKey("Portal.Domain.User.User", "UserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Portal.Domain.User.ValueObjects.UserStatus", "UserStatus")
-                        .WithOne("User")
-                        .HasForeignKey("Portal.Domain.User.User", "UserStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Portal.Domain.User.ValueObjects.UserType", "UserType")
-                        .WithOne("User")
-                        .HasForeignKey("Portal.Domain.User.User", "UserTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Profile");
-
-                    b.Navigation("UserRole");
-
-                    b.Navigation("UserStatus");
-
-                    b.Navigation("UserType");
                 });
 
             modelBuilder.Entity("Portal.Domain.User.ValueObjects.Profile", b =>
@@ -514,24 +427,6 @@ namespace Portal.Infrastructure.Migrations
                 });
 
             modelBuilder.Entity("Portal.Domain.User.ValueObjects.Profile", b =>
-                {
-                    b.Navigation("User")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserRole", b =>
-                {
-                    b.Navigation("User")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserStatus", b =>
-                {
-                    b.Navigation("User")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Portal.Domain.User.ValueObjects.UserType", b =>
                 {
                     b.Navigation("User")
                         .IsRequired();

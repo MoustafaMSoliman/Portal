@@ -3,6 +3,7 @@ using Portal.Domain.Common.Enums;
 using Portal.Domain.Common.Models;
 using Portal.Domain.Department;
 using Portal.Domain.User;
+using Portal.Domain.User.Entities.Administrator;
 using Portal.Domain.User.Entities.Employee;
 using Portal.Domain.User.Entities.Employee.Entities;
 using Portal.Domain.User.ValueObjects;
@@ -17,6 +18,7 @@ public class PortalDbContext : DbContext
     public DbSet<Profile> Profiles { get; set; }
     public DbSet<Employee> Employees { get; set; }
     public DbSet<Manager> Managers { get; set; }
+    public DbSet<Administrator> Administrators { get; set; }
     //public DbSet<Secretery> Secreteries { get; set; }
    
     public DbSet<Department> Departments { get; set; }
