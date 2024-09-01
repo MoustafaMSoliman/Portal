@@ -11,11 +11,14 @@ public class Manager : Employee
     private Manager() { }
 #pragma warning restore CS8618
     private Manager(Employee employee, string office) 
-      :base((UserId)employee.Id,(DepartmentId)employee.DepartmentId,employee.HireDate)
+      :base(
+          User.Create(employee.Email, employee.Password,employee.UserType,employee.UserRole,employee.UserStatus,employee.Profile,
+              employee.Code,employee.CreatedBy,employee.UpdatedBy),
+          (DepartmentId)employee.DepartmentId,employee.HireDate)
     {
         Office = office;
     }
-
+   
     public static Manager Create(Employee employee, string office)
         => new(employee,office);
 }

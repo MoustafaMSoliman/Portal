@@ -85,7 +85,22 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         {
             var department = _unitOfWork.DepartmentsRepository.Find(x => x.Name == "IT");
             employee = Employee.Create(user, (DepartmentId)department.Id, DateTime.Now);
+            if (employee.UserRole == RoleEnum.Administrator)
+            {
+                _unitOfWork.AdministratorsRepository.AddNew(Administrator.Create(employee));
+                await _unitOfWork.CompleteAsync();
+                Token = _jwtGenerator.GenerateToken(user);
 
+                return new AuthResult(user, Token);
+            }
+            else if (employee.UserRole == RoleEnum.Manager)
+            {
+                _unitOfWork.ManagersRepository.AddNew(Manager.Create(employee, $"{employee.Profile.FirstName}'s office"));
+                await _unitOfWork.CompleteAsync();
+                Token = _jwtGenerator.GenerateToken(user);
+
+                return new AuthResult(user, Token);
+            }
             _unitOfWork.EmployeesRepository.AddNew(employee);
             await _unitOfWork.CompleteAsync();
             
