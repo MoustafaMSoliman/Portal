@@ -2,12 +2,12 @@
 
 POST {{host}}/api/Departments/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNDM3OGQzZi0xYTBhLTRhNTAtYjM1OS0yYzc2NDgyZjAyMTUiLCJuYW1lIjoiTW91c3RhZmEiLCJmYW1pbHlfbmFtZSI6IlNvbGltYW4iLCJqdGkiOiIzNDFkZDcyYi1mM2Q1LTQzYTEtOTc1ZS04YThlMmI5YjcxMjkiLCJleHAiOjE3MjUxMzMzODMsImlzcyI6IlBvcnRhbCIsImF1ZCI6IlBvcnRhbCJ9.EkAa4EBrwWdkLhyvZJ1scWDEa2b0iQO2kwbKaATdNdE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkZDdiZDdhMy0yZWE1LTRkZWYtOWMwNS1mZmIwYzdlZGJiYjUiLCJuYW1lIjoiU2F5ZWQiLCJmYW1pbHlfbmFtZSI6IlNvbGltYW4iLCJqdGkiOiIxYWZiNTU3Ni04NzRjLTQ4NzQtODRiMi0yMDQzODJmNDc2NzQiLCJleHAiOjE3MjUyNzM3MjksImlzcyI6IlBvcnRhbCIsImF1ZCI6IlBvcnRhbCJ9.DLwSadG6QcyLfrX1PE9XuQqbHsMKc90MwjVoUeUJYFQ
 
 {
 
-    "adminId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "departmentName": "IT",
-    "managerId": null
+    "adminId": "AAA461B1-4FB3-411D-BDF2-646D9BA9B9D1",
+    "departmentName": "StudentsAffairs",
+    "managerId": "DD7BD7A3-2EA5-4DEF-9C05-FFB0C7EDBBB5"
 
 }

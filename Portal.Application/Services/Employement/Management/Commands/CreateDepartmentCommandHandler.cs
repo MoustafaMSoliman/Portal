@@ -13,33 +13,27 @@ namespace Portal.Application.Services.Employement.Management.Commands;
 
 public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCommand, ErrorOr<CreateDepartmentResult>>
 {
-    private readonly IAggregateRootRepository<Department,DepartmentId,Guid> _departmentsRepository;
-    private readonly IAggregateRootRepository<Employee, UserId, Guid> _empsRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
 
-    public CreateDepartmentCommandHandler(IAggregateRootRepository<Department, DepartmentId, Guid> departmentsRepository,
-        IAggregateRootRepository<Employee, UserId, Guid> empsRepository)
+    public CreateDepartmentCommandHandler(IUnitOfWork unitOfWork)
     {
-        _departmentsRepository = departmentsRepository;
-        _empsRepository = empsRepository;
+        _unitOfWork = unitOfWork;
     }
     public async Task<ErrorOr<CreateDepartmentResult>> Handle(CreateDepartmentCommand command, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        if (_departmentsRepository.Find(d => d.Name == command.DepartmentName) is not null)
+        if (_unitOfWork.DepartmentsRepository.Find(d => d.Name == command.DepartmentName) is not null)
             return Errors.ManagementErrors.DuplicateDepartment;
 
-        if (command.ManagerId is not null && _empsRepository.GetById(command.ManagerId) is null)
-            return Errors.ManagementErrors.NotManager;
+        //if (command.ManagerId is not null && _empsRepository.GetById(command.ManagerId) is null)
+        //    return Errors.ManagementErrors.NotManager;
 
         var department = Department.Create(command.DepartmentName,command.ManagerId
             //,command.SecreteryId
             );
-        _departmentsRepository.AddNew(department);
-
-        return new CreateDepartmentResult((DepartmentId)department.Id,department.Name,department.ManagerId
-            , _empsRepository.GetById((UserId)department.ManagerId).Profile.FirstName
-            //,department.SecreteryId,department.Secretery.Profile.FirstName
-            ,new List<Employee>());
+        _unitOfWork.DepartmentsRepository.AddNew(department);
+        await _unitOfWork.CompleteAsync();
+        return new CreateDepartmentResult(_unitOfWork.DepartmentsRepository.Find(d => d.Name == command.DepartmentName));
     }
 }

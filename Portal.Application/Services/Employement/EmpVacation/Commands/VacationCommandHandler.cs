@@ -16,48 +16,45 @@ namespace Portal.Application.Services.Employement.EmpVacation.Commands;
 
 public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<VacationResult>>
 {
-    private readonly IAggregateRootRepository<Employee, UserId, Guid> _employeeRepository;
-    private readonly IRepository<Vacation,VacationId> _vacationRepository;
+    private readonly IUnitOfWork _unitOfWork;
     //private readonly INotification _notification;
 
-    public VacationCommandHandler(IAggregateRootRepository<Employee, UserId, Guid> employeeRepository
-        , IRepository<Vacation, VacationId> vacationRepository
+    public VacationCommandHandler(IUnitOfWork unitOfWork
         //, INotification notification
         )
     {
-        _employeeRepository = employeeRepository;
-        _vacationRepository = vacationRepository;
+        _unitOfWork = unitOfWork;
         //_notification = notification;
     }
     public async Task<ErrorOr<VacationResult>> Handle(VacationCommand request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
          
-        if (_employeeRepository.GetById(request.EmployeeId) is null)
+        if (_unitOfWork.EmployeesRepository.GetById(request.EmployeeId) is null)
         {
             return Errors.AuthenticationErrors.InvalidUser;
         }
-
-        if (_vacationRepository.Find(v => v.EmployeeId == request.EmployeeId
-                && (v.StartFrom == request.StartFrom || v.EndAt == request.EndAt)) is not null
-            )
+        var vacEmp = _unitOfWork.VacationsRepository.FindAll(v => v.EmployeeId == request.EmployeeId).ToList();
+        foreach (var vac in vacEmp)
+        
         {
-            return Errors.VacationDate.InvalidStartVacationDate;
+            if(vac.StartFrom == request.StartFrom || vac.EndAt==request.EndAt || request.StartFrom > request.EndAt) 
+                return Errors.VacationDate.InvalidStartVacationDate;
         }
 
         var vacation = Vacation.Create(
              request.VacationType,
-                                 
              request.EmployeeId,
              request.StartFrom,
              request.EndAt
          );
-        if (_employeeRepository.GetById(request.EmployeeId).UserRole == Domain.Common.Enums.RoleEnum.Manager)
+        if (_unitOfWork.UsersRepository.GetById(request.EmployeeId).UserRole == Domain.Common.Enums.RoleEnum.Manager)
         {
             vacation.EditVacationStatus(Domain.Common.Enums.User.Employee.VacationStatus.Accepted);
         }
-       _vacationRepository.AddNew( vacation );
-        _employeeRepository.GetById(request.EmployeeId).Vacations.Add( vacation );  
+        _unitOfWork.VacationsRepository.AddNew( vacation );
+        _unitOfWork.EmployeesRepository.GetById(request.EmployeeId).Vacations.Add( vacation );  
+        await _unitOfWork.CompleteAsync();  
         return new VacationResult(
             vacation.Id,
             vacation.VacationType,
