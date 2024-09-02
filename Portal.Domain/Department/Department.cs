@@ -11,8 +11,8 @@ namespace Portal.Domain.Department;
 public class Department : AggregateRoot<DepartmentId, Guid>
 {
     public string Name { get; private set; } = null!;
-    public AggregateRootId<Guid> ManagerId { get; private set; } = null!;
-    public Manager Manager { get; private set; } = null!;
+    public AggregateRootId<Guid>? ManagerId { get; private set; } = null!;
+    public Manager? Manager { get; private set; } = null!;
 
     private  List<Employee> _employees = new();
     public List<Employee> Employees => _employees;
@@ -25,7 +25,7 @@ public class Department : AggregateRoot<DepartmentId, Guid>
 #pragma warning disable CS8618
     private Department() { }
 #pragma warning restore CS8618
-    private Department(DepartmentId id,string departmentName, UserId managerId
+    private Department(DepartmentId id,string departmentName, UserId? managerId
         //,UserId? secreteryId
         )
     {
@@ -34,7 +34,7 @@ public class Department : AggregateRoot<DepartmentId, Guid>
         ManagerId = managerId;
         //SecreteryId = secreteryId;
     }
-    public static Department Create(string departmentName, UserId managerId
+    public static Department Create(string departmentName, UserId? managerId
         //, UserId? secreteryId
         )
         => new(DepartmentId.CreateUnique(),departmentName, managerId

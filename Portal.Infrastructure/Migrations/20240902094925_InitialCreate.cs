@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Portal.Infrastructure.Migrations
 {
     /// <inheritdoc />
@@ -99,6 +101,41 @@ namespace Portal.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Administrators",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Administrators", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Administrators_Users_Id",
+                        column: x => x.Id,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AdminsDepartments",
+                columns: table => new
+                {
+                    AdminId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdminsDepartments", x => new { x.DepartmentId, x.AdminId });
+                    table.ForeignKey(
+                        name: "FK_AdminsDepartments_Administrators_AdminId",
+                        column: x => x.AdminId,
+                        principalTable: "Administrators",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Attendances",
                 columns: table => new
                 {
@@ -144,7 +181,7 @@ namespace Portal.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ManagerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ManagerId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -225,6 +262,20 @@ namespace Portal.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Departments",
+                columns: new[] { "Id", "ManagerId", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("7d86340d-d36d-46cf-90c7-c347e58d4c47"), null, "Finance" },
+                    { new Guid("e1bc9fa1-cb01-4573-8830-75e9d91d5452"), null, "IT" }
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AdminsDepartments_AdminId",
+                table: "AdminsDepartments",
+                column: "AdminId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Attendances_EmployeeId",
                 table: "Attendances",
@@ -240,7 +291,8 @@ namespace Portal.Infrastructure.Migrations
                 name: "IX_Departments_ManagerId",
                 table: "Departments",
                 column: "ManagerId",
-                unique: true);
+                unique: true,
+                filter: "[ManagerId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_DepartmentId",
@@ -257,6 +309,14 @@ namespace Portal.Infrastructure.Migrations
                 name: "IX_Vacations_EmployeeId",
                 table: "Vacations",
                 column: "EmployeeId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_AdminsDepartments_Departments_DepartmentId",
+                table: "AdminsDepartments",
+                column: "DepartmentId",
+                principalTable: "Departments",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Attendances_Employees_EmployeeId",
@@ -282,11 +342,18 @@ namespace Portal.Infrastructure.Migrations
                 table: "Users");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_Managers_Employees_Id",
-                table: "Managers");
+                name: "FK_Employees_Users_Id",
+                table: "Employees");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Employees_Departments_DepartmentId",
+                table: "Employees");
 
             migrationBuilder.DropTable(
                 name: "Addresses");
+
+            migrationBuilder.DropTable(
+                name: "AdminsDepartments");
 
             migrationBuilder.DropTable(
                 name: "Claims");
@@ -298,22 +365,25 @@ namespace Portal.Infrastructure.Migrations
                 name: "Vacations");
 
             migrationBuilder.DropTable(
+                name: "Administrators");
+
+            migrationBuilder.DropTable(
                 name: "Attendances");
 
             migrationBuilder.DropTable(
                 name: "Profiles");
 
             migrationBuilder.DropTable(
-                name: "Employees");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Departments");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Managers");
 
             migrationBuilder.DropTable(
-                name: "Managers");
+                name: "Employees");
         }
     }
 }

@@ -34,7 +34,10 @@ public class DepartmentConfig : IEntityTypeConfiguration<Department>
         builder.HasMany(x => x.Employees)
              .WithOne()
              .HasForeignKey(x => x.DepartmentId);
-
+        builder.HasData(
+              Department.Create("IT",null),
+              Department.Create("Finance",null)
+            );
        
     }
 }

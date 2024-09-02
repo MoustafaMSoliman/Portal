@@ -56,6 +56,18 @@ namespace Portal.Infrastructure.Migrations
                         .HasFilter("[ManagerId] IS NOT NULL");
 
                     b.ToTable("Departments", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("e1bc9fa1-cb01-4573-8830-75e9d91d5452"),
+                            Name = "IT"
+                        },
+                        new
+                        {
+                            Id = new Guid("7d86340d-d36d-46cf-90c7-c347e58d4c47"),
+                            Name = "Finance"
+                        });
                 });
 
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Entities.Attendance", b =>

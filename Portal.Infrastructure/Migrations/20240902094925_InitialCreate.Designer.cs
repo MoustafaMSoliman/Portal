@@ -12,7 +12,7 @@ using Portal.Infrastructure.Persistence;
 namespace Portal.Infrastructure.Migrations
 {
     [DbContext(typeof(PortalDbContext))]
-    [Migration("20240830191143_InitialCreate")]
+    [Migration("20240902094925_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,12 +25,27 @@ namespace Portal.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Portal.Domain.Common.AccessContorl.AdministratorDepartment", b =>
+                {
+                    b.Property<Guid>("DepartmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AdminId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("DepartmentId", "AdminId");
+
+                    b.HasIndex("AdminId");
+
+                    b.ToTable("AdminsDepartments", (string)null);
+                });
+
             modelBuilder.Entity("Portal.Domain.Department.Department", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ManagerId")
+                    b.Property<Guid?>("ManagerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -40,9 +55,22 @@ namespace Portal.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ManagerId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ManagerId] IS NOT NULL");
 
                     b.ToTable("Departments", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("e1bc9fa1-cb01-4573-8830-75e9d91d5452"),
+                            Name = "IT"
+                        },
+                        new
+                        {
+                            Id = new Guid("7d86340d-d36d-46cf-90c7-c347e58d4c47"),
+                            Name = "Finance"
+                        });
                 });
 
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Entities.Attendance", b =>
@@ -252,6 +280,13 @@ namespace Portal.Infrastructure.Migrations
                     b.ToTable("Profiles", (string)null);
                 });
 
+            modelBuilder.Entity("Portal.Domain.User.Entities.Administrator.Administrator", b =>
+                {
+                    b.HasBaseType("Portal.Domain.User.User");
+
+                    b.ToTable("Administrators", (string)null);
+                });
+
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Employee", b =>
                 {
                     b.HasBaseType("Portal.Domain.User.User");
@@ -279,13 +314,31 @@ namespace Portal.Infrastructure.Migrations
                     b.ToTable("Managers", (string)null);
                 });
 
+            modelBuilder.Entity("Portal.Domain.Common.AccessContorl.AdministratorDepartment", b =>
+                {
+                    b.HasOne("Portal.Domain.User.Entities.Administrator.Administrator", "Administrator")
+                        .WithMany("AdministratorDepartments")
+                        .HasForeignKey("AdminId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Portal.Domain.Department.Department", "Department")
+                        .WithMany("AdministratorDepartments")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Administrator");
+
+                    b.Navigation("Department");
+                });
+
             modelBuilder.Entity("Portal.Domain.Department.Department", b =>
                 {
                     b.HasOne("Portal.Domain.User.Entities.Employee.Entities.Manager", "Manager")
                         .WithOne("Department")
                         .HasForeignKey("Portal.Domain.Department.Department", "ManagerId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Manager");
                 });
@@ -392,6 +445,15 @@ namespace Portal.Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Portal.Domain.User.Entities.Administrator.Administrator", b =>
+                {
+                    b.HasOne("Portal.Domain.User.User", null)
+                        .WithOne()
+                        .HasForeignKey("Portal.Domain.User.Entities.Administrator.Administrator", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Employee", b =>
                 {
                     b.HasOne("Portal.Domain.Department.Department", null)
@@ -418,6 +480,8 @@ namespace Portal.Infrastructure.Migrations
 
             modelBuilder.Entity("Portal.Domain.Department.Department", b =>
                 {
+                    b.Navigation("AdministratorDepartments");
+
                     b.Navigation("Employees");
                 });
 
@@ -430,6 +494,11 @@ namespace Portal.Infrastructure.Migrations
                 {
                     b.Navigation("User")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Portal.Domain.User.Entities.Administrator.Administrator", b =>
+                {
+                    b.Navigation("AdministratorDepartments");
                 });
 
             modelBuilder.Entity("Portal.Domain.User.Entities.Employee.Employee", b =>

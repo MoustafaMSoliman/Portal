@@ -22,7 +22,7 @@ Content-Type: application/json
     "country": "Egypt"
   },
   "userType": "Employee",
-  "role": "Administrator",
+  "role": "NormalUser",
   "email": "sayed@str.com",
   "password": "string"
 }
