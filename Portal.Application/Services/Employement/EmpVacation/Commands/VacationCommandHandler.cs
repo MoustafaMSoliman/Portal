@@ -38,7 +38,7 @@ public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<V
         foreach (var vac in vacEmp)
         
         {
-            if(vac.StartFrom == request.StartFrom || vac.EndAt==request.EndAt || request.StartFrom > request.EndAt) 
+            if(request.StartFrom <= vac.EndAt && request.EndAt >= vac.StartFrom) 
                 return Errors.VacationDate.InvalidStartVacationDate;
         }
 

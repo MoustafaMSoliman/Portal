@@ -14,27 +14,22 @@ namespace Portal.Application.Services.Employement.EmpVacation.Queries;
 public class GetEmployeeVacationsQueryHandler
     : IRequestHandler<GetEmployeeVacationsQuery, ErrorOr<RetrieveVacationsResult>>
 {
-    private readonly IAggregateRootRepository<User, UserId, Guid> _usersRepo;
-    private readonly IAggregateRootRepository<Employee, UserId, Guid> _employeesRepo;
-    private readonly IRepository<Vacation, VacationId> _vacationRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public GetEmployeeVacationsQueryHandler(IAggregateRootRepository<Employee, UserId, Guid> employeesRepo
-        , IAggregateRootRepository<User, UserId, Guid> usersRepo
-        , IRepository<Vacation, VacationId> vacationRepository)
+    public GetEmployeeVacationsQueryHandler(IUnitOfWork unitOfWork)
     {
-        _usersRepo = usersRepo;
-        _employeesRepo = employeesRepo;
-        _vacationRepository = vacationRepository;
+        _unitOfWork = unitOfWork;
     }
     public async Task<ErrorOr<RetrieveVacationsResult>> Handle(GetEmployeeVacationsQuery query, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        if (_usersRepo.GetById(query.EmployeeId) is null)
+        if (_unitOfWork.UsersRepository.GetById(query.EmployeeId) is null)
             return Errors.UserErrors.NotUser;
-        if (_employeesRepo.GetById(query.EmployeeId) is null)
+        if (_unitOfWork.EmployeesRepository.GetById(query.EmployeeId) is null)
             return Errors.EmploymentErrors.NotEmployee;
-        //var vacations = _employeesRepo.GetById(query.EmployeeId).Vacations.ToList();
-        var vacations = _vacationRepository.GetAll().Where(v => v.EmployeeId == query.EmployeeId).ToList();
+        
+
+        var vacations = _unitOfWork.VacationsRepository.GetAll().Where(v => v.EmployeeId == query.EmployeeId).ToList();
         var vacationsResult = new List<VacationResult>();
         foreach (var vacation in vacations)
         {
@@ -50,7 +45,7 @@ public class GetEmployeeVacationsQueryHandler
         }
         return new RetrieveVacationsResult(
             query.EmployeeId,
-            $"{_employeesRepo.GetById(query.EmployeeId).Profile.FirstName} {_employeesRepo.GetById(query.EmployeeId).Profile.LastName}",
+            $"{_unitOfWork.UsersRepository.GetByIdWithInclude(query.EmployeeId,x=>x.Profile).Profile.FirstName} {_unitOfWork.UsersRepository.GetByIdWithInclude(query.EmployeeId, x => x.Profile).Profile.LastName}",
             vacationsResult);
     }
 }
