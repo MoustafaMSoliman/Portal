@@ -83,7 +83,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
 
         if (registerCommand.UserType == TypeEnum.Employee)
         {
-            var department = _unitOfWork.DepartmentsRepository.Find(x => x.Name == "IT");
+            var department = _unitOfWork.DepartmentsRepository.Find(x => x.Name == "StudentsAffairs");
             employee = Employee.Create(user, (DepartmentId)department.Id, DateTime.Now);
             if (employee.UserRole == RoleEnum.Administrator)
             {

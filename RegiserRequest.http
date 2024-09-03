@@ -5,10 +5,10 @@ Content-Type: application/json
 
 {
   "code":"7",
-  "firstName": "Sayed",
-  "middleName": "Moustafa",
+  "firstName": "Oday",
+  "middleName": "Abdu",
   "lastName": "Soliman",
-  "arabicName": "”Ìœ „’ÿ›Ì ”·Ì„«‰",
+  "arabicName": "⁄œÌ ⁄»œ«·—Õ„‰ ”·Ì„«‰",
   "nationality": "Egyptian",
   "natUserStatuses'ionalId": 22446673155432441,
   "gender": "Male",
@@ -23,6 +23,6 @@ Content-Type: application/json
   },
   "userType": "Employee",
   "role": "NormalUser",
-  "email": "sayed@str.com",
+  "email": "Oday@str.com",
   "password": "string"
 }
