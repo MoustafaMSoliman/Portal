@@ -28,12 +28,15 @@ public class GetManagerEmployeesQueryHandler : IRequestHandler<GetManagerEmploye
         var manager = _unitOfWork.ManagersRepository.GetById(query.ManagerId);
         var department = _unitOfWork.DepartmentsRepository.FindWithInclue(d => d.Id == manager.DepartmentId, d => d.Employees);
         var employees = _unitOfWork.EmployeesRepository.FindAll(x=>x.DepartmentId == department.Id).ToList();  
+
         var emps = new List<ManagerEmployee>();
         foreach (var employee in employees) 
         {
-            if(employee.UserRole != Domain.Common.Enums.RoleEnum.Manager)
-              emps.Add(new ManagerEmployee( employee.Id.Value,
-                  $"{_unitOfWork.UsersRepository.GetByIdWithInclude((UserId) employee.Id, x=>x.Profile).Profile.FirstName} {_unitOfWork.UsersRepository.GetByIdWithInclude((UserId)employee.Id, x => x.Profile).Profile.LastName}"
+            if(_unitOfWork.UsersRepository.GetById((UserId)employee.Id).UserRole != Domain.Common.Enums.RoleEnum.Manager)
+              emps.Add(
+                  new ManagerEmployee( 
+                      employee.Id.Value,
+                      $"{_unitOfWork.UsersRepository.GetByIdWithInclude((UserId) employee.Id, x=>x.Profile).Profile.FirstName} {_unitOfWork.UsersRepository.GetByIdWithInclude((UserId)employee.Id, x => x.Profile).Profile.LastName}"
                   
                   ));
             

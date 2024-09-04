@@ -33,9 +33,10 @@ namespace Portal.Api.Controllers
             var getManagerEmployeesQuery = _mapper.Map<GetManagerEmployeesQuery>(getManagerEmployeesRequest);
             ErrorOr<ManagerEmployeesResult> managerEmployeesResult = await _mediator.Send(getManagerEmployeesQuery);
             return managerEmployeesResult.Match(
-                managerEmployeesResult => Ok(_mapper.Map<ManagerEmployeeResponse>(managerEmployeesResult)),
+                managerEmployeesResult => Ok(_mapper.Map<ManagerEmployeesResponse>(managerEmployeesResult)),
                 errors => Problem(errors)
                 );
+
         }
     }
 }
