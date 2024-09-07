@@ -33,8 +33,6 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
     {
         _unitOfWork = unitOfWork;
         _jwtGenerator = jwtGenerator;
-        
-        
     }
     public async Task<ErrorOr<AuthResult>> Handle(RegisterCommand registerCommand, CancellationToken cancellationToken)
     {
@@ -47,9 +45,10 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         {
             return Errors.UserErrors.DuplicateEmail;
         }
-
-        
-        
+        if(_unitOfWork.UsersRepository.FindWithInclue(x=>x.Profile.NationalId == registerCommand.NationalId,y=>y.Profile) is not null) 
+        {
+            return Errors.UserErrors.DuplicateNationaId;
+        }
         User user = User.Create(
             registerCommand.Email,
             registerCommand.Password,
@@ -75,61 +74,35 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
             registerCommand.CreatedBy,
             registerCommand.UpdatedBy
          );
-        //if (registerCommand.Role == RoleEnum.Manager)
-        //{
-        //    _unitOfWork.ManagersRepository.AddNew(Manager.Create());
-        //}
-
-
         if (registerCommand.UserType == TypeEnum.Employee)
         {
-            var department = _unitOfWork.DepartmentsRepository.Find(x => x.Name == "IT");
+            var department = _unitOfWork.DepartmentsRepository.Find(x => x.Name == registerCommand.DepartmentName);
             employee = Employee.Create(user, (DepartmentId)department.Id, DateTime.Now);
             if (employee.UserRole == RoleEnum.Administrator)
             {
                 _unitOfWork.AdministratorsRepository.AddNew(Administrator.Create(employee));
                 await _unitOfWork.CompleteAsync();
                 Token = _jwtGenerator.GenerateToken(user);
-
                 return new AuthResult(user, Token);
             }
             else if (employee.UserRole == RoleEnum.Manager)
             {
-                _unitOfWork.ManagersRepository.AddNew(Manager.Create(employee, $"{employee.Profile.FirstName}'s office"));
+                var manager = Manager.Create(employee, $"{employee.Profile.FirstName}'s office");
+                _unitOfWork.ManagersRepository.AddNew(manager);
+                department.SetDepartmentManager(manager);
                 await _unitOfWork.CompleteAsync();
                 Token = _jwtGenerator.GenerateToken(user);
-
                 return new AuthResult(user, Token);
             }
             _unitOfWork.EmployeesRepository.AddNew(employee);
             await _unitOfWork.CompleteAsync();
-            
-          
             Token = _jwtGenerator.GenerateToken(user);
-
             return new AuthResult(user, Token);
         }
-        
-        
-        
-
-
-            _unitOfWork.UsersRepository.AddNew(user);
+        _unitOfWork.UsersRepository.AddNew(user);
         await _unitOfWork.CompleteAsync();
-
-        //if (registerCommand.Role == RoleEnum.Administrator)
-        //{
-
-
-        //    _unitOfWork.AdministratorsRepository.AddNew(Administrator.Create(user));
-        //    await _unitOfWork.CompleteAsync();
-
-        //}
-
         Token = _jwtGenerator.GenerateToken(user);
-
-            return new AuthResult(user, Token);
-        
+        return new AuthResult(user, Token);
     }
 
     private bool IsValidEmail(string email)

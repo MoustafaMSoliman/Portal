@@ -44,4 +44,10 @@ public class Department : AggregateRoot<DepartmentId, Guid>
     {
         
     }
+    public  void SetDepartmentManager(Manager? manager)
+    {
+        ManagerId = manager.Id;
+        Manager = manager;
+        
+    }
 }

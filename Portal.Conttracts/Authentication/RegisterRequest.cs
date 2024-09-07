@@ -15,6 +15,7 @@ public record RegisterRequest
     Address Address,
     string UserType,
     string Role,
+    string DepartmentName,
     string Email,
     string Password
     

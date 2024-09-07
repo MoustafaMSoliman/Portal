@@ -21,6 +21,7 @@ public record RegisterCommand
     AddressCommand Address,
     TypeEnum UserType,
     RoleEnum Role,
+    string DepartmentName,
     string Email,
     string Password,
     //User User,
