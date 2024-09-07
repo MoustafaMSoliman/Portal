@@ -1,0 +1,9 @@
+Get https://localhost:7181/api/Manager/GetEmployeesVacations
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkZDdiZDdhMy0yZWE1LTRkZWYtOWMwNS1mZmIwYzdlZGJiYjUiLCJuYW1lIjoiU2F5ZWQiLCJmYW1pbHlfbmFtZSI6IlNvbGltYW4iLCJqdGkiOiI3YzBlZjUzMy0zNDM4LTQ3YmUtOTlhNy0zYTdjOTVkM2QxYWYiLCJleHAiOjE3MjU3MTM2NDIsImlzcyI6IlBvcnRhbCIsImF1ZCI6IlBvcnRhbCJ9.c-dEKOHr9wPpV6-IyenzOPuCr9uOTTc1NuU90LscQco
+
+{
+
+  "managerId": "DD7BD7A3-2EA5-4DEF-9C05-FFB0C7EDBBB5"
+
+}

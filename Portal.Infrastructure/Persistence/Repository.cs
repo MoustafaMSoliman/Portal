@@ -27,6 +27,16 @@ public class Repository<T, I> : IRepository<T, I> where T : Entity<I> where I : 
     
     public IEnumerable<T> FindAll(Func<T,bool> match) => _dbContext.Set<T>().Where(match);
 
+    public IEnumerable<T> FindAllWithInclude(Func<T, bool> predicate, params Expression<Func<T, object>>[] includeProperties)
+    {
+        IQueryable<T> query = _dbContext.Set<T>();
+        foreach (var property in includeProperties)
+        {
+            query = query.Include(property);
+        }
+        return query.Where(predicate);
+    }
+
     public T FindWithInclue(Func<T, bool> match, params Expression<Func<T, object>>[] includeProperties)
     {
         IQueryable<T> query = _dbContext.Set<T>();

@@ -38,5 +38,17 @@ namespace Portal.Api.Controllers
                 );
 
         }
+        [HttpGet("GetEmployeesVacations")]
+        public async Task<IActionResult> GetEmployeesVacations(GetManagerEmployeesVacationsRequest getManagerEmployeesVacationsRequest)
+        {
+            await Task.CompletedTask;
+            var getManagerEmployeesVacationQuery = _mapper.Map<GetManagerEmployeesVacationsQuery>(getManagerEmployeesVacationsRequest);
+            ErrorOr<ManagerEmployeesVacationResult> managerEmployeesVacationResult = await _mediator.Send(getManagerEmployeesVacationQuery);
+            return managerEmployeesVacationResult.Match(
+                managerEmployeesVacationResult=>Ok(_mapper.Map<ManagerEmployeesVacationsResponse>(managerEmployeesVacationResult)),
+                errors => Problem(errors)
+                );
+
+        }
     }
 }

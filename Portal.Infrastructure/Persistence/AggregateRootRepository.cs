@@ -33,6 +33,16 @@ public class AggregateRootRepository<AG, AGId, AGIdType> : IAggregateRootReposit
         return _dbContext.Set<AG>().Where(perdicate);
     }
 
+    public IEnumerable<AG> FindAllWithInclude(Func<AG, bool> predicate, params Expression<Func<AG, object>>[] includeProperties)
+    {
+        IQueryable<AG> query = _dbContext.Set<AG>();
+        foreach (var property in includeProperties)
+        {
+            query = query.Include(property);
+        }
+        return query.Where(predicate);
+    }
+
     public AG FindWithInclue(Func<AG, bool> match, params Expression<Func<AG, object>>[] includeProperties)
     {
         IQueryable<AG> query = _dbContext.Set<AG>();

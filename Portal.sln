@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{92
 		GetAllUsers.http = GetAllUsers.http
 		GetEmployeeVacations.http = GetEmployeeVacations.http
 		GetManagerEmployees.http = GetManagerEmployees.http
+		GetManagerEmployeesWithVacations.http = GetManagerEmployeesWithVacations.http
 		LoginRequest.http = LoginRequest.http
 		RegiserRequest.http = RegiserRequest.http
 		SetEmployeeAsManager.http = SetEmployeeAsManager.http
