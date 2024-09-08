@@ -26,18 +26,7 @@ public class SetEmployeeAsManagerCommandHandler : IRequestHandler<SetEmployeeAsM
     public async Task<ErrorOr<SetEmployeeAsManagerResult>> Handle(SetEmployeeAsManagerCommand command, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        //var admin = Administrator.Create(
-        //           Employee.Create(
-        //                 User.Create(
-        //                       "moustafa@str.com", "P@ssw0rd", TypeEnum.Employee, RoleEnum.Administrator, StatusEnum.Active,
-        //                       Profile.Create("Moustafa", "Mahmood", "Soliman", "مصطفي محمود سليمان", Nationality.Create("Egyptian"), 29505162132151613, Gender.Male, DateTime.Now, "0100000000", Address.Create("ansary", "cairo", "cairo", "11234", "egypt")),
-        //                       1, UserId.Create(Guid.Empty), UserId.Create(Guid.Empty)
-        //                     ),
-        //                 DepartmentId.Create(Guid.Parse("E1BC9FA1CB014573883075E9D91D5452")), DateTime.Now
-        //               )
-        //        );
-        //_unitOfWork.AdministratorsRepository.AddNew( admin );
-        //await _unitOfWork.CompleteAsync();
+        
         if (_unitOfWork.AdministratorsRepository.GetById(command.AdminId) is null)
             return Errors.AdminsErrors.NotAdmin;
         if (_unitOfWork.UsersRepository.Find(e=>e.Id==command.EmployeeId) is null)

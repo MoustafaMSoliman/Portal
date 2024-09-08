@@ -25,7 +25,7 @@ public class GetManagerEmployeesQueryHandler : IRequestHandler<GetManagerEmploye
         {
             return Errors.ManagementErrors.NotManager;
         }
-        var manager = _unitOfWork.ManagersRepository.GetById(query.ManagerId);
+        var manager = _unitOfWork.ManagersRepository.GetByIdWithInclude(query.ManagerId,x=>x.Profile);
         var department = _unitOfWork.DepartmentsRepository.FindWithInclue(d => d.Id == manager.DepartmentId, d => d.Employees);
         var employees = _unitOfWork.EmployeesRepository.FindAll(x=>x.DepartmentId == department.Id).ToList();  
 

@@ -70,4 +70,17 @@ public class AggregateRootRepository<AG, AGId, AGIdType> : IAggregateRootReposit
         { query= query.Include(property); }
         return query.SingleOrDefault(x => x.Id == id);
     }
+
+    public void Remove(AG t)
+    {
+        _dbContext.Set<AG>().Remove(t);
+        
+    }
+
+    public void Update(AG t)
+    {
+        _dbContext.Attach(t);
+        _dbContext.Set<AG>().Update(t);
+
+    }
 }

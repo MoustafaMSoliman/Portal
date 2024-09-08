@@ -38,8 +38,8 @@ public class User:AggregateRoot<UserId, Guid>
         UserRole = role ;
         UserStatus = userStatus;
         Profile = profile;
-        CreatedBy = createdBy ?? id;
-        UpdatedBy = updatedBy ?? id;
+        CreatedBy = createdBy ?? UserId.Create(Guid.Empty);
+        UpdatedBy = updatedBy ?? UserId.Create(Guid.Empty);
     }
     public static User Create(string email, string password, TypeEnum userType, RoleEnum role, StatusEnum userStatus, Profile profile, int? code, UserId? createdBy, UserId? updatedBy)
     {

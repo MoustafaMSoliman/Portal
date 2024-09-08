@@ -74,6 +74,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
             registerCommand.CreatedBy,
             registerCommand.UpdatedBy
          );
+        
         if (registerCommand.UserType == TypeEnum.Employee)
         {
             var department = _unitOfWork.DepartmentsRepository.Find(x => x.Name == registerCommand.DepartmentName);
@@ -87,9 +88,18 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
             }
             else if (employee.UserRole == RoleEnum.Manager)
             {
-                var manager = Manager.Create(employee, $"{employee.Profile.FirstName}'s office");
-                _unitOfWork.ManagersRepository.AddNew(manager);
+                if (department.ManagerId is not null)
+                {
+                    var oldManager = _unitOfWork.ManagersRepository.GetById((UserId)department.ManagerId);
+                    _unitOfWork.ManagersRepository.Remove(oldManager);
+                }
+
+                var manager = Manager.Create(user, employee, $"{employee.Profile.FirstName}'s office");
+               
+                
                 department.SetDepartmentManager(manager);
+                _unitOfWork.DepartmentsRepository.Update(department);
+                _unitOfWork.ManagersRepository.AddNew(manager);
                 await _unitOfWork.CompleteAsync();
                 Token = _jwtGenerator.GenerateToken(user);
                 return new AuthResult(user, Token);
@@ -104,6 +114,8 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         Token = _jwtGenerator.GenerateToken(user);
         return new AuthResult(user, Token);
     }
+
+   
 
     private bool IsValidEmail(string email)
     {

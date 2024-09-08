@@ -14,5 +14,7 @@ public interface IRepository<TId, TIdType> where TId : class where TIdType : not
     IEnumerable<TId> GetAll();
     IEnumerable<TId> FindAll(Func<TId,bool> perdicate);
     IEnumerable<TId> FindAllWithInclude(Func<TId,bool> predicate, params Expression<Func<TId,object>>[] includeProperties);
+    void Update(TId t);
+    void Remove(TId t);
 }
 

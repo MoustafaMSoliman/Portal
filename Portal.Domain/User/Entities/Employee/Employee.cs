@@ -26,7 +26,6 @@ public class Employee : User
 #pragma warning restore CS8618
     protected internal Employee(UserId id, DepartmentId departmentId,
         DateTime hireDate)
-        
     {
         Id = id;
         DepartmentId = departmentId;

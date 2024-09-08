@@ -10,15 +10,23 @@ public class Manager : Employee
 #pragma warning disable CS8618
     private Manager() { }
 #pragma warning restore CS8618
-    private Manager(Employee employee, string office) 
-      :base(
-          User.Create(employee.Email, employee.Password,employee.UserType,employee.UserRole,employee.UserStatus,employee.Profile,
-              employee.Code,employee.CreatedBy,employee.UpdatedBy),
-          (DepartmentId)employee.DepartmentId,employee.HireDate)
+    private Manager(Employee employee, string office)
+        :base(employee, (DepartmentId)employee.DepartmentId,
+         DateTime.Now)
+    {
+        Office = office;
+
+    }
+    private Manager(User user ,Employee employee, string office)
+      : base(
+         user, 
+         (DepartmentId)employee.DepartmentId,
+         DateTime.Now)
     {
         Office = office;
     }
-   
     public static Manager Create(Employee employee, string office)
-        => new(employee,office);
+         => new(employee, office);
+    public static Manager Create(User user,Employee employee, string office)
+        => new(user,employee,office);
 }

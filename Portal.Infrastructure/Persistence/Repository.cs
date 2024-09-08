@@ -62,4 +62,16 @@ public class Repository<T, I> : IRepository<T, I> where T : Entity<I> where I : 
         return query.SingleOrDefault(x=>x.Id==id);
 
     }
+
+    public void Remove(T t)
+    {
+        _dbContext.Set<T>().Remove(t);
+        
+    }
+
+    public void Update(T t)
+    {
+        _dbContext.Attach(t);   
+        _dbContext.Set<T>().Update(t);
+    }
 }
