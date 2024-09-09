@@ -204,13 +204,13 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.DepartmentId,
                         principalTable: "Departments",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Employees_Users_Id",
                         column: x => x.Id,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -228,7 +228,7 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.Id,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -331,7 +331,8 @@ namespace Portal.Infrastructure.Migrations
                 table: "Departments",
                 column: "ManagerId",
                 principalTable: "Managers",
-                principalColumn: "Id");
+                principalColumn: "Id",
+                onDelete:ReferentialAction.NoAction);
         }
 
         /// <inheritdoc />

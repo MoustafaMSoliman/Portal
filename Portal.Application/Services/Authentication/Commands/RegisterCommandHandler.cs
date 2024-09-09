@@ -88,17 +88,15 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
             }
             else if (employee.UserRole == RoleEnum.Manager)
             {
-                if (department.ManagerId is not null)
-                {
-                    var oldManager = _unitOfWork.ManagersRepository.GetById((UserId)department.ManagerId);
-                    _unitOfWork.ManagersRepository.Remove(oldManager);
-                }
-
+                var oldManager = department.Manager;
                 var manager = Manager.Create(user, employee, $"{employee.Profile.FirstName}'s office");
-               
-                
                 department.SetDepartmentManager(manager);
                 _unitOfWork.DepartmentsRepository.Update(department);
+                if (oldManager is not null)
+                {
+                    _unitOfWork.ManagersRepository.Remove(oldManager);
+
+                }
                 _unitOfWork.ManagersRepository.AddNew(manager);
                 await _unitOfWork.CompleteAsync();
                 Token = _jwtGenerator.GenerateToken(user);

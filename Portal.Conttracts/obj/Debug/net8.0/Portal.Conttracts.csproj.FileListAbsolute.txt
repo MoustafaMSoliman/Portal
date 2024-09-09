@@ -1,14 +1,3 @@
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\bin\Debug\net8.0\Portal.Conttracts.deps.json
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\bin\Debug\net8.0\Portal.Conttracts.dll
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\bin\Debug\net8.0\Portal.Conttracts.pdb
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.GeneratedMSBuildEditorConfig.editorconfig
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.AssemblyInfoInputs.cache
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.AssemblyInfo.cs
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.csproj.CoreCompileInputs.cache
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.dll
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\refint\Portal.Conttracts.dll
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.pdb
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\ref\Portal.Conttracts.dll
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\bin\Debug\net8.0\Portal.Conttracts.deps.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\bin\Debug\net8.0\Portal.Conttracts.dll
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\bin\Debug\net8.0\Portal.Conttracts.pdb
@@ -20,3 +9,14 @@ E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\ne
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\refint\Portal.Conttracts.dll
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.pdb
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\ref\Portal.Conttracts.dll
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\bin\Debug\net8.0\Portal.Conttracts.deps.json
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\bin\Debug\net8.0\Portal.Conttracts.dll
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\bin\Debug\net8.0\Portal.Conttracts.pdb
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.AssemblyInfoInputs.cache
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.AssemblyInfo.cs
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.csproj.CoreCompileInputs.cache
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.dll
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\refint\Portal.Conttracts.dll
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\Portal.Conttracts.pdb
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Conttracts\obj\Debug\net8.0\ref\Portal.Conttracts.dll
