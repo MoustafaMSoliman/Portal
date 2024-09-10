@@ -60,12 +60,12 @@ namespace Portal.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e1bc9fa1-cb01-4573-8830-75e9d91d5452"),
+                            Id = new Guid("472008a6-3f6e-49ee-a4d3-791d3020958e"),
                             Name = "IT"
                         },
                         new
                         {
-                            Id = new Guid("7d86340d-d36d-46cf-90c7-c347e58d4c47"),
+                            Id = new Guid("b3d2457e-9d60-4b61-950d-3428753d382f"),
                             Name = "Finance"
                         });
                 });

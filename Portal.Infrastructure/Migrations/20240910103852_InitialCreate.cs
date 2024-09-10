@@ -114,7 +114,7 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.Id,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -172,7 +172,7 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.AttendanceId,
                         principalTable: "Attendances",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -204,13 +204,13 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.DepartmentId,
                         principalTable: "Departments",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Employees_Users_Id",
                         column: x => x.Id,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -228,7 +228,7 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.Id,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -267,8 +267,8 @@ namespace Portal.Infrastructure.Migrations
                 columns: new[] { "Id", "ManagerId", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("7d86340d-d36d-46cf-90c7-c347e58d4c47"), null, "Finance" },
-                    { new Guid("e1bc9fa1-cb01-4573-8830-75e9d91d5452"), null, "IT" }
+                    { new Guid("472008a6-3f6e-49ee-a4d3-791d3020958e"), null, "IT" },
+                    { new Guid("b3d2457e-9d60-4b61-950d-3428753d382f"), null, "Finance" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -331,8 +331,7 @@ namespace Portal.Infrastructure.Migrations
                 table: "Departments",
                 column: "ManagerId",
                 principalTable: "Managers",
-                principalColumn: "Id",
-                onDelete:ReferentialAction.NoAction);
+                principalColumn: "Id");
         }
 
         /// <inheritdoc />
