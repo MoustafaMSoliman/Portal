@@ -114,7 +114,7 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.Id,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -172,7 +172,7 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.AttendanceId,
                         principalTable: "Attendances",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -210,7 +210,7 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.Id,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -218,7 +218,8 @@ namespace Portal.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Office = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Office = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StillManager = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -228,7 +229,7 @@ namespace Portal.Infrastructure.Migrations
                         column: x => x.Id,
                         principalTable: "Employees",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -267,8 +268,8 @@ namespace Portal.Infrastructure.Migrations
                 columns: new[] { "Id", "ManagerId", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("472008a6-3f6e-49ee-a4d3-791d3020958e"), null, "IT" },
-                    { new Guid("b3d2457e-9d60-4b61-950d-3428753d382f"), null, "Finance" }
+                    { new Guid("52046f11-a5f3-4daa-b876-daf9f175f077"), null, "Finance" },
+                    { new Guid("7926f2c0-dc60-497a-a7e2-cf80c9d1e2bd"), null, "IT" }
                 });
 
             migrationBuilder.CreateIndex(

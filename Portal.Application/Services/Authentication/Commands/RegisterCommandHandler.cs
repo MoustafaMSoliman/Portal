@@ -95,7 +95,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
                 if (oldManager is not null)
                 {
                     _unitOfWork.UsersRepository.GetById((UserId)oldManager.Id).SetUserRole(RoleEnum.NormalUser);
-                    _unitOfWork.ManagersRepository.Remove(oldManager);  
+                    oldManager.SetStillManager(false);
 
                 }
                 _unitOfWork.ManagersRepository.AddNew(manager);

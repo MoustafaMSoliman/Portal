@@ -12,7 +12,7 @@ using Portal.Infrastructure.Persistence;
 namespace Portal.Infrastructure.Migrations
 {
     [DbContext(typeof(PortalDbContext))]
-    [Migration("20240910103852_InitialCreate")]
+    [Migration("20240910200943_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -63,12 +63,12 @@ namespace Portal.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("472008a6-3f6e-49ee-a4d3-791d3020958e"),
+                            Id = new Guid("7926f2c0-dc60-497a-a7e2-cf80c9d1e2bd"),
                             Name = "IT"
                         },
                         new
                         {
-                            Id = new Guid("b3d2457e-9d60-4b61-950d-3428753d382f"),
+                            Id = new Guid("52046f11-a5f3-4daa-b876-daf9f175f077"),
                             Name = "Finance"
                         });
                 });
@@ -310,6 +310,9 @@ namespace Portal.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Office");
+
+                    b.Property<bool>("StillManager")
+                        .HasColumnType("bit");
 
                     b.ToTable("Managers", (string)null);
                 });
