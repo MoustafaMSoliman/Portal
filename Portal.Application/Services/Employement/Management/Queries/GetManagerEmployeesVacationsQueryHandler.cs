@@ -21,19 +21,24 @@ public class GetManagerEmployeesVacationsQueryHandler : IRequestHandler<GetManag
     public async Task<ErrorOr<ManagerEmployeesVacationResult>> Handle(GetManagerEmployeesVacationsQuery query, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        if (_unitOfWork.UsersRepository.GetById(query.ManagerId) is null)
-        {
-            return Errors.ManagementErrors.NotManager;
-        }
-        var manager = _unitOfWork.ManagersRepository.GetById(query.ManagerId);
 
-        var department = _unitOfWork.DepartmentsRepository.FindWithInclue(d => d.Id == manager.DepartmentId, d => d.Employees);
-        var employees = _unitOfWork.EmployeesRepository.FindAllWithInclude(x => x.DepartmentId == department.Id, e=>e.Vacations).ToList();
+        var managerAsUser = _unitOfWork.UsersRepository.GetById(query.ManagerId);
+
+        if (managerAsUser is null)
+            return Errors.UserErrors.NotUser;
+        if (managerAsUser.UserRole != Domain.Common.Enums.RoleEnum.Manager)
+            return Errors.ManagementErrors.NotManager;
+        var manager = _unitOfWork.ManagersRepository.GetByIdWithInclude(query.ManagerId,x=>x.Profile);
+        var department = _unitOfWork.DepartmentsRepository.FindWithInclue(d => d.Id == manager.DepartmentId, 
+            d => d.Employees);
+        var employees = _unitOfWork.EmployeesRepository.FindAllWithInclude(x => x.DepartmentId == department.Id,
+            e=>e.Vacations).ToList();
 
         var emps = new List<ManagerEmployeeWithVacation>();
-        var vacationResults = new List<VacationResult>();
+        List<VacationResult> vacationResults ;
         foreach (var employee in employees)
         {
+            vacationResults = new();
             if (_unitOfWork.UsersRepository.GetById((UserId)employee.Id).UserRole != Domain.Common.Enums.RoleEnum.Manager)
             {
                 foreach (var vac in employee.Vacations)

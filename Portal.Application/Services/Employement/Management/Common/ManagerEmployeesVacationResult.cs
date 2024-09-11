@@ -12,7 +12,7 @@ public record ManagerEmployeeWithVacation
  (
       Guid EmployeeId,
       string EmployeeFirstName,
-      List<VacationResult> Vacations
+      List<VacationResult>? Vacations
 );
 
 

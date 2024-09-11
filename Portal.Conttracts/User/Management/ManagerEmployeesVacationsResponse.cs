@@ -4,7 +4,7 @@ namespace Portal.Conttracts.User.Management;
 
 public record ManagerEmployeesVacationsResponse
 (
-string ManagerId,
+    string ManagerId,
     string ManagerFirstName,
     string ManagerLastName,
     List<ManagerEmployeeVacationsResponse> Employees
@@ -13,5 +13,5 @@ public record ManagerEmployeeVacationsResponse
 (
       string EmployeeId,
       string EmployeeFirstName,
-      List<VacationResponse> Vacations
+      List<VacationResponse>? Vacations
 );

@@ -26,7 +26,8 @@ namespace Portal.Api.Common.Mapping
                 .Map(dest => dest.EmployeeFirstName, src => src.EmployeeFirstName);
 
             config.NewConfig<GetManagerEmployeesVacationsRequest, GetManagerEmployeesVacationsQuery>()
-                .Map(dest=>dest.ManagerId, src=>src.ManagerId);
+                .Map(dest=>dest.ManagerId.Value, src=>src.ManagerId);
+
             config.NewConfig<ManagerEmployeeWithVacation, ManagerEmployeeVacationsResponse>()
                 .Map(dest=>dest.EmployeeId, src=>src.EmployeeId.ToString())
                 .Map(dest=>dest.EmployeeFirstName, src=>src.EmployeeFirstName)

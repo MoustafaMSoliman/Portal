@@ -30,7 +30,9 @@ public class Vacation :Entity<VacationId>
     private Vacation() { }
 #pragma warning restore CS8618
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     private Vacation(VacationId id, VacationType vacationType,  UserId employeeId,
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         DateTime startFrom, DateTime endAt)
         : base(id)
     {
@@ -40,8 +42,13 @@ public class Vacation :Entity<VacationId>
         StartFrom = startFrom;
         EndAt = endAt;
         TotalVacationDays = GetTotalVacationDays();
+        AcceptedBy = UserId.Create(Guid.Empty);
+        ApprovedBy = UserId.Create(Guid.Empty);
+        RejectedBy = UserId.Create(Guid.Empty);
     }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     private Vacation(VacationId id, VacationType vacationType, VacationStatus? vacationStatus, UserId employeeId,
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         DateTime startFrom, DateTime endAt)
         :base(id)
     {
@@ -51,8 +58,13 @@ public class Vacation :Entity<VacationId>
         StartFrom = startFrom;
         EndAt = endAt;
         TotalVacationDays = GetTotalVacationDays();
+        AcceptedBy = UserId.Create(Guid.Empty);
+        ApprovedBy = UserId.Create(Guid.Empty);
+        RejectedBy = UserId.Create(Guid.Empty);
     }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     private Vacation(VacationId id, VacationType vacationType, VacationStatus? vacationStatus, UserId employeeId,
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         DateTime startFrom, DateTime endAt, 
         UserId? acceptedBy, DateTime? acceptedOn, UserId? approvedBy, DateTime? approvedOn,
         UserId? rejectedBy, DateTime? rejectedOn)
@@ -64,11 +76,11 @@ public class Vacation :Entity<VacationId>
         EmployeeId = employeeId;
         StartFrom = startFrom;
         EndAt = endAt;
-        AcceptedBy = acceptedBy ;
+        AcceptedBy = acceptedBy ?? UserId.Create(Guid.Empty);
         AcceptedOn = acceptedOn;
-        ApprovedBy = approvedBy ;
+        ApprovedBy = approvedBy ?? UserId.Create(Guid.Empty);
         ApprovedOn = approvedOn;
-        RejectedBy = rejectedBy ;
+        RejectedBy = rejectedBy ?? UserId.Create(Guid.Empty);
         RejectedOn = rejectedOn;
     }
     public static Vacation Create(VacationType vacationType,  UserId employeeId,

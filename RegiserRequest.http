@@ -4,13 +4,13 @@ POST {{host}}/api/Auth/register
 Content-Type: application/json
 
 {
-  "code":"5",
-  "firstName": "Walaa",
+  "code":"7",
+  "firstName": "Kamelia",
   "middleName": "Moustafa",
   "lastName": "Soliman",
-  "arabicName": "Ê·«¡ „’ÿ›Ì ”·Ì„«‰",
+  "arabicName": "ﬂ«„Ì·Ì« „’ÿ›Ì ”·Ì„«‰",
   "nationality": "Egyptian",
-  "nationalId": 22575873155432441,
+  "nationalId": 22595873155432441,
   "gender": "Male",
   "dateOfBirth": "2024-08-03T19:58:53.382Z",
   "contactNumber": "0100000",
@@ -22,8 +22,8 @@ Content-Type: application/json
     "country": "Egypt"
   },
   "userType": "Employee",
-  "role": "NormalUser",
-  "departmentName":"IT",
-  "email": "walaa@str.com",
+  "role": "Manager",
+  "departmentName":"Finance",
+  "email": "kamelia@str.com",
   "password": "string"
 }
