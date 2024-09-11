@@ -1,9 +1,9 @@
 POST https://localhost:7181/api/Employees/applyVacation
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxZDMyZTFhZS0wMTZiLTQxZDAtYmEwYy1lNjc4M2FhZTdmZGYiLCJuYW1lIjoiQWhtZWQiLCJmYW1pbHlfbmFtZSI6IlNvbGltYW4iLCJqdGkiOiI2MTFjYWFkMC01ZTQyLTQwZjQtOTQ2MC00NjM5MzNjZTNmMjciLCJleHAiOjE3MjYwODcxOTIsImlzcyI6IlBvcnRhbCIsImF1ZCI6IlBvcnRhbCJ9.gTmYHyZlHTG0S4k400HDpjNdbW2vIx1n0Su5VzoYmgI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxZDMyZTFhZS0wMTZiLTQxZDAtYmEwYy1lNjc4M2FhZTdmZGYiLCJuYW1lIjoiQWhtZWQiLCJmYW1pbHlfbmFtZSI6IlNvbGltYW4iLCJqdGkiOiIxMzkyNWUyOC1lYzMzLTQyN2EtYTJmZS02Mjg2ZDFmODM3ZDQiLCJleHAiOjE3MjYwOTE3MjYsImlzcyI6IlBvcnRhbCIsImF1ZCI6IlBvcnRhbCJ9.syLzcr6nQ5TXjqldybZmkZNllW8hszyAyGfdRTvUqfI
 
 {
-  "employeeId": "fca22e6d-5df1-46d8-9d37-31fbb6a86d77",
+  "employeeId": "751DEB4B-BF52-4908-BE5D-28E203DC1D36",
   "startFrom": "2024-07-12T22:23:13.534Z",
   "endAt": "2024-07-13T22:23:13.534Z",
   "vacationType": "≈⁄ Ì«œÌ"

@@ -3,7 +3,9 @@ using Microsoft.OpenApi.Extensions;
 using Portal.Application.Services.Employement.EmpVacation.Commands;
 using Portal.Application.Services.Employement.EmpVacation.Common;
 using Portal.Application.Services.Employement.EmpVacation.Queries;
+using Portal.Application.Services.Employement.Management.Commands;
 using Portal.Conttracts.User.Employee;
+using Portal.Conttracts.User.Management;
 using Portal.Domain.Common.Enums.User.Employee;
 using Portal.Domain.User.Entities.Employee.Entities;
 
@@ -45,5 +47,10 @@ public class VacationMappingConfig : IRegister
             .Map(dest => dest.StartFrom, src => src.StartFrom)
             .Map(dest => dest.EndAt, src => src.EndAt)
             ;
+
+        config.NewConfig<ChangeVacationStatusRequest, ChangeVacationStatusCommand>()
+            .Map(dest => dest.VacationId.Value, src => src.VacationId)
+            .Map(dest => dest.ManagerId.Value, src => src.ManagerId)
+            .Map(dest=>dest.VacationStatus, src=>src.NewStatus);
     }
 }

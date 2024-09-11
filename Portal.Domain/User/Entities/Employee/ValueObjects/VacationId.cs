@@ -6,9 +6,9 @@ public class VacationId : ValueObject
 {
     public Guid Value { get; private set; }
 #pragma warning disable CS8618
-    private VacationId() { }
+    public VacationId() { }
 #pragma warning restore CS8618
-    private VacationId(Guid value)
+    public VacationId(Guid value)
     {
         Value = value;
     }

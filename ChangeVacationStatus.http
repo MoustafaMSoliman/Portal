@@ -1,9 +1,10 @@
-Get https://localhost:7181/api/Manager/GetEmployeesVacations
+POST https://localhost:7181/api/Manager/ChangeVacationStatus
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxZDMyZTFhZS0wMTZiLTQxZDAtYmEwYy1lNjc4M2FhZTdmZGYiLCJuYW1lIjoiQWhtZWQiLCJmYW1pbHlfbmFtZSI6IlNvbGltYW4iLCJqdGkiOiI4ZmI0MDY4YS1mZDk3LTQ3ZjktOTk0ZS04MjFjMDNhMTY1MzkiLCJleHAiOjE3MjYwOTIzNjgsImlzcyI6IlBvcnRhbCIsImF1ZCI6IlBvcnRhbCJ9.sROaLrUsT7SEfS2hCg9vSEKTkJeoVQndIWtrIGgncL4
 
+
 {
-
-  "managerId": "98D623F3-CE45-4A61-B968-E1201518C1E0"
-
+  "vacationId": "B48E9C35-A3D5-4BE5-96FE-350B00E902DA",
+  "managerId": "98D623F3-CE45-4A61-B968-E1201518C1E0",
+  "newStatus": "Accepted"
 }

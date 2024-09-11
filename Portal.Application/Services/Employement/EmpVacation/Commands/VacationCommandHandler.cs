@@ -48,9 +48,10 @@ public class VacationCommandHandler : IRequestHandler<VacationCommand, ErrorOr<V
              request.StartFrom,
              request.EndAt
          );
-        if (_unitOfWork.UsersRepository.GetById(request.EmployeeId).UserRole == Domain.Common.Enums.RoleEnum.Manager)
+        var employee = _unitOfWork.UsersRepository.GetById(request.EmployeeId);
+        if (employee.UserRole == Domain.Common.Enums.RoleEnum.Manager)
         {
-            vacation.EditVacationStatus(Domain.Common.Enums.User.Employee.VacationStatus.Accepted);
+            vacation.EditVacationStatus(Domain.Common.Enums.User.Employee.VacationStatus.Accepted,(UserId)employee.Id);
         }
         _unitOfWork.VacationsRepository.AddNew( vacation );
         _unitOfWork.EmployeesRepository.GetById(request.EmployeeId).Vacations.Add( vacation );  

@@ -15,6 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portal.Infrastructure", "Po
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{92CF6387-F7F7-42B0-B8FB-738BB321F212}"
 	ProjectSection(SolutionItems) = preProject
+		ChangeVacationStatus.http = ChangeVacationStatus.http
 		GetAllUsers.http = GetAllUsers.http
 		GetEmployeeVacations.http = GetEmployeeVacations.http
 		GetManagerEmployees.http = GetManagerEmployees.http

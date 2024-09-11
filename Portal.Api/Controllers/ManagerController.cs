@@ -5,8 +5,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Portal.Application.Common.Interfaces.Persistence;
+using Portal.Application.Services.Employement.EmpVacation.Common;
+using Portal.Application.Services.Employement.Management.Commands;
 using Portal.Application.Services.Employement.Management.Common;
 using Portal.Application.Services.Employement.Management.Queries;
+using Portal.Conttracts.User.Employee;
 using Portal.Conttracts.User.Management;
 using Portal.Domain.User.Entities.Employee.Entities;
 using Portal.Domain.User.ValueObjects;
@@ -49,6 +52,17 @@ namespace Portal.Api.Controllers
                 errors => Problem(errors)
                 );
 
+        }
+        [HttpPost("ChangeVacationStatus")]
+        public async Task<IActionResult> ChangeVacationStatus(ChangeVacationStatusRequest changeVacationStatusRequest)
+        {
+            await Task.CompletedTask;
+            var changeVacationStatusCommand = _mapper.Map<ChangeVacationStatusCommand>(changeVacationStatusRequest);
+            ErrorOr<VacationResult> vacationresult = await _mediator.Send(changeVacationStatusCommand);
+            return vacationresult.Match(
+                vacationresult=>Ok(_mapper.Map<VacationResponse>(vacationresult)),
+                errors => Problem(errors)
+                );
         }
     }
 }

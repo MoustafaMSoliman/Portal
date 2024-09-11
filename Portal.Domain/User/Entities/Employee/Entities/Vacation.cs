@@ -30,9 +30,7 @@ public class Vacation :Entity<VacationId>
     private Vacation() { }
 #pragma warning restore CS8618
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     private Vacation(VacationId id, VacationType vacationType,  UserId employeeId,
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         DateTime startFrom, DateTime endAt)
         : base(id)
     {
@@ -46,9 +44,7 @@ public class Vacation :Entity<VacationId>
         ApprovedBy = UserId.Create(Guid.Empty);
         RejectedBy = UserId.Create(Guid.Empty);
     }
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     private Vacation(VacationId id, VacationType vacationType, VacationStatus? vacationStatus, UserId employeeId,
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         DateTime startFrom, DateTime endAt)
         :base(id)
     {
@@ -62,9 +58,7 @@ public class Vacation :Entity<VacationId>
         ApprovedBy = UserId.Create(Guid.Empty);
         RejectedBy = UserId.Create(Guid.Empty);
     }
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     private Vacation(VacationId id, VacationType vacationType, VacationStatus? vacationStatus, UserId employeeId,
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         DateTime startFrom, DateTime endAt, 
         UserId? acceptedBy, DateTime? acceptedOn, UserId? approvedBy, DateTime? approvedOn,
         UserId? rejectedBy, DateTime? rejectedOn)
@@ -98,9 +92,25 @@ public class Vacation :Entity<VacationId>
         StartFrom = startFrom;
         EndAt = endAt;
     }
-    public void EditVacationStatus(VacationStatus status)
+    public void EditVacationStatus(VacationStatus status, UserId changer)
     {
         this.VacationStatus = status;
+        if (status == Common.Enums.User.Employee.VacationStatus.Accepted)
+        {
+            AcceptedBy = changer;
+            AcceptedOn = DateTime.Now;
+        }
+        else if (status == Common.Enums.User.Employee.VacationStatus.Approved)
+        {
+            ApprovedBy = changer;
+            ApprovedOn = DateTime.Now;
+        }
+        else if (status == Common.Enums.User.Employee.VacationStatus.Rejected)
+        {
+            RejectedBy = changer;
+            RejectedOn = DateTime.Now;
+        }
+            
         
     }
     public  int GetTotalVacationDays() => (int)(EndAt - StartFrom).TotalDays+1;
