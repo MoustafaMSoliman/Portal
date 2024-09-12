@@ -28,8 +28,9 @@ public class ChangeVacationStatusCommandHandler
             return Errors.ManagementErrors.NotManager;
         if (vacation.VacationStatus == command.VacationStatus)
             return Errors.VacationsErrors.AlreadyHasThisStatus;
-        _unitOfWork.VacationsRepository.GetById(command.VacationId).EditVacationStatus(command.VacationStatus,(UserId) manager.Id);
-        //_unitOfWork.VacationsRepository.Update(vacation);
+        _unitOfWork.VacationsRepository.GetById(vacation.Id).EditVacationStatus(command.VacationStatus,(UserId) manager.Id);
+        _unitOfWork.VacationsRepository.Update(vacation);
+        
         await _unitOfWork.CompleteAsync();
         return new VacationResult(vacation.Id,vacation.VacationType, vacation.VacationStatus,
             vacation.StartFrom, vacation.EndAt, vacation.TotalVacationDays,vacation.AcceptedBy,
