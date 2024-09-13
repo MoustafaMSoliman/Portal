@@ -7,6 +7,11 @@ using Portal.Domain.User;
 using Microsoft.IdentityModel.Tokens;
 using Portal.Conttracts.User;
 using Microsoft.OpenApi.Extensions;
+using MediatR;
+using MapsterMapper;
+using ErrorOr;
+using Portal.Application.Services.Users.Queries;
+using Portal.Application.Services.Users.Common;
 
 namespace Portal.Api.Controllers
 {
@@ -15,37 +20,25 @@ namespace Portal.Api.Controllers
     [Authorize]
     public class UsersController : ApiController
     {
-        private IAggregateRootRepository<User, UserId,Guid> _userRepository;
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public UsersController(IAggregateRootRepository<User, UserId, Guid> userRepository)
+        public UsersController(IMediator mediator, IMapper mapper)
         {
-            _userRepository = userRepository;
+            _mediator = mediator;
+            _mapper = mapper;
         }
         [HttpGet("getAllUsers")]
-        public  IActionResult GetAllUsers()
+        public  async Task<IActionResult> GetAllUsers(RetrieveAllUsersRequest retrieveAllUsersRequest)
         {
-            List<UserRecordResult> users = new();
-            foreach (var user in _userRepository.GetAll())
-            {
-                users.Add(new UserRecordResult(
-                    user.Id.Value.ToString(),
-                    user.Profile.FirstName,
-                    user.Profile.MiddleName,
-                    user.Profile.LastName,
-                    user.Profile.ArabicName,
-                    user.Profile.Nationality.Name,
-                    user.Profile.NationalId,
-                    user.Profile.Gender.GetDisplayName(),
-                    user.Profile.DateOfBirth,
-                    user.Profile.ContactNumber,
-                    new AddressRecordResult(user.Profile.Address.Street, user.Profile.Address.City, user.Profile.Address.State,user.Profile.Address.PostalCode,user.Profile.Address.Country),
-                    user.Code,
-                    user.Email,
-                    user.UserRole.GetDisplayName(),
-                    user.UserStatus.GetDisplayName()
-                    ));
-            }
-            return Ok(users);
+            var retrieveAllUserQuery = _mapper.Map<RetrieveAllUsersQuery>(retrieveAllUsersRequest);
+            ErrorOr<RetrieveAllUsersResult> retrieveAllUsersResult
+                = await _mediator.Send(retrieveAllUserQuery);
+
+            return retrieveAllUsersResult.Match(
+                retrieveAllUsersresult=>Ok(_mapper.Map<RetrieveAllUsersResponse>(retrieveAllUsersResult)),
+                errors => Problem(errors)
+                );
         }
         
     }

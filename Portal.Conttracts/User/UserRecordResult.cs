@@ -19,7 +19,8 @@ public record UserRecordResult
     int Code,
     string Email,
     string Role,
-    string Status
+    string Status,
+    string Type
     );
 
 public record AddressRecordResult
