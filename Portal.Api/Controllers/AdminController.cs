@@ -7,6 +7,9 @@ using Portal.Application.Services.Employement.Management.Commands;
 using Portal.Application.Services.Employement.Management.Common;
 using Portal.Conttracts.User.Management;
 using ErrorOr;
+using Portal.Application.Services.Users.Common;
+using Portal.Application.Services.Users.Queries;
+using Portal.Conttracts.User;
 
 namespace Portal.Api.Controllers
 {
@@ -41,6 +44,19 @@ namespace Portal.Api.Controllers
             await Task.CompletedTask;
             return Ok();
         }
-       
+        [HttpGet("getAllUsers")]
+        public async Task<IActionResult> GetAllUsers(RetrieveAllUsersRequest retrieveAllUsersRequest)
+        {
+            var retrieveAllUserQuery = _mapper.Map<RetrieveAllUsersQuery>(retrieveAllUsersRequest);
+            ErrorOr<RetrieveAllUsersResult> retrieveAllUsersResult
+                = await _mediator.Send(retrieveAllUserQuery);
+
+            var retrieveAllUsersResponse = _mapper.Map<RetrieveAllUsersResponse>(retrieveAllUsersResult.Value);
+            return retrieveAllUsersResult.Match(
+                retrieveAllUsersresult => Ok(retrieveAllUsersResponse),
+                errors => Problem(errors)
+                );
+        }
+
     }
 }

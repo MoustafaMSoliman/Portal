@@ -50,7 +50,14 @@ public class Repository<T, I> : IRepository<T, I> where T : Entity<I> where I : 
     }
 
     public IEnumerable<T> GetAll() => _dbContext.Set<T>();
-   
+
+    public IEnumerable<T> GetAllWithInclude(params Expression<Func<T, object>>[] includeProperties)
+    {
+        IQueryable<T> query = _dbContext.Set<T>();
+        foreach(var property in includeProperties)
+            { query = query.Include(property); }
+        return query;
+    }
 
     public T GetById(I id) => _dbContext.Set<T>().SingleOrDefault(e => e.Id == id);
 

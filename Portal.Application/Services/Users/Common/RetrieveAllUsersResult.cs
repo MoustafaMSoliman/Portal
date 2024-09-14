@@ -4,5 +4,12 @@ namespace Portal.Application.Services.Users.Common;
 
 public record RetrieveAllUsersResult
 (
-    List<User> Users
+    List<UserResult> Users
+);
+public record UserResult
+(
+   int code,
+   string FirstName,
+   string LastName
+
 );

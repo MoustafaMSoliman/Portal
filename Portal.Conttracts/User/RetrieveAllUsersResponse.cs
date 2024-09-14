@@ -2,5 +2,9 @@
 
 public record RetrieveAllUsersResponse
 (
-  List<UserRecordResult> Users  
+  List<UserResponse> Users  
 );
+public record UserResponse
+    (int code,
+   string FirstName,
+   string LastName);

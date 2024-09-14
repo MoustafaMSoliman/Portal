@@ -22,7 +22,13 @@ public class RetrieveAllUsersQueryHandler
         var admin = _unitOfWork.AdministratorsRepository.GetById(query.AdminId);
         if (admin is null)
             return Errors.AdminsErrors.NotAdmin;
-        var users = _unitOfWork.UsersRepository.GetAll().ToList();
-        return new RetrieveAllUsersResult(users);
+        var users = _unitOfWork.UsersRepository.GetAllWithInclude(x=>x.Profile,x=>x.Profile.Address).ToList();
+        List<UserResult> userResults = new();
+        foreach (var user in users) {
+            userResults.Add(
+                new UserResult(user.Code, user.Profile.FirstName, user.Profile.LastName )
+                );
+        }
+        return new RetrieveAllUsersResult(userResults);
     }
 }

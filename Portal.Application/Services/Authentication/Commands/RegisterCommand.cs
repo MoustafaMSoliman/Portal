@@ -29,6 +29,7 @@ public record RegisterCommand
     UserId UpdatedBy
   
 ):IRequest<ErrorOr<AuthResult>>;
+
 public record AddressCommand
 (
     string Street,

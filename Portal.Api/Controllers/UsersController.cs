@@ -28,18 +28,7 @@ namespace Portal.Api.Controllers
             _mediator = mediator;
             _mapper = mapper;
         }
-        [HttpGet("getAllUsers")]
-        public  async Task<IActionResult> GetAllUsers(RetrieveAllUsersRequest retrieveAllUsersRequest)
-        {
-            var retrieveAllUserQuery = _mapper.Map<RetrieveAllUsersQuery>(retrieveAllUsersRequest);
-            ErrorOr<RetrieveAllUsersResult> retrieveAllUsersResult
-                = await _mediator.Send(retrieveAllUserQuery);
-
-            return retrieveAllUsersResult.Match(
-                retrieveAllUsersresult=>Ok(_mapper.Map<RetrieveAllUsersResponse>(retrieveAllUsersResult)),
-                errors => Problem(errors)
-                );
-        }
         
+
     }
 }

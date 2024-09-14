@@ -1,18 +1,3 @@
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.deps.json
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.dll
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.pdb
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Domain.dll
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Domain.pdb
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.csproj.AssemblyReference.cache
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.GeneratedMSBuildEditorConfig.editorconfig
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.AssemblyInfoInputs.cache
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.AssemblyInfo.cs
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.csproj.CoreCompileInputs.cache
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.A.4AC09C82.Up2Date
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.dll
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\refint\Portal.Application.dll
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.pdb
-D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\ref\Portal.Application.dll
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.deps.json
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.dll
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.pdb
@@ -28,3 +13,18 @@ E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\n
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\refint\Portal.Application.dll
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.pdb
 E:\DotNet\Domain-driven design\My Projects\Portal\Portal.Application\obj\Debug\net8.0\ref\Portal.Application.dll
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.deps.json
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.dll
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Application.pdb
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Domain.dll
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\bin\Debug\net8.0\Portal.Domain.pdb
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.csproj.AssemblyReference.cache
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.AssemblyInfoInputs.cache
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.AssemblyInfo.cs
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.csproj.CoreCompileInputs.cache
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.A.4AC09C82.Up2Date
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.dll
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\refint\Portal.Application.dll
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\Portal.Application.pdb
+D:\DotNet Core\Domain Driver Design\Projects\Portal\Portal.Application\obj\Debug\net8.0\ref\Portal.Application.dll

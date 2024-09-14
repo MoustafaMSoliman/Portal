@@ -28,24 +28,16 @@ public class AdminMappingConfig : IRegister
 
         config.NewConfig<RetrieveAllUsersRequest, RetrieveAllUsersQuery>()
             .Map(dest => dest.AdminId.Value, src => src.AdminId);
-        config.NewConfig<User, UserRecordResult>()
-            .Map(dest => dest.UserId, src => src.Id.Value.ToString())
-            .Map(dest => dest.Code, src => src.Code)
-            .Map(dest => dest.FirstName, src => src.Profile.FirstName)
-            .Map(dest => dest.MiddleName, src => src.Profile.MiddleName)
-            .Map(dest => dest.LastName, src => src.Profile.LastName)
-            .Map(dest => dest.ArabicName, src => src.Profile.ArabicName)
-            .Map(dest => dest.Nationality, src => src.Profile.Nationality)
-            .Map(dest => dest.NationalId, src => src.Profile.NationalId)
-            .Map(dest => dest.Gender, src => src.Profile.Gender.ToString())
-            .Map(dest => dest.DateOfBirth, src => src.Profile.DateOfBirth)
-            .Map(dest => dest.ContactNumber, src => src.Profile.ContactNumber)
-            .Map(dest => dest.Email, src => src.Email)
-            .Map(dest => dest.Type, src => src.UserType.GetDisplayName())
-            .Map(dest => dest.Role, src => src.UserRole.GetDisplayName())
-            ;
-        config.NewConfig<RetrieveAllUsersResult, RetrieveAllUsersResponse>()
-            .Map(dest => dest.Users, src => src.Users);
         
+        config.NewConfig<RetrieveAllUsersResult, RetrieveAllUsersResponse>()
+            .Map(dest=>dest.Users, src=>src.Users);
+
+        config.NewConfig<UserResult, UserResponse>()
+            .Map(dest => dest.code, src => src.code)
+            .Map(dest => dest.FirstName, src => src.FirstName)
+            .Map(dest => dest.LastName, src => src.LastName)
+            ;
+
+
     }
 }

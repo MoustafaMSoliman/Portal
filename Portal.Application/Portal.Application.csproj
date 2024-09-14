@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Common\Interfaces\Employment\" />
+    <Folder Include="Common\Records\" />
     <Folder Include="Services\Departments\Queries\" />
     <Folder Include="Services\Users\Commands\" />
   </ItemGroup>
