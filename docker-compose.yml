@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  api:
+    image: moustafamseleman/portal-dotnet:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Initial Catalog=Portal;User Id=sa;Password=P@ssw0rd;TrustServerCertificate=True;Encrypt=True;
+    depends_on:
+      - sqlserver
+
+  sqlserver:
+    image: moustafamseleman/portal-dotnet-database:latest
+    environment:
+      SA_PASSWORD: "P@ssw0rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
