@@ -1,5 +1,9 @@
 #@host=https://localhost:7181
+<<<<<<< HEAD
 @host=https://localhost:5000
+=======
+@host=http://localhost:5000
+>>>>>>> 89bd3916202c0fdb9c2ed4d1d907ae8668fe488c
 
 POST {{host}}/api/Auth/login
 Content-Type: application/json
